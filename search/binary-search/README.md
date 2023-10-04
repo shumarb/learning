@@ -22,4 +22,4 @@ This is because the portion of the list that could contain the element is repeat
 3. Navigate to this directory by entering `cd binary-search`.
 4. Compile the program by entering `javac BinarySearch.java`.
 5. Run the program by entering `java BinarySearch`.
-6. The program creates an array randomly. The elements are of type `integer`. The number of elements range from `5 to 12`, and the value elements range from `-10000 to 10000`. The program displays the array before the sort, the relevant steps during the sort, the array after the sort, and the side-by-side comparison of the array before and after the sort.
+6. The program creates an array randomly. The elements are of type `integer`. The number of elements range from `5 to 12`, and both the `key (number to find)` and the value of the elements range from `-10 to 10`. The program displays the array before the sort, the relevant steps during the sort, the array after the sort, and the side-by-side comparison of the array before and after the sort.

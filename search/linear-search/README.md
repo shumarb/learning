@@ -20,4 +20,4 @@ This is because the worst-case scenario is to compare all elements of the list t
 3. Navigate to this directory by entering `cd linaer-search`.
 4. Compile the program by entering `javac LinearSearch.java`.
 5. Run the program by entering `java LinearSearch`.
-6. The program creates an array randomly. The elements are of type `integer`. The number of elements range from `5 to 12`, and the value elements range from `-10000 to 10000`. The program displays the array before the sort, the relevant steps during the sort, the array after the sort, and the side-by-side comparison of the array before and after the sort.
+6. The program creates an array randomly. The elements are of type `integer`. The number of elements range from `5 to 12`, and the value elements range from `-10 to 10`. The program displays the array before the sort, the relevant steps during the sort, the array after the sort, and the side-by-side comparison of the array before and after the sort.

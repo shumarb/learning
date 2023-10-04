@@ -8,7 +8,7 @@ class BinarySearch {
     // Precon: Array not instantiated
     // Postcon: Array of a random size created, and it contains a random set of nubmers
     private int[] formsArray() {
-        int inputArraySize = rand.nextInt(7, 12);
+        int inputArraySize = rand.nextInt(5, 12);
         int[] inputArray = new int[inputArraySize];
         for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] = rand.nextInt(-10, 10);
