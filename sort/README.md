@@ -3,11 +3,11 @@
 This repository contains sorting techniques that I implemented on my own.
 Sort Technique | Worst-case Time Complexity | Space Complexity | In-place? | Stable?
 ------------------| ---------------------------| ---------------- | ----------| -------
-[Merge Sort](https://github.com/shumarb/online-learning/tree/main/notes-and-code/sort/merge-sort)                | O(Nlog<sub>2</sub>N)  | O(N) | No  | Yes
-[Bubble Sort](https://github.com/shumarb/online-learning/tree/main/notes-and-code/sort/bubble-sort)             | O($N^2$)      | O(1) | Yes | Yes
-[Insertion Sort](https://github.com/shumarb/online-learning/tree/main/notes-and-code/sort/insertion-sort)    | O($N^2$)     | O(1) | Yes | Yes
-[Quick Sort](https://github.com/shumarb/online-learning/tree/main/notes-and-code/sort/quick-sort)                | O($N^2$)      | O(1) | Yes | No
-[Selection Sort](https://github.com/shumarb/online-learning/tree/main/notes-and-code/sort/selection-sort)    | O($N^2$)      | O(1) | Yes | No
+[Merge Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/merge-sort)                | O(Nlog<sub>2</sub>N)  | O(N) | No  | Yes
+[Bubble Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/bubble-sort)              | O($N^2$)              | O(1) | Yes | Yes
+[Insertion Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/insertion-sort)        | O($N^2$)              | O(1) | Yes | Yes
+[Quick Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/quick-sort)                | O($N^2$)              | O(1) | Yes | No
+[Selection Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/selection-sort)        | O($N^2$)              | O(1) | Yes | No
 
 In-place sort: A sorting algorithm is an **in-place** sort if it requires only a **constant amount of time O(1) of extra space** during the sorting process.
 
