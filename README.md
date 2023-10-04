@@ -1,10 +1,10 @@
 # Notes and Code
-This repository contains both my explanation and code of key Computer Science concepts.
+This repository contains both my explanation and code (written in **Java**) of key Computer Science concepts.
 
-Concept                                                                             | Programming Language
------------------------------------------------------------------------------------ | -----------
-[Search](https://github.com/shumarb/notes-and-code/tree/main/search)                    | Java
-[Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)                    | Java
+Concept                                                                             
+----------------------------------------------------------------------------------- 
+[Search](https://github.com/shumarb/notes-and-code/tree/main/search)
+[Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)
 
 # How to use this repository
 1. Ensure that your local machine contains a `Java Development Kit (JDK) Version 8 or later`.
