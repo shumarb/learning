@@ -1,6 +1,6 @@
 # Sort
 
-This repository contains sorting techniques that I implemented on my own.
+This repository contains on your local machines that I implemented on my own.
 Sort Technique | Worst-case Time Complexity | Space Complexity | In-place? | Stable?
 ------------------| ---------------------------| ---------------- | ----------| -------
 [Merge Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/merge-sort)                | O(Nlog<sub>2</sub>N)  | O(N) | No  | Yes
@@ -17,5 +17,5 @@ Stable sort: A sorting algorithm is **stable** if the **relative order of elemen
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
 2. Ensure that your local machine contains a `Java Development Kit (JDK) Version 8 or later`.
 3. Open `terminal`.
-4. Navigate to a `sorting-technique` folder by entering `cd sorting-technique-folder`. (Example: `cd selection-sort`).
-5. Follow the instructions in the `sorting-technique` folder.
+4. Navigate to a `sort-technique` folder by entering `cd sort-technique-folder`. (Example: `cd selection-sort`).
+5. Follow the instructions in the `sort-technique` folder.
