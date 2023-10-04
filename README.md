@@ -3,9 +3,11 @@ This repository contains both my explanation and code of key Computer Science co
 
 Concept                                                                             | Programming Language
 ----------------------------------------------------------------------------------- | -----------
-[Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)    | Java
+[Search](https://github.com/shumarb/notes-and-code/tree/main/search)                    | Java
+[Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)                    | Java
 
 # How to use this repository
+1. Ensure that your local machine contains a `Java Development Kit (JDK) Version 8 or later`.
 1. Identify a location in local machine to store this repository.
 2. Open `terminal`.
 3. Navigate to this location.
