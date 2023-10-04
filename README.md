@@ -1,5 +1,5 @@
 # Notes and Code
-This repository contains my summary of key Computer Science concepts.
+This repository contains both my explanation and code of key Computer Science concepts.
 
 Concept                                                                             | Programming Language
 ----------------------------------------------------------------------------------- | -----------
