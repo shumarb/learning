@@ -7,7 +7,7 @@ Search Technique | Worst-case Time Complexity   | Sort elements before executing
 [Linear Search](https://github.com/shumarb/learning-and-hackathons/tree/main/self-written-notes-and-code/search/linear-search)    | O(N)                         | No
 
 ## How to use this folder
-1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/online-learning/tree/main/notes-and-code).
+1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
 2. Ensure that your local machine contains a `Java Development Kit (JDK) Version 8 or later`.
 3. Open `terminal`.
 4. Navigate to a `search-technique` folder by entering `cd search-technique` folder. (Example: `cd linear-search`).

@@ -14,7 +14,7 @@ In-place sort: A sorting algorithm is an **in-place** sort if it requires only a
 Stable sort: A sorting algorithm is **stable** if the **relative order of elements with the same key value is preserved** by the algorithm.
 
 ## How to use this folder
-1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/online-learning/tree/main/notes-and-code).
+1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
 2. Ensure that your local machine contains a `Java Development Kit (JDK) Version 8 or later`.
 3. Open `terminal`.
 4. Navigate to a `sorting-technique` folder by entering `cd sorting-technique-folder`. (Example: `cd selection-sort`).
