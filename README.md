@@ -2,7 +2,7 @@
 This repository contains both my explanation and code (written in **Java**) of key Computer Science concepts.
 
 Concept                                                                             
------------------------------------------------------------------------------------ 
+----------------------------------------------------------------------------------- |
 [Search](https://github.com/shumarb/notes-and-code/tree/main/search)
 [Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)
 
