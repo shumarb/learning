@@ -13,5 +13,5 @@ Concept
 3. Navigate to this location.
 4. Clone this repository by entering `git clone git@github.com:shumarb/notes-and-code.git`.
 5. Identify a `concept` folder that you are interested in (Example: `sort`).
-6. Navigate to this terminal by entering `cd concept-folder-name` (Example: `cd sort`).
+6. Navigate to the `concept` folder by entering `cd concept-folder-name` (Example: `cd sort`).
 7. Follow the instructions in the `concept` folder.
