@@ -3,7 +3,7 @@ This repository contains my summary of key Computer Science concepts.
 
 Concept                                                                             | Programming Language
 ----------------------------------------------------------------------------------- | -----------
-[Sort](https://github.com/shumarb/online-learning/tree/main/notes-and-code/sort)    | Java
+[Sort](https://github.com/shumarb/notes-and-code/sort)    | Java
 
 # How to use this repository
 1. Identify a location in local machine to store this repository.
