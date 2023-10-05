@@ -1,20 +1,20 @@
 # Binary Search
 
 ## What is Binary Search
-Binary Search is an efficient search algorithm that checks whether element is available in a `data structure (array or list)` by disregarding elements greater than or less than the key.
+Binary Search is an efficient search algorithm that checks whether element is available in a `data structure (array or list)` by disregarding elements greater than or less than the element to search for.
 
 ## How Binary Search Works
 1. Ensure the `data structure (array or list)` is `searched`, and the element to search be denoted as `key`.
 2. Check the `middle` element of the data structure.
-3. If the `middle element == key`, the key exists in the data structure.
-3. If the `middle element < key`, disregard `all elements <= middle element`, which is the `left half` of the data structure.
-4. If the `middle element > key`, disregard `all elements >= middle element`, which is the `right half` of the data structure.
-5. Repeat steps `2 to 5` until either the key is found or all elements have been discarded (meaning the key does not exist).
+3. If the `middle element == key`, the `key` exists in the data structure.
+3. If the `middle element < key`, disregard `all elements <= middle element`.
+4. If the `middle element > key`, disregard `all elements >= middle element`.
+5. Repeat steps `2 to 5` until either the `key` is found or all elements have been discarded (meaning the `key` does not exist).
 
 ## Worst-case Time Complexity
 **O(log<sub>2</sub>N)**.
 
-This is because the portion of the list that could contain the element is repeatedly `divided` into half until it is of size `1`.
+This is because the portion of the `data structure (array or list)` that could contain the element is repeatedly `divided` into half until it is of size `1`.
 
 ## How to use this folder
 1. Ensure that your local machine contains a `Java Development Kit (JDK) version 8 or later`.
