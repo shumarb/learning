@@ -3,7 +3,7 @@
 ## What is Linear Search
 Linear Search, also known as `Sequential Search`, is a search algorithm that works by iterating through the `data stucture (array or list)` in `linear progression` and checking whether an element is equal to the element being searched.
 
-## How Linaer Search Works
+## How Linear Search Works
 1. The element to search for is denoted as `key`.
 2. Iterate through the `data stucture (array or list)`, and check one-by-one whether the element of the data structure is equal to the key.
 3. If the `current element == key`, the key is found.
