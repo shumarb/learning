@@ -9,7 +9,7 @@ Heap Sort is a **comparison-based, in-place, and unstable** sorting algorithm ba
 2. `extract` the root of the `binary max heap` by `swapping` the `maximum` element with the `last` element of the `array/list`, then `max-heapify` the remaining elements. Repeat until the `binary max heap` is of size 1.
 
 ## Worst-case Time Complexity
-**O($Nlog<sub>2</sub>$)**.
+**O(Nlog<sub>2</sub>N)**.
 
 1. `Max-heapify` the `array/list`. Each element requires a time complexity of `O(log<sub>2</sub>N)`. Hence, `max-heapifying` N elements requires a time complexity of `O(Nlog<sub>2</sub>N)`.
 
