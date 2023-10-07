@@ -3,6 +3,7 @@
 This repository contains on your local machines that I implemented on my own.
 Sort Technique | Worst-case Time Complexity | Space Complexity | In-place? | Stable?
 ------------------| ---------------------------| ---------------- | ----------| -------
+[Heap Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/heap-sort)                  | O(Nlog<sub>2</sub>N)  | O(1) | Yes  | No
 [Merge Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/merge-sort)                | O(Nlog<sub>2</sub>N)  | O(N) | No  | Yes
 [Bubble Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/bubble-sort)              | O($N^2$)              | O(1) | Yes | Yes
 [Insertion Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/insertion-sort)        | O($N^2$)              | O(1) | Yes | Yes
