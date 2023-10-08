@@ -16,7 +16,7 @@ Therefore, the time complexity is O(N * (N - 1)) = O($N^2$ - N) = O($N^2$).
 A constant amount of time of extra space is required.
 
 ## How to use this folder
-1. Ensure that your local machine contains a `Java Development Kit (JDK) version 8 or later`.
+1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Open up `terminal`.
 3. Navigate to this directory by entering `cd insertion-sort`.
 4. Compile the program by entering `javac InsertionSort.java`.

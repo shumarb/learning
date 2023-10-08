@@ -7,11 +7,11 @@ Concept
 [Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)
 
 # How to use this repository
-1. Ensure that your local machine contains a `Java Development Kit (JDK) Version 8 or later`.
-1. Identify a `location` on your local machine to store this repository.
-2. Open `terminal`.
-3. Navigate to the `location`.
-4. Clone this repository by entering `git clone git@github.com:shumarb/notes-and-code.git`.
-5. Identify a `concept` folder that you are interested in (Example: `sort`).
-6. Navigate to the `concept` folder by entering `cd concept-folder-name` (Example: `cd sort`).
-7. Follow the instructions in the `concept` folder.
+1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
+2. Identify a `location` on your local machine to store this repository.
+3. Open `terminal`.
+4. Navigate to the `location`.
+5. Clone this repository by entering `git clone git@github.com:shumarb/notes-and-code.git`.
+6. Identify a `concept` folder that you are interested in (Example: `sort`).
+7. Navigate to the `concept` folder by entering `cd concept-folder-name` (Example: `cd sort`).
+8. Follow the instructions in the `concept` folder.

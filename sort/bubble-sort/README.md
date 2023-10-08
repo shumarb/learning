@@ -18,7 +18,7 @@ Therefore, the Time Complexity is O((N - 1) * (N - 1)) = O($N^2$ - 2N + 1) = O($
 A constant amount of time of extra space is required.
 
 ## How to use this folder
-1. Ensure that your local machine contains a `Java Development Kit (JDK) version 8 or later`.
+1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Open up `terminal`.
 3. Navigate to this directory by entering `cd bubble-sort`.
 4. Compile the program by entering `javac BubbleSort.java`.
