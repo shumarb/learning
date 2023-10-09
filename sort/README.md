@@ -1,6 +1,6 @@
 # Sort
+This folder contains the sort techniques that I implemented on my own.
 
-This repository contains on your local machines that I implemented on my own.
 Sort Technique | Worst-case Time Complexity | Space Complexity | In-place? | Stable?
 ------------------| ---------------------------| ---------------- | ----------| -------
 [Heap Sort](https://github.com/shumarb/notes-and-code/tree/main/sort/heap-sort)                  | O(Nlog<sub>2</sub>N)  | O(1) | Yes  | No
