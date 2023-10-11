@@ -4,9 +4,9 @@ This folder contains my summary of structures.
 
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
-Binary Search Tree       | O(log<sub>2</sub>)      | O(log<sub>2</sub>)      | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)       | O(log<sub>2</sub>N)
-Binary Max Heap          | O(log<sub>2</sub>)      | O(N)                    | O(N)                     | O(1)                      | O(N)
-Binary Min Heap          | O(log<sub>2</sub>)      | O(N)                    | O(N)                     | O(N)                      | O(1)
+Binary Search Tree       | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)       | O(log<sub>2</sub>N)
+Binary Max Heap          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(1)                      | O(N)
+Binary Min Heap          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(N)                      | O(1)
 Stack                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 Queue                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 
