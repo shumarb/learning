@@ -3,6 +3,7 @@ This repository contains both my explanation and code (written in **Java**) of k
 
 Concept                                                                             
 ----------------------------------------------------------------------------------- |
+[Data Structures](https://github.com/shumarb/notes-and-code/tree/main/data-structures)
 [Search](https://github.com/shumarb/notes-and-code/tree/main/search)
 [Sort](https://github.com/shumarb/notes-and-code/tree/main/sort)
 
