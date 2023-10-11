@@ -7,7 +7,7 @@ Data Structure           | Insertion               | Deletion                | S
 Binary Search Tree       | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)       | O(log<sub>2</sub>N)
 Binary Max Heap          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(1)                      | O(N)
 Binary Min Heap          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(N)                      | O(1)
-Stack                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
+[Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/stack)                   | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 Queue                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 
 ## How to use this folder
