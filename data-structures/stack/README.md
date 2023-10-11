@@ -13,7 +13,7 @@ clear()                  | Removes all object/elements in stack
 isEmpty()                | Returns true only if stack is empty, else return false
 search(Element e)        | Returns 1-based position where object/object/element is on the stack, else return -1 if object not in stack
 size()                   | Obtains number of object/elements in stack
-get(int index)           | Retrieves object/element at position index. Note: Ensure index <= size of stack
+get(int index)           | Retrieves object/element at position index. Note: Ensure 0 <= index < size of stack
 contains(Element e)      | Returns true if stack contains specified object/object/element, else return false
 
 ## How to use this folder
