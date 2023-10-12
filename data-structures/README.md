@@ -8,7 +8,7 @@ Binary Search Tree       | O(log<sub>2</sub>N)      | O(log<sub>2</sub>N)      |
 Binary Max Heap          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(1)                      | O(N)
 Binary Min Heap          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(N)                      | O(1)
 [Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/stack)                   | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
-Queue                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
+[Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/queue)                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 
 ## How to use this folder
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
