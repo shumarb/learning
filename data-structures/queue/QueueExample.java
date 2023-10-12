@@ -5,6 +5,7 @@ import java.util.Random;
 class QueueExample {
     
     private Random myRandom = new Random();
+    
     // Forms queue of N values from user
     // Precon: N > 0
     // Postcon: Queue of N values formed
