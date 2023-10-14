@@ -24,4 +24,4 @@ contains(Element e)      | Returns true if stack contains specified object/objec
 5. Navigate to the `stack` folder by entering `cd data-structure/stack`.
 6. Compile the program by entering `javac StackExample.java`.
 7. Run the program by entering `java StackExample`.
-8. The program creates a `stack` randomly. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `stack` and it's `key` operations, and demonstrates the applications of these operations on the `stack`.
+8. The program creates a `stack` randomly. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `stack` and it's `key` operations, and demonstrates the application of these operations on the `stack`.
