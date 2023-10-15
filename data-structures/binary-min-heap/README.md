@@ -11,4 +11,4 @@ A `Binary Min Heap` is a **complete binary tree (non-linear and dynamic data str
 5. Navigate to the `binary-min-heap` folder by entering `cd data-structure/binary-min-heap`.
 6. Compile the program by entering `javac BinaryMinHeap.java`.
 7. Run the program by entering `java BinaryMinHeap`.
-8. The program creates a `binary min heap` randomly. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program demonstrates the application of these operations on the `binary min heap`.
+8. The program creates a `binary min heap`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program demonstrates the application of these operations on the `binary min heap`.
