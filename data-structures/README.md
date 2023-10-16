@@ -2,7 +2,7 @@
 
 This folder contains my summary of structures.
 
-The following illustrates the worst-case time complexity for operations on `each` element given `N` elements (where `N >= 1`):
+The following illustrates the worst-case time complexity for each data structure of `N` elements (where `N >= 1`):
 
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
