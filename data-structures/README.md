@@ -6,9 +6,9 @@ The following illustrates the worst-case time complexity for each data structure
 
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
-[Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(1)                      | O(N)
-[Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)          | O(log<sub>2</sub>N)      | O(N)                    | O(N)                     | O(N)                      | O(1)
-[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)     | O(N)      | O(N)      | O(N)      | O(N)       | O(N)
+[Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(Nlog<sub>2</sub>N)      | O(N)                    | O(N)                     | O(1)                      | O(N)
+[Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)         | O(Nlog<sub>2</sub>N)      | O(N)                    | O(N)                     | O(N)                      | O(1)
+[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)    | O(Nlog<sub>2</sub>N)     | O(N)      | O(N)      | O(N)       | O(N)
 [Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/queue)                    | O(1)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 [Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/stack)                   | O(1)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
 
