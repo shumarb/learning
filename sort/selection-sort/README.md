@@ -6,7 +6,7 @@ Selection Sort is a **comparison-based, in-place, and unstable** sorting algorit
 ## Worst-case Time Complexity
 **O($N^2$)**.
 
-Bubble Sort algorithm comprises of a nested loop. The outer loop iterates from the first element to the penultimate element of the array, and the inner loop iterates from the second element to the last element of the array. 
+Selection Sort algorithm comprises of a nested loop. The outer loop iterates from the first element to the penultimate element of the array, and the inner loop iterates from the second element to the last element of the array. 
 
 Hence, each loop iterates through `N - 1` elements.
 
