@@ -7,12 +7,12 @@ The following illustrates the worst-case time complexity of operations involving
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
 Array (Sorted)           | O(_N_)                  | O(_N_)                  | O(log<sub>2</sub>_N_)    | O(1)                      | O(1)   
-Array (Unsorted)         | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
-[Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(Nlog<sub>2</sub>N)      | O(N)                    | O(N)                     | O(1)                      | O(N)
-[Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)         | O(Nlog<sub>2</sub>N)      | O(N)                    | O(N)                     | O(N)                      | O(1)
-[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)    | O(Nlog<sub>2</sub>N)     | O(N)      | O(N)      | O(N)       | O(N)
-[Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/queue)                    | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
-[Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/stack)                   | O(N)                    | O(N)                    | O(N)                     | O(N)                      | O(N)   
+Array (Unsorted)         | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
+[Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(_N_log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(1)                      | O(_N_)
+[Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)         | O(_N_log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(1)
+[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)    | O(_N_log<sub>2</sub>_N_)     | O(_N_)      | O(_N_)      | O(_N_)       | O(_N_)
+[Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/queue)                    | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
+[Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/stack)                   | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
 
 ## How to use this folder
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
