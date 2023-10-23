@@ -8,9 +8,9 @@ Data Structure           | Insertion               | Deletion                | S
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
 Array (Sorted)           | O(_N_)                  | O(_N_)                  | O(log<sub>2</sub>_N_)    | O(1)                      | O(1)   
 Array (Unsorted)         | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
-[Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(_N_log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(1)                      | O(_N_)
-[Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)         | O(_N_log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(1)
-[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)    | O(_N_log<sub>2</sub>_N_)     | O(_N_)      | O(_N_)      | O(_N_)       | O(_N_)
+[Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(_N_ log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(1)                      | O(_N_)
+[Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)         | O(_N_ log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(1)
+[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)    | O(_N_ log<sub>2</sub>_N_)     | O(_N_)      | O(_N_)      | O(_N_)       | O(_N_)
 [Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/queue)                    | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
 [Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/stack)                   | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
 

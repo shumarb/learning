@@ -10,7 +10,7 @@ Linear Search, also known as `Sequential Search`, is a search algorithm that wor
 4. If the `current element != key`, proceed to the next element.
 
 ## Worst-case Time Complexity
-**O(N)**.
+**O(_N_)**.
 
 This is because the worst-case scenario is to compare all elements of `data stucture (array or list)` to the `key`.
 
