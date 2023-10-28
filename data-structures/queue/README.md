@@ -12,7 +12,7 @@ push(Element e)          | Pushes element into top of the `Queue`
 clear()                  | Removes all elements in the `Queue`
 isEmpty()                | Returns true only if the `Queue` is empty, else return false
 search(Element e)        | Returns 1-based position of the element in the `Queue`, else return `-1` if the element is not in the `Queue`
-size()                   | Obtains number of object/elements in the `Queue`
+size()                   | Obtains number of elements in the `Queue`
 get(int index)           | Retrieves element at specified `index`. Note: Ensure index < size of the `Queue`
 contains(Element e)      | Returns true if the `Queue` contains specified element, else return false
 
