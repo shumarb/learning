@@ -6,7 +6,8 @@ The following illustrates the worst-case time complexity of operations involving
 
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
-[Array](https://github.com/shumarb/notes-and-code/tree/main/data-structures/array)         | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)   
+[Array](https://github.com/shumarb/notes-and-code/tree/main/data-structures/array)         | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)
+ArrayList | O(_N_)                    | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(_N_)    
 [Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-max-heap)         | O(_N_ log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(1)                      | O(_N_)
 [Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-min-heap)         | O(_N_ log<sub>2</sub>_N_)      | O(_N_)                    | O(_N_)                     | O(_N_)                      | O(1)
 [Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/binary-search-tree)    | O(_N_ log<sub>2</sub>_N_)     | O(_N_)      | O(_N_)      | O(_N_)       | O(_N_)
