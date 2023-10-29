@@ -1,7 +1,7 @@
 # ArrayList
 
 ## What is an ArrayList?
-A `ArrayList` is a **linear and dynamic** data structure operating as a resizable array.
+An `ArrayList` is a **linear and dynamic** data structure operating as a resizable array.
 
 ## Key Operations of an ArrayList
 Operation                | Explanation
