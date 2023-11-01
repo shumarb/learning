@@ -38,7 +38,7 @@ class Array {
     }
 
     // Searches for an element using binary search
-    // Precon: Array has >= 1 element
+    // Precon: Array has 5 - 12 elements
     // Postcon: Searches for maximum element
     private void searchesElement(int[] inputArray) {
         System.out.println("============ Search ============");
@@ -65,7 +65,7 @@ class Array {
     }
 
     // Searches for maximum element
-    // Precon: Array has >= 1 element
+    // Precon: Array has 5 - 12 elements
     // Postcon: Searches for minimum element
     private void searchesMaximum(int[] inputArray) {
         System.out.println("============ Search Maximum ============");
@@ -85,7 +85,7 @@ class Array {
     }
 
     // Searches for minimum element
-    // Precon: Array has >= 1 element
+    // Precon: Array has 5 - 12 elements
     // Postcon: Searches for minimum element
     private void searchesMinimum(int[] inputArray) {
         System.out.println("============ Search Minimum ============");

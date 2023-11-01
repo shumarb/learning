@@ -29,7 +29,7 @@ public class BST {
     }
 
     // Inserts node into BST
-    // Precon: BST has >= 1 element
+    // Precon: BST has 5 - 12 elements
     // Postcon: Node inserted into BST
     private void insertElements(Node currentNode, Node incomingNode) {
         if (incomingNode.getsData() <= currentNode.getsData()) {
@@ -73,7 +73,8 @@ public class BST {
     // Postcon: Displays elements in BST
     private void displaysNumberOfNodes(int numberOfNodes) {
         displaysMessage("======= Traversal =======");
-        System.out.println("* Binary Search Tree | " + numberOfNodes + " nodes ");
+        System.out.println("Binary Search Tree of " + numberOfNodes + " nodes");
+        displaysNewLine();
     }
 
     // Checks if an element contains a certain data
@@ -106,20 +107,18 @@ public class BST {
     private void searchesKey(Node rootNode) {
         displaysNewLine();
         displaysLine();
-        for (int i = 0; i < myRandom.nextInt(3, 10); i++) {
-            displaysMessage("======= Search =======");
-            int key = myRandom.nextInt(1, 10);
-            System.out.println("* Is " + key + " in the BST? Traverse from the root...");
+        displaysMessage("======= Search =======");
+        int key = myRandom.nextInt(1, 10);
+        System.out.println("* Is " + key + " in the BST? Traverse from the root...");
+        displaysNewLine();
+        if (isContainKey(rootNode, key)) {
             displaysNewLine();
-            if (isContainKey(rootNode, key)) {
-                displaysNewLine();
-                System.out.println("* " + key + " is in BST");
-            } else {
-                displaysNewLine();
-                System.out.println("* " + key + " is not in BST");
-            }
-            displaysLine();
+            System.out.println("* " + key + " is in BST");
+        } else {
+            displaysNewLine();
+            System.out.println("* " + key + " is not in BST");
         }
+        displaysLine();
     }
 
     // Displays Binary Search Tree using in-order traversal
@@ -166,20 +165,20 @@ public class BST {
     private void displaysBST(Node rootNode) {
         for (int i = 0; i < 3; i++) {
             if (i == 0) {
-                System.out.print("* In-order traversal:\t\t");
+                System.out.print(" * In-order traversal:\t\t");
             } else if (i == 1) {
                 displaysNewLine();
-                System.out.print("* Pre-order traversal:\t\t");
+                System.out.print(" * Pre-order traversal:\t\t");
             } else {
                 displaysNewLine();
-                System.out.print("* Post-order traversal:\t\t");
+                System.out.print(" * Post-order traversal:\t");
             }
             displaysBST(rootNode, i);
         }
     }
 
     // Searches for minimium element in the Binary Search Tree
-    // Precon: BST has >= 1 element
+    // Precon: BST has 5 - 12 elements
     // Postcon: Searches for maximum element
     private void searchesMinimumElement(Node currentNode) {
         if (currentNode != null) {
@@ -198,7 +197,7 @@ public class BST {
     }
 
     // Searches for maximum element in the Binary Search Tree
-    // Precon: BST has >= 1 element
+    // Precon: BST has 5 - 12 elements
     // Postcon: Searches for maximum element
     private void searchesMaximumElement(Node currentNode) {
         if (currentNode != null) {

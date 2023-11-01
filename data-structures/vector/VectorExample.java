@@ -1,10 +1,10 @@
-import java.util.Vector;
 import java.util.Random;
+import java.util.Vector;
 
 class VectorExample {
 
-    private Vector <Integer> vector = new Vector<>();
     private Random myRandom = new Random();
+    private Vector <Integer> vector = new Vector <> ();
     
     // Displays Line
     // Precon: Nil
@@ -22,7 +22,7 @@ class VectorExample {
 
     // Forms Vector
     // Precon: Vector initialised and has 0 elements
-    // Postcon: Vector has >= 1 element
+    // Postcon: Vector has 5 - 12 elements
     private void insertElements() {
         System.out.println("============ Insertion ============");
         int numberOfElements = myRandom.nextInt(5, 12);
@@ -39,14 +39,14 @@ class VectorExample {
     }
     
     // Displays Vector
-    // Precon: Vector has >= 1 element
+    // Precon: Vector has 5 - 12 elements
     // Postcon: Execute some operations on Vector
     private void displaysVector(String message) {
         System.out.println(message + "Vector: " + vector);
     }
 
     // Searches for element in Vector
-    // Precon: Vector has >= 1 element
+    // Precon: Vector has 5 - 12 elements
     // Postcon: Search for maximum element
     private void searchesElement() {
         System.out.println("============ Search ============");
@@ -62,7 +62,7 @@ class VectorExample {
     }
 
     // Searches for maximum element
-    // Precon: Vector has >= 1 element
+    // Precon: Vector has 5 - 12 elements
     // Postcon: Search for minimum element
     private void searchesMaximum() {
         System.out.println("============ Search Maximum ============");
@@ -79,7 +79,7 @@ class VectorExample {
     }
 
     // Searches for minimum element
-    // Precon: Vector has >= 1 element
+    // Precon: Vector has 5 - 12 elements
     // Postcon: Deletes element from Vector
     private void searchesMinimum() {
         System.out.println("============ Search Minimum ============");
@@ -118,7 +118,7 @@ class VectorExample {
     }
 
     // Deletes element from Vector
-    // Precon: Vector has >= 1 element
+    // Precon: Vector has 5 - 12 elements
     // Postcon: Nil
     private void deletesElement() {
         System.out.println("============ Deletion ============");

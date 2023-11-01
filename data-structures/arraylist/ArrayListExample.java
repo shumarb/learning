@@ -22,7 +22,7 @@ class ArrayListExample {
 
     // Forms ArrayList
     // Precon: ArrayList initialised and has 0 elements
-    // Postcon: ArrayList has >= 1 element
+    // Postcon: ArrayList has 5 - 12 elements
     private void insertElements() {
         System.out.println("============ Insertion ============");
         int numberOfElements = myRandom.nextInt(5, 12);
@@ -39,14 +39,14 @@ class ArrayListExample {
     }
     
     // Displays ArrayList
-    // Precon: ArrayList has >= 1 element
+    // Precon: ArrayList has 5 - 12 elements
     // Postcon: Execute some operations on ArrayList
     private void displaysArrayList(String message) {
         System.out.println(message + "ArrayList: " + arrayList);
     }
 
     // Searches for element in ArrayList
-    // Precon: ArrayList has >= 1 element
+    // Precon: ArrayList has 5 - 12 elements
     // Postcon: Search for maximum element
     private void searchesElement() {
         System.out.println("============ Search ============");
@@ -62,7 +62,7 @@ class ArrayListExample {
     }
 
     // Searches for maximum element
-    // Precon: ArrayList has >= 1 element
+    // Precon: ArrayList has 5 - 12 elements
     // Postcon: Search for minimum element
     private void searchesMaximum() {
         System.out.println("============ Search Maximum ============");
@@ -79,7 +79,7 @@ class ArrayListExample {
     }
 
     // Searches for minimum element
-    // Precon: ArrayList has >= 1 element
+    // Precon: ArrayList has 5 - 12 elements
     // Postcon: Deletes element from ArrayList
     private void searchesMinimum() {
         System.out.println("============ Search Minimum ============");
@@ -119,7 +119,7 @@ class ArrayListExample {
     }
 
     // Deletes element from ArrayList
-    // Precon: ArrayList has >= 1 element
+    // Precon: ArrayList has 5 - 12 elements
     // Postcon: Nil
     private void deletesElement() {
         System.out.println("============ Deletion ============");
