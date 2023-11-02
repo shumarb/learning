@@ -9,6 +9,6 @@ A `Binary Search Tree` is a **complete binary tree (non-linear and dynamic data 
 3. Open `terminal`.
 4. Navigate to the location where the repository is cloned.
 5. Navigate to the `binary-search-tree` folder by entering `cd data-structure/binary-search-tree`.
-6. Compile the program by entering `javac BST.java`.
-7. Run the program by entering `java BST`.
+6. Compile the program by entering `javac BinarySearchTree.java`.
+7. Run the program by entering `java BinarySearchTree`.
 8. The program creates a `Binary Search Tree`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program demonstrates the application of these operations on the `Binary Search Tree`.

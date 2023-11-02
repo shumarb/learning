@@ -22,7 +22,7 @@ class HeapSort {
     }
 
     // Stores array before Heap Sort
-    // Precon: Array formed has >= 1 element
+    // Precon: Array formed has 5 - 12 elements
     // Postcon: Execute Heap Sort
     private int[] formsInitialArray(int[] inputArray) {
         return Arrays.copyOf(inputArray, inputArray.length);

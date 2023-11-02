@@ -16,7 +16,7 @@ class LinearSearch {
     }
 
     // Executes Linear Search
-    // Precon: inputArray has >= 1 elements
+    // Precon: inputArray has 5 - 12 elements
     // Postcon: End of program
     private void executesLinearSearch(int[] inputArray) {
         boolean isFound = false;
@@ -66,7 +66,7 @@ class LinearSearch {
     }
 
     // Displays input array
-    // Precon: inputArray has >= 1 element
+    // Precon: inputArray has 5 - 12 elements
     // Postcon: Nil
     private void displaysInputArray(int[] inputArray) {
         for (int i = 0; i <inputArray.length - 1; i++) {
