@@ -11,9 +11,9 @@ public class BinarySearchTree {
         System.out.println(sentence);
     }
 
-    // Forms BinarySearchTree
-    // Precon: No BinarySearchTree formed
-    // Postcon: BinarySearchTree of size >= 1 formed
+    // Forms the Binary Search Tree
+    // Precon: No Binary Search Tree formed
+    // Postcon: Binary Search Tree of size >= 1 formed
     private int insertElements(Node rootNode) {
         displaysLine();
         displaysMessage("======= Insertion =======");
@@ -28,9 +28,9 @@ public class BinarySearchTree {
         return numberOfNodesToAdd + 1;
     }
 
-    // Inserts node into BinarySearchTree
-    // Precon: BinarySearchTree has 5 - 12 elements
-    // Postcon: Node inserted into BinarySearchTree
+    // Inserts node into the Binary Search Tree
+    // Precon: Binary Search Tree has 5 - 12 elements
+    // Postcon: Node inserted into the Binary Search Tree
     private void insertElements(Node currentNode, Node incomingNode) {
         if (incomingNode.getsData() <= currentNode.getsData()) {
             if (currentNode.hasLeftChild()) {
@@ -47,9 +47,9 @@ public class BinarySearchTree {
         }
     }
 
-    // Forms root
-    // Precon: BinarySearchTree has 0 nodes
-    // Postcon: BinarySearchTree has 1 node
+    // Forms root element of the Binary Search Tree
+    // Precon: No Binary Search Tree formed
+    // Postcon: Binary Search Tree has 1 node
     private Node formsRoot() {
         return new Node(myRandom.nextInt(10));
     }
@@ -68,9 +68,9 @@ public class BinarySearchTree {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
     }
     
-    // Displays number of elements in BinarySearchTree
-    // Precon: BinarySearchTree is correctly filled
-    // Postcon: Displays elements in BinarySearchTree
+    // Displays number of elements in the Binary Search Tree
+    // Precon: Binary Search Tree is correctly filled
+    // Postcon: Displays elements in the Binary Search Tree
     private void displaysNumberOfNodes(int numberOfNodes) {
         displaysMessage("======= Traversal =======");
         System.out.println("Binary Search Tree of " + numberOfNodes + " nodes");
@@ -78,8 +78,8 @@ public class BinarySearchTree {
     }
 
     // Checks if an element contains a certain data
-    // Precon: Data to check is in BinarySearchTree
-    // Postcon: Data to check is in BinarySearchTree
+    // Precon: Data to check is in the Binary Search Tree
+    // Postcon: Data to check is in the Binary Search Tree
     private boolean isContainKey(Node currentNode, int key) {
         System.out.print(currentElementString + currentNode.getsData());
         if (key == currentNode.getsData()) {
@@ -102,8 +102,8 @@ public class BinarySearchTree {
     }
 
     // Checks if an element contains a certain data
-    // Precon: Data to check is in BinarySearchTree
-    // Postcon: Data to check is in BinarySearchTree
+    // Precon: Data to check is in the Binary Search Tree
+    // Postcon: Data to check is in the Binary Search Tree
     private void searchesKey(Node rootNode) {
         displaysNewLine();
         displaysLine();
@@ -122,8 +122,8 @@ public class BinarySearchTree {
     }
 
     // Displays Binary Search Tree using in-order traversal
-    // Precon: BinarySearchTree formed is correct
-    // Postcon: End of program
+    // Precon: Binary Search Tree formed is correct
+    // Postcon: Searches for element in the Binary Search Tree
     private void displaysBinarySearchTree(Node currentNode, int traversalOrder) {
         // In-order traversal
         if (traversalOrder == 0) {
@@ -159,9 +159,9 @@ public class BinarySearchTree {
         }
     }
 
-    // Displays BinarySearchTree based on traversal type
-    // Precon: There is >= 1 element in BinarySearchTree
-    // Postcon: Checks for data
+    // Displays the Binary Search Tree based on traversal type
+    // Precon: There is >= 1 element in the Binary Search Tree
+    // Postcon: Checks for an element in the Binary Search Tree
     private void displaysBinarySearchTree(Node rootNode) {
         for (int i = 0; i < 3; i++) {
             if (i == 0) {
@@ -178,7 +178,7 @@ public class BinarySearchTree {
     }
 
     // Searches for minimium element in the Binary Search Tree
-    // Precon: BinarySearchTree has 5 - 12 elements
+    // Precon: Binary Search Tree has 5 - 12 elements
     // Postcon: Searches for maximum element
     private void searchesMinimum(Node currentNode) {
         if (currentNode != null) {
@@ -197,7 +197,7 @@ public class BinarySearchTree {
     }
 
     // Searches for maximum element in the Binary Search Tree
-    // Precon: BinarySearchTree has 5 - 12 elements
+    // Precon: Binary Search Tree has 5 - 12 elements
     // Postcon: Searches for maximum element
     private void searchesMaximum(Node currentNode) {
         if (currentNode != null) {
