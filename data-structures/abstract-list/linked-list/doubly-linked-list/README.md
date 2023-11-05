@@ -21,7 +21,7 @@ size()                   | Obtain the number of elements in the Doubly Linked Li
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.
 4. Navigate to the location where the repository is cloned.
-5. Navigate to the `Doubly Linked List` folder by entering `cd data-structure/abstractlist/Doubly Linked List`.
-6. Compile the program by entering `javac Doubly Linked ListExample.java`.
-7. Run the program by entering `java Doubly Linked ListExample`.
+5. Navigate to the `Doubly Linked List` folder by entering `cd data-structure/abstract-list/linked-list/doubly-linked-list`.
+6. Compile the program by entering `javac DoublyLinkedList.java`.
+7. Run the program by entering `java DoublyLinkedList`.
 8. The program creates an `Doubly Linked List`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `Doubly Linked List` and it's `key` operations, and demonstrates the application of these operations on the `Doubly Linked List`.

@@ -21,7 +21,7 @@ contains(Element e)      | Return true if the `Queue` contains specified element
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.
 4. Navigate to the location where the repository is cloned.
-5. Navigate to the `queue` folder by entering `cd data-structure/abstractlist/queue`.
+5. Navigate to the `queue` folder by entering `cd data-structure/abstract-list/queue`.
 6. Compile the program by entering `javac QueueExample.java`.
 7. Run the program by entering `java QueueExample`.
 8. The program creates a `Queue`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `Queue` and it's `key` operations, and demonstrates the application of these operations on the `Queue`.
