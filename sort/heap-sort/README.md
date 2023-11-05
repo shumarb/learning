@@ -9,13 +9,13 @@ Heap Sort is a **comparison-based, in-place, and unstable** sorting algorithm ba
 2. `extract` the root of the `Binary Search Tree` by `swapping` the `maximum` and `last` elements, `max-heapify` the remaining elements, and repeating until the `Binary Search Tree` is of size 1.
 
 ## Worst-case Time Complexity
-**O(_N_log<sub>2</sub>_N_)**.
+**O(_N_ log<sub>2</sub>_N_)**.
 
-1. `Max-heapify` the `array/list`. Each element requires a time complexity of O(log<sub>2</sub>_N_). Hence, `max-heapifying` N elements requires a time complexity of O(_N_log<sub>2</sub>_N_).
+1. `Max-heapify` the `array/list`. Each element requires a time complexity of O(log<sub>2</sub>_N_). Hence, `max-heapifying` N elements requires a time complexity of O(_N_ log<sub>2</sub>_N_).
 
 2. `Extracting` the root and swapping it with the last element requires a time complexity of O(_N_), and `max-heapifying` the remaining `(N - 1)` elements until the `Binary Search Tree` is of size 1 requires a time complexity of O((N - 1)log<sub>2</sub>_N_) = (Nlog<sub>2</sub>_N_).
 
-Therefore, the worst-case Time Complexity is O(_N_log<sub>2</sub>_N_) + O(_N_) + O(_N_log<sub>2</sub>_N_) = O(2Nlog<sub>2</sub>_N_ + N) = O(_N_log<sub>2</sub>_N_).
+Therefore, the worst-case Time Complexity is O(_N_ log<sub>2</sub>_N_) + O(_N_) + O(_N_ log<sub>2</sub>_N_) = O(2Nlog<sub>2</sub>_N_ + N) = O(_N_ log<sub>2</sub>_N_).
 
 ## Space Complexity
 **O(1)**.
