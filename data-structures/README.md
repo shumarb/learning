@@ -6,15 +6,12 @@ The following illustrates the worst-case time complexity for operations on each 
 
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
 ------------------------ | ----------------------- | ----------------------- | -----------------------  | -----------------------   | -----------------------
-[Array](https://github.com/shumarb/notes-and-code/tree/main/data-structures/array) | O(1) | O(_N_) | O(_N_) | O(_N_) | O(_N_)
-[ArrayList](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/arraylist) / [Vector](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/vector) | O(1) | O(1) | O(_N_) | O(_N_) | O(_N_)
+[Array](https://github.com/shumarb/notes-and-code/tree/main/data-structures/array) / [ArrayList](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/arraylist) / [Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/tree/binary-search-tree) / [Linked List (Singly)](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstract-list/linked-list/singly-linked-list) / [Vector](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/vector) | O(N) | O(N) | O(_N_) | O(_N_) | O(_N_)
 [Binary Max Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/tree/binary-max-heap) | O(log<sub>2</sub>_N_) | O(log<sub>2</sub>_N_) | O(_N_) | O(1) | O(_N_)
 [Binary Min Heap](https://github.com/shumarb/notes-and-code/tree/main/data-structures/tree/binary-min-heap) | O(log<sub>2</sub>_N_) | O(log<sub>2</sub>_N_) | O(_N_)  | O(_N_) | O(1)
-[Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/tree/binary-search-tree) | O(_N_) | O(_N_) | O(_N_) | O(_N_) | O(_N_)
 [Linked List (Doubly)](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstract-list/linked-list/doubly-linked-list) | O(1) | O(1) | O(_N_) | O(_N_) | O(_N_)
 [Linked List (Singly)](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstract-list/linked-list/singly-linked-list) | O(_N_) | O(_N_) | O(_N_) | O(_N_) | O(_N_)
-[Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/queue) | O(1) | O(1) | O(_N_) | O(_N_) | O(_N_)   
-[Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/stack) | O(1) | O(1) | O(_N_) | O(_N_) | O(_N_)
+[Queue](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/queue) / [Stack](https://github.com/shumarb/notes-and-code/tree/main/data-structures/abstractlist/stack) | O(1) | O(1) | O(_N_) | O(_N_) | O(_N_)
 
 ## How to use this folder
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
