@@ -31,18 +31,18 @@ public class BinarySearchTree {
     // Inserts node into the Binary Search Tree
     // Precon: Binary Search Tree has 5 - 12 elements
     // Postcon: Node inserted into the Binary Search Tree
-    private void insertElements(Node currentNode, Node incomingNode) {
-        if (incomingNode.getsData() <= currentNode.getsData()) {
-            if (currentNode.hasLeftChild()) {
-                insertElements(currentNode.getsLeftChild(), incomingNode);
+    private void insertElements(Node node, Node incomingNode) {
+        if (incomingNode.getsData() <= node.getsData()) {
+            if (node.hasLeftChild()) {
+                insertElements(node.getsLeftChild(), incomingNode);
             } else {
-                currentNode.setsLeftChild(incomingNode);
+                node.setsLeftChild(incomingNode);
             }
         } else {
-            if (currentNode.hasRightChild()) {
-                insertElements(currentNode.getsRightChild(), incomingNode);
+            if (node.hasRightChild()) {
+                insertElements(node.getsRightChild(), incomingNode);
             } else {
-                currentNode.setsRightChild(incomingNode);
+                node.setsRightChild(incomingNode);
             }
         }
     }
@@ -80,21 +80,21 @@ public class BinarySearchTree {
     // Checks if an element contains a certain data
     // Precon: Data to check is in the Binary Search Tree
     // Postcon: Data to check is in the Binary Search Tree
-    private boolean isContainKey(Node currentNode, int key) {
-        System.out.print(currentElementString + currentNode.getsData());
-        if (key == currentNode.getsData()) {
+    private boolean isContainKey(Node node, int key) {
+        System.out.print(currentElementString + node.getsData());
+        if (key == node.getsData()) {
             System.out.println(" | Found!");
             return true;
         }
 
-        if (key > currentNode.getsData() && currentNode.hasRightChild()) {
-            System.out.println(" | going to rightChild: " + currentNode.getsRightChild().getsData());
-            return isContainKey(currentNode.getsRightChild(), key);
+        if (key > node.getsData() && node.hasRightChild()) {
+            System.out.println(" | going to rightChild: " + node.getsRightChild().getsData());
+            return isContainKey(node.getsRightChild(), key);
         }
 
-        if (key < currentNode.getsData() && currentNode.hasLeftChild()) {
-            System.out.println(" | going to leftChild: " + currentNode.getsLeftChild().getsData());
-            return isContainKey(currentNode.getsLeftChild(), key);
+        if (key < node.getsData() && node.hasLeftChild()) {
+            System.out.println(" | going to leftChild: " + node.getsLeftChild().getsData());
+            return isContainKey(node.getsLeftChild(), key);
         }
 
         System.out.println(" | this element has no children | end of search");
@@ -124,38 +124,38 @@ public class BinarySearchTree {
     // Displays Binary Search Tree using in-order traversal
     // Precon: Binary Search Tree formed is correct
     // Postcon: Searches for element in the Binary Search Tree
-    private void displaysBinarySearchTree(Node currentNode, int traversalOrder) {
+    private void displaysBinarySearchTree(Node node, int traversalOrder) {
         // In-order traversal
         if (traversalOrder == 0) {
-            if (currentNode.hasLeftChild()) {
-                displaysBinarySearchTree(currentNode.getsLeftChild(), traversalOrder);
+            if (node.hasLeftChild()) {
+                displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
             }
-            System.out.print(currentNode.getsData() + "  ");
-            if (currentNode.hasRightChild()) {
-                displaysBinarySearchTree(currentNode.getsRightChild(), traversalOrder);
+            System.out.print(node.getsData() + "  ");
+            if (node.hasRightChild()) {
+                displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
             }
         }
 
         // Pre-order traversal
         if (traversalOrder == 1) {
-            System.out.print(currentNode.getsData() + "  ");
-            if (currentNode.hasLeftChild()) {
-                displaysBinarySearchTree(currentNode.getsLeftChild(), traversalOrder);
+            System.out.print(node.getsData() + "  ");
+            if (node.hasLeftChild()) {
+                displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
             }
-            if (currentNode.hasRightChild()) {
-                displaysBinarySearchTree(currentNode.getsRightChild(), traversalOrder);
+            if (node.hasRightChild()) {
+                displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
             }
         }
 
         // Post-order traversal
         if (traversalOrder == 2) {
-            if (currentNode.hasLeftChild()) {
-                displaysBinarySearchTree(currentNode.getsLeftChild(), traversalOrder);
+            if (node.hasLeftChild()) {
+                displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
             }
-            if (currentNode.hasRightChild()) {
-                displaysBinarySearchTree(currentNode.getsRightChild(), traversalOrder);
+            if (node.hasRightChild()) {
+                displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
             }
-            System.out.print(currentNode.getsData() + "  ");
+            System.out.print(node.getsData() + "  ");
         }
     }
 
@@ -180,17 +180,17 @@ public class BinarySearchTree {
     // Searches for minimium element in the Binary Search Tree
     // Precon: Binary Search Tree has 5 - 12 elements
     // Postcon: Searches for maximum element
-    private void searchesMinimum(Node currentNode) {
-        if (currentNode != null) {
-            System.out.print(currentElementString + currentNode.getsData());
-            if (currentNode.hasLeftChild()) {
-                System.out.println(" | going to leftChild: " + currentNode.getsLeftChild().getsData());
-                searchesMinimum(currentNode.getsLeftChild());
+    private void searchesMinimum(Node node) {
+        if (node != null) {
+            System.out.print(currentElementString + node.getsData());
+            if (node.hasLeftChild()) {
+                System.out.println(" | going to leftChild: " + node.getsLeftChild().getsData());
+                searchesMinimum(node.getsLeftChild());
             } else {
                 // Currently at left-most element. This is the minumum element
                 System.out.println(" | this element has no leftChild | end of search");
                 displaysNewLine();
-                System.out.println("* Minimum Element: " + currentNode.getsData());
+                System.out.println("* Minimum Element: " + node.getsData());
                 displaysLine();
             }
         }
@@ -199,17 +199,17 @@ public class BinarySearchTree {
     // Searches for maximum element in the Binary Search Tree
     // Precon: Binary Search Tree has 5 - 12 elements
     // Postcon: Searches for maximum element
-    private void searchesMaximum(Node currentNode) {
-        if (currentNode != null) {
-            System.out.print(currentElementString + currentNode.getsData());
-            if (currentNode.hasRightChild()) {
-                System.out.println(" | going to rightChild: " + currentNode.getsRightChild().getsData());
-                searchesMaximum(currentNode.getsRightChild());
+    private void searchesMaximum(Node node) {
+        if (node != null) {
+            System.out.print(currentElementString + node.getsData());
+            if (node.hasRightChild()) {
+                System.out.println(" | going to rightChild: " + node.getsRightChild().getsData());
+                searchesMaximum(node.getsRightChild());
             } else {
                 // Currently at right-most element. This is the maximum element
                 System.out.println(" | this element has no righChild | end of search");
                 displaysNewLine();
-                System.out.println("* Maximum Element: " + currentNode.getsData());
+                System.out.println("* Maximum Element: " + node.getsData());
                 displaysLine();
             }
         }
