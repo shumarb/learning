@@ -11,4 +11,4 @@ An `AVL Tree` is a **complete binary tree (non-linear and dynamic data structure
 5. Navigate to the `avl-tree` folder by entering `cd data-structure/tree/avl-tree`.
 6. Compile the program by entering `javac AVLTree.java`.
 7. Run the program by entering `java AVLTree`.
-8. The program creates an `AVL Tree`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program demonstrates the application of these operations on the `AVL Tree`.
+8. The program creates an `AVL Tree`. The elements are of type `integer`, and the number of elements range from `5 to 12`. You are advised to `draw` the `AVL tree` based on the `In-Order traversal (displaying leftchild - current element - rightchild`. The program demonstrates the application of these operations on the `AVL Tree`.
