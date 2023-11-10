@@ -1,7 +1,7 @@
 # Binary Search Tree
 
 ## What is a Binary Search Tree?
-A `Binary Search Tree` is a **complete binary tree (non-linear and dynamic data structure)** where `each` element is `>=` all elements in it's `left subtree`, and `<` all elements in it's `right subtree`.
+A `Binary Search Tree` is an **ordered binary tree (non-linear and dynamic data structure)** where `each` element is `>=` all elements in it's `left subtree`, and `<` all elements in it's `right subtree`.
 
 ## How to use this folder
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).

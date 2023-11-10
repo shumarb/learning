@@ -1,7 +1,8 @@
 # AVL Tree
 
 ## What is an AVL Tree?
-An `AVL Tree` is a **complete binary tree (non-linear and dynamic data structure)** where `each` element is `>=` all elements in it's `left subtree`, and `<` all elements in it's `right subtree`. An `AVL Tree` is also a `self-balancing Binary Search Tree`.
+An `AVL Tree` is a **self-balancing** [Binary Search Tree](https://github.com/shumarb/notes-and-code/tree/main/data-structures/tree/binary-search-tree).
+This means that the `balance factor` of every element in the `AVL Tree` is either `-1`, `0`, or `1`. The `balance factor` of an element is denoted as `height of left subtree - height of right subtree`.
 
 ## How to use this folder
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
