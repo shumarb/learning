@@ -1,252 +1,286 @@
+// Reference: https://www.youtube.com/watch?v=TbvhGcf6UJU&ab_channel=nptelhrd, https://www.geeksforgeeks.org/insertion-in-an-avl-tree/, https://www.baeldung.com/java-avl-trees
+import java.util.HashSet;
 import java.util.Random;
-
-public class BinarySearchTree {
-    private static final String currentElementString = " ** current element: ";
+  
+public class BinarySearchTree { 
+  
+    private HashSet <Integer> set = new HashSet <> ();
+    private Node root; 
     private Random myRandom = new Random();
 
-    // Displays Message
+    // Gets height of a node
     // Precon: Nil
     // Postcon: Nil
-    private void displaysMessage(String sentence) {
-        System.out.println(sentence);
+    private int getsHeight(Node node) { 
+        return (node == null) ? -1 : node.getsHeight();
+    } 
+
+    // Displays Line
+    // Precon: Nil
+    // Postcon: Nil
+    private void displaysLine() {
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Forms the Binary Search Tree
-    // Precon: No Binary Search Tree formed
-    // Postcon: Binary Search Tree of size >= 1 formed
-    private int insertElements(Node rootNode) {
-        displaysLine();
-        displaysMessage("======= Insertion =======");
-        System.out.println("* root: " + rootNode.getsData());
-        int numberOfNodesToAdd = myRandom.nextInt(5, 12);
-        for (int i = 0; i < numberOfNodesToAdd; i++) {
-            Node incomingNode = new Node(myRandom.nextInt(-10, 10));
-            System.out.println("* to add: " + incomingNode.getsData());
-            insertElements(rootNode, incomingNode);
-        }
-        displaysLine();
-        return numberOfNodesToAdd + 1;
-    }
-
-    // Inserts node into the Binary Search Tree
-    // Precon: Binary Search Tree has 5 - 12 elements
-    // Postcon: Node inserted into the Binary Search Tree
-    private void insertElements(Node node, Node incomingNode) {
-        if (incomingNode.getsData() <= node.getsData()) {
-            if (node.hasLeftChild()) {
-                insertElements(node.getsLeftChild(), incomingNode);
-            } else {
-                node.setsLeftChild(incomingNode);
-            }
-        } else {
-            if (node.hasRightChild()) {
-                insertElements(node.getsRightChild(), incomingNode);
-            } else {
-                node.setsRightChild(incomingNode);
-            }
-        }
-    }
-
-    // Forms root element of the Binary Search Tree
-    // Precon: No Binary Search Tree formed
-    // Postcon: Binary Search Tree has 1 node
-    private Node formsRoot() {
-        return new Node(myRandom.nextInt(10));
-    }
-
-    // Displays new line
+    // Displays New Line
     // Precon: Nil
     // Postcon: Nil
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Display line
+    // Displays two new Line
     // Precon: Nil
     // Postcon: Nil
-    private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
+    private void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
+    }
+
+    // Displays element information
+    // Precon: All elements inserted into Binary Search Tree
+    // Postcon: Nil
+    private void displaysElementInformation(Node node) {
+        System.out.print("[" + node.getsData()
+                        + ", h: " + node.getsHeight()
+                        + "]  "
+        );
+    }
+
+    // Updates height of node
+    // Precon: Node inserted into Binary Search Tree
+    // Postcon: Rotate Binary Search Tree if required
+    private void updatesHeight(Node node, String operation) {
+        if (node == null) {
+            return;
+        }
+        if (operation.equals("increase")) {
+            node.setsHeight(1 + Math.max(getsHeight(node.getsLeftChild()), getsHeight(node.getsRightChild())));
+        }
+        if (operation.equals("updates height of elements in left and right subtrees")) {
+            if (node.hasLeftChild()) {
+                node.getsLeftChild().setsHeight(node.getsHeight() - 1);
+                updatesHeight(node.getsLeftChild(), "updates height of elements in left and right subtrees");
+            }
+            if (node.hasRightChild()) {
+                node.getsRightChild().setsHeight(node.getsHeight() - 1);
+                updatesHeight(node.getsRightChild(), "updates height of elements in left and right subtrees");
+            }
+        }
+    }
+
+    // Forms data set to insert into Binary Search Tree
+    // Precon: Nil
+    // Postcon: Nil
+    private void formsSet() {
+        int data = myRandom.nextInt(-10, 10);
+        int order = myRandom.nextInt(1, 3);
+        for (int i = 0; i < myRandom.nextInt(8, 12); i++) {
+            if (order == 1) {
+                // Ascending order of number to be inserted into the Binary Search Tree
+                set.add(data++);
+            } else if (order == 2) {
+                // Descending order of number to be inserted into the Binary Search Tree
+                set.add(data--);
+            } else {
+                while (set.contains(data)) {
+                    data = myRandom.nextInt(-10, 10);
+                }
+                set.add(data);
+            }
+        }
+    }
+
+    private void formsBinarySearchTree() {
+        displaysLine();
+        System.out.println("======= Insertion =======");
+        formsSet();
+        System.out.println("Forming Binary Search Tree with " + set.size() + " elements:");
+        displaysNewLine();
+        for (int data: set) {
+            System.out.println(" * inserting " + data);
+            root = insertion(root, data);
+        }
+        // Binary Search Tree formed but value of each element's height may not be 1 less
+        // than it's parent, so update to ensure it is correct.
+        updatesHeight(root, "updates height of elements in left and right subtrees");
+        displaysNewLine();
+        displaysLine();
+    }
+
+    // Insert an element into Binary Search Tree
+    // Precon: Binary Search Tree with specified number of elements not formed
+    // Postcon: Binary Search Tree with specified number of elements formed
+    private Node insertion(Node node, int data) { 
+        if (node == null) {
+            return new Node(data);
+        } else if (data < node.getsData()) {
+            node.setsLeftChild(insertion(node.getsLeftChild(), data));
+        } else {
+            node.setsRightChild(insertion(node.getsRightChild(), data)); 
+        } 
+        updatesHeight(node, "increase");
+        return node;
+    } 
+
+    // Displays Binary Search Tree
+    // Precon: All elements inserted into Binary Search Tree
+    // Postcon: Nil
+    private void displaysBinarySearchTree(Node node, String traversalOrder) {
+        if (node == null) {
+            return;
+        } else if (traversalOrder.equals("in-order")) {
+            displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
+            displaysElementInformation(node);
+            displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
+        } else if (traversalOrder.equals("pre-order")) {
+            displaysElementInformation(node);
+            displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
+            displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
+        } else {
+            displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
+            displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
+            displaysElementInformation(node);
+        }
+    }
+
+    // Displays Binary Search Tree
+    // Precon: Binary Search Tree is formed
+    // Postcon: Nil
+    private void displaysBinarySearchTree() {
+        System.out.println("======= Traversal =======");
+        System.out.println("Displaying Binary Search Tree of " + set.size() + " elements:");
+        displaysNewLine();
+        System.out.print(" * In-order:\t");
+        displaysBinarySearchTree(root, "in-order");
+        displaysTwoNewLines();
+        System.out.print(" * Pre-order:\t");
+        displaysBinarySearchTree(root, "pre-order");
+        displaysTwoNewLines();
+        System.out.print(" * Post-order:\t");
+        displaysBinarySearchTree(root, "post-order");
+        displaysNewLine();
+        displaysLine();
+    }
+
+    // Searches for element in Binary Search Tree
+    // Precon: Binary Search Tree formed
+    // Postcon: Nil
+    private void searchesBinarySearchTree() {
+        System.out.println("======= Search =======");
+        Node node;
+
+        int key = myRandom.nextInt(-10, 10);
+        System.out.println("Search for " + key + " | Starting from the root of the Binary Search Tree...");
+        node = search(root, "binary search", key);
+        if (node == null) {
+            System.out.println(key + " is not in the Binary Search Tree");
+        } else {
+            System.out.println(key + " is in the Binary Search Tree");
+        }
+        displaysTwoNewLines();
+
+        System.out.println("Search for minimum element | Starting from the root of the Binary Search Tree...");
+        node = search(root, "searches minimum", 0);
+        System.out.println("Minimum element: " + node.getsData());
+        displaysTwoNewLines();
+        
+        System.out.println("Search for maximum element | Starting from the root of the Binary Search Tree...");
+        node = search(root, "searches maximum", 0);
+        System.out.println("Maximum element: " + node.getsData());
+        displaysLine();
+    }
+
+    // Searches for maximum or minimum element
+    // Precon: Binary Search Tree formed
+    // Postcon: Nil
+    private Node search(Node node, String searchOperation, int key) {
+        if (searchOperation.equals("searches minimum")) {
+            System.out.print(" * current element: " + node.getsData());
+            if (node.hasLeftChild()) {
+                System.out.println(" | going to left child of " + node.getsData());
+                return search(node.getsLeftChild(), searchOperation, key);
+            } else {
+                System.out.println(" | " + node.getsData() + " has no left child, so the search ends here");
+                displaysNewLine();
+                return node;
+            }
+        } else if (searchOperation.equals("searches maximum")) {
+            System.out.print(" * current element: " + node.getsData());
+            if (node.hasRightChild()) {
+                System.out.println(" | going to right child of " + node.getsData());
+                return search(node.getsRightChild(), searchOperation, key);
+            } else {
+                System.out.println(" | " + node.getsData() + " has no right child, so the search ends here");
+                displaysNewLine();
+                return node;
+            }
+        } else if (searchOperation.equals("binary search")) {
+            System.out.print(" * current element: " + node.getsData());
+            if (key == node.getsData()) {
+                System.out.print(" | Found!");
+                displaysTwoNewLines();
+                return node;
+            } else if (key > node.getsData()) {
+                if (node.hasRightChild()) {
+                    System.out.println(" | " + key + " > " + node.getsData() + ", so go to right child of " + node.getsData());
+                    return search(node.getsRightChild(), searchOperation, key);
+                } else {
+                    System.out.println(" | " + node.getsData() + " has no right child, so the search ends here");
+                    displaysNewLine();
+                }
+            } else {
+                if (node.hasLeftChild()) {
+                    System.out.println(" | " + key + " < " + node.getsData() + ", so go to left child of " + node.getsData());
+                    return search(node.getsLeftChild(), searchOperation, key);
+                } else {
+                    System.out.println(" | " + node.getsData() + " has no left child, so the search ends here");
+                    displaysNewLine();
+                }
+            }
+        }
+
+        return null;
     }
     
-    // Displays number of elements in the Binary Search Tree
-    // Precon: Binary Search Tree is correctly filled
-    // Postcon: Displays elements in the Binary Search Tree
-    private void displaysNumberOfNodes(int numberOfNodes) {
-        displaysMessage("======= Traversal =======");
-        System.out.println("Binary Search Tree of " + numberOfNodes + " nodes");
-        displaysNewLine();
-    }
-
-    // Checks if an element contains a certain data
-    // Precon: Data to check is in the Binary Search Tree
-    // Postcon: Data to check is in the Binary Search Tree
-    private boolean isContainKey(Node node, int key) {
-        System.out.print(currentElementString + node.getsData());
-        if (key == node.getsData()) {
-            System.out.println(" | Found!");
-            return true;
-        }
-
-        if (key > node.getsData() && node.hasRightChild()) {
-            System.out.println(" | going to rightChild: " + node.getsRightChild().getsData());
-            return isContainKey(node.getsRightChild(), key);
-        }
-
-        if (key < node.getsData() && node.hasLeftChild()) {
-            System.out.println(" | going to leftChild: " + node.getsLeftChild().getsData());
-            return isContainKey(node.getsLeftChild(), key);
-        }
-
-        System.out.println(" | this element has no children | end of search");
-        return false;
-    }
-
-    // Checks if an element contains a certain data
-    // Precon: Data to check is in the Binary Search Tree
-    // Postcon: Data to check is in the Binary Search Tree
-    private void searchesKey(Node rootNode) {
-        displaysNewLine();
-        displaysLine();
-        displaysMessage("======= Search =======");
-        int key = myRandom.nextInt(1, 10);
-        System.out.println("* Is " + key + " in the BinarySearchTree? Traverse from the root...");
-        displaysNewLine();
-        if (isContainKey(rootNode, key)) {
-            displaysNewLine();
-            System.out.println("* " + key + " is in BinarySearchTree");
-        } else {
-            displaysNewLine();
-            System.out.println("* " + key + " is not in BinarySearchTree");
-        }
-        displaysLine();
-    }
-
-    // Displays Binary Search Tree using in-order traversal
-    // Precon: Binary Search Tree formed is correct
-    // Postcon: Searches for element in the Binary Search Tree
-    private void displaysBinarySearchTree(Node node, int traversalOrder) {
-        // In-order traversal
-        if (traversalOrder == 0) {
-            if (node.hasLeftChild()) {
-                displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
-            }
-            System.out.print(node.getsData() + "  ");
-            if (node.hasRightChild()) {
-                displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
-            }
-        }
-
-        // Pre-order traversal
-        if (traversalOrder == 1) {
-            System.out.print(node.getsData() + "  ");
-            if (node.hasLeftChild()) {
-                displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
-            }
-            if (node.hasRightChild()) {
-                displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
-            }
-        }
-
-        // Post-order traversal
-        if (traversalOrder == 2) {
-            if (node.hasLeftChild()) {
-                displaysBinarySearchTree(node.getsLeftChild(), traversalOrder);
-            }
-            if (node.hasRightChild()) {
-                displaysBinarySearchTree(node.getsRightChild(), traversalOrder);
-            }
-            System.out.print(node.getsData() + "  ");
-        }
-    }
-
-    // Displays the Binary Search Tree based on traversal type
-    // Precon: There is >= 1 element in the Binary Search Tree
-    // Postcon: Checks for an element in the Binary Search Tree
-    private void displaysBinarySearchTree(Node rootNode) {
-        for (int i = 0; i < 3; i++) {
-            if (i == 0) {
-                System.out.print(" * In-order traversal:\t\t");
-            } else if (i == 1) {
-                displaysNewLine();
-                System.out.print(" * Pre-order traversal:\t\t");
-            } else {
-                displaysNewLine();
-                System.out.print(" * Post-order traversal:\t");
-            }
-            displaysBinarySearchTree(rootNode, i);
-        }
-    }
-
-    // Searches for minimium element in the Binary Search Tree
-    // Precon: Binary Search Tree has 5 - 12 elements
-    // Postcon: Searches for maximum element
-    private void searchesMinimum(Node node) {
-        if (node != null) {
-            System.out.print(currentElementString + node.getsData());
-            if (node.hasLeftChild()) {
-                System.out.println(" | going to leftChild: " + node.getsLeftChild().getsData());
-                searchesMinimum(node.getsLeftChild());
-            } else {
-                // Currently at left-most element. This is the minumum element
-                System.out.println(" | this element has no leftChild | end of search");
-                displaysNewLine();
-                System.out.println("* Minimum Element: " + node.getsData());
-                displaysLine();
-            }
-        }
-    }
-
-    // Searches for maximum element in the Binary Search Tree
-    // Precon: Binary Search Tree has 5 - 12 elements
-    // Postcon: Searches for maximum element
-    private void searchesMaximum(Node node) {
-        if (node != null) {
-            System.out.print(currentElementString + node.getsData());
-            if (node.hasRightChild()) {
-                System.out.println(" | going to rightChild: " + node.getsRightChild().getsData());
-                searchesMaximum(node.getsRightChild());
-            } else {
-                // Currently at right-most element. This is the maximum element
-                System.out.println(" | this element has no righChild | end of search");
-                displaysNewLine();
-                System.out.println("* Maximum Element: " + node.getsData());
-                displaysLine();
-            }
-        }
-    }
-
     private void run() {
-        Node rootNode = formsRoot();
-        int numberOfNodes = insertElements(rootNode);
-        displaysNumberOfNodes(numberOfNodes);
-        displaysBinarySearchTree(rootNode);
-        searchesKey(rootNode);
-        displaysMessage("======= Search Minimum Element =======");
-        searchesMinimum(rootNode);
-        displaysMessage("======= Search Maximum Element =======");
-        searchesMaximum(rootNode);
+        formsBinarySearchTree();
+        displaysBinarySearchTree();
+        searchesBinarySearchTree();
     }
-    public static void main(String[] args) {
+
+    public static void main(String[] args) { 
         BinarySearchTree obj = new BinarySearchTree();
         obj.run();
-    }
-}
+    } 
+} 
 
-class Node {
+class Node { 
     private int data;
+    private int height;
     private Node leftChild;
-    private Node rightChild;
+    private Node rightChild; 
+  
+    public Node(int data) { 
+        this.data = data; 
+    }
 
-    public Node(int data) {
-        this.data = data;
-        this.leftChild = null;
-        this.rightChild = null;
+    public boolean hasLeftChild() {
+        return this.leftChild != null;
+    }
+    
+    public boolean hasRightChild() {
+        return this.rightChild != null;
     }
 
     public int getsData() {
         return this.data;
     }
 
+    public int getsHeight() {
+        return this.height;
+    }
+    
     public Node getsLeftChild() {
         return this.leftChild;
     }
@@ -255,19 +289,15 @@ class Node {
         return this.rightChild;
     }
 
-    public boolean hasLeftChild() {
-        return this.leftChild != null;
+    public void setsHeight(int height) {
+        this.height = height;
     }
 
-    public boolean hasRightChild() {
-        return this.rightChild != null;
+    public void setsLeftChild(Node leftChild) {
+        this.leftChild = leftChild;
     }
 
-    public void setsLeftChild(Node incomingNode) {
-        this.leftChild = incomingNode;
+    public void setsRightChild(Node rightChild) {
+        this.rightChild = rightChild;
     }
-
-    public void setsRightChild(Node incomingNode) {
-        this.rightChild = incomingNode;
-    }
-}
+} 
