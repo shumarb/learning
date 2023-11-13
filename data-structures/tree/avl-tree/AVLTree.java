@@ -225,10 +225,10 @@ public class AVLTree {
     // Precon: Nil
     // Postcon: Nil
     private Node searchMinimum(Node node) {
-        if (node.hasLeftChild()) {
-            return searchMinimum(node.getsLeftChild());
+        if (node == null || !node.hasLeftChild()) {
+            return node;
         }
-        return node;
+        return searchMinimum(node.getsLeftChild());
     }
 
     // Displays AVL Tree
@@ -363,8 +363,6 @@ public class AVLTree {
         set.remove(key);
         System.out.println("Deleted: " + key);
         updatesHeight(root, "updates height of elements in left and right subtrees");
-        displaysNewLine();
-        System.out.println(key + " deleted from AVL Tree");
         displaysNewLine();
     }
 
