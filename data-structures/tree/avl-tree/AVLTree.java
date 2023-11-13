@@ -220,22 +220,13 @@ public class AVLTree {
         return rightChild; 
     } 
 
-    // Finds maximum of a subtree
-    // Precon: Nil
-    // Postcon: Nil
-    private Node searchMaximum(Node node) {
-        if (node.hasRightChild()) {
-            return searchMaximum(node.getsRightChild());
-        }
-        return node;
-    }
 
     // Finds minimum of a subtree
     // Precon: Nil
     // Postcon: Nil
     private Node searchMinimum(Node node) {
         if (node.hasLeftChild()) {
-            return searchMaximum(node.getsLeftChild());
+            return searchMinimum(node.getsLeftChild());
         }
         return node;
     }
