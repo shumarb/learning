@@ -49,11 +49,9 @@ public class AVLTree {
     private void updatesHeight(Node node, String operation) {
         if (node == null) {
             return;
-        }
-        if (operation.equals("increase")) {
+        } else if (operation.equals("increase")) {
             node.setsHeight(1 + Math.max(getsHeight(node.getsLeftChild()), getsHeight(node.getsRightChild())));
-        }
-        if (operation.equals("updates height of elements in left and right subtrees")) {
+        } else if (operation.equals("updates height of elements in left and right subtrees")) {
             if (node.hasLeftChild()) {
                 node.getsLeftChild().setsHeight(node.getsHeight() - 1);
                 updatesHeight(node.getsLeftChild(), "updates height of elements in left and right subtrees");
@@ -120,6 +118,7 @@ public class AVLTree {
         // Hence, this update ensures every child is 1 level below it's parent.
         updatesHeight(root, "updates height of elements in left and right subtrees");
         displaysNewLine();
+        displaysAVLTree();
     }
 
     // Insert an element into AVL Tree
@@ -174,20 +173,23 @@ public class AVLTree {
 
         return node;
     }
+
     // Right Rotation
     // Precon: Balance factor of node is < -1
     // Postcon: Nil
     private Node rightRotation(Node node) { 
-        // 1. Obtain node's predecessor
-        // Predecessor is the largest element smaller than the element
-        // Hence, a predecessor is the largest element in the element's left subtree
+        if (node == null) {
+            return node;
+        }
+
+        // 1. Obtain node's left child and the left child's right child
         Node leftChild = node.getsLeftChild(); 
-        Node predecessor = leftChild.getsRightChild();
+        Node centerNode = leftChild.getsRightChild();
   
         // 2. Right rotation
-        // Note that node > leftChild > predecessor
+        // Note that node > centerNode > leftChild
         leftChild.setsRightChild(node);
-        node.setsLeftChild(predecessor);
+        node.setsLeftChild(centerNode);
   
         // 3. Update heights 
         updatesHeight(node, "increase");
@@ -201,16 +203,18 @@ public class AVLTree {
     // Precon: Balance factor of node is > 1
     // Postcon: Nil
     private Node leftRotation(Node node) { 
-        // 1. Obtain node's successor
-        // Successor is the smallest element greater than the element
-        // Hence, a successor is the smallest element in the element's right subtree 
+        if (node == null) {
+            return node;
+        }
+
+        // 1. Obtain node's right child and the right child's left child
         Node rightChild = node.getsRightChild(); 
-        Node successor = rightChild.getsLeftChild();
+        Node centerNode = rightChild.getsLeftChild();
   
         // 2. Left rotation 
-        // Note that node < rightChild < successor
+        // Note that node < centerNode < rightChild
         rightChild.setsLeftChild(node);
-        node.setsRightChild(successor);
+        node.setsRightChild(centerNode);
   
         // 3. Update heights 
         updatesHeight(node, "increase");
@@ -219,7 +223,6 @@ public class AVLTree {
         // 4. Return new root
         return rightChild; 
     } 
-
 
     // Finds minimum of a subtree
     // Precon: Nil
@@ -317,6 +320,10 @@ public class AVLTree {
     // Precon: AVL Tree formed
     // Postcon: Nil
     private Node search(Node node, String searchOperation, int key) {
+        if (node == null) {
+            return node;
+        }
+        
         // searchOperation: binary search, searches maximum, searches minimum
         System.out.print(" * current element: " + node.getsData());
         if (key == node.getsData()) {
@@ -364,6 +371,7 @@ public class AVLTree {
         System.out.println("Deleted: " + key);
         updatesHeight(root, "updates height of elements in left and right subtrees");
         displaysNewLine();
+        displaysAVLTree();
     }
 
     // Deletion of element from AVL Tree
@@ -413,15 +421,15 @@ public class AVLTree {
         // 2. Updates height of current node
         updatesHeight(node, "increase");
 
+
+        // 3. Rebalance AVL Tree if required
         return rebalancesAVLTree(node);
     }
 
     private void run() {
         formsAVLTree();
-        displaysAVLTree();
         searchesAVLTree();
         deletionInAVLTree();
-        displaysAVLTree();
     }
 
     public static void main(String[] args) { 
@@ -446,10 +454,6 @@ class Node {
     
     public boolean hasRightChild() {
         return this.rightChild != null;
-    }
-
-    public boolean isLeaf() {
-        return !this.hasLeftChild() && !this.hasRightChild();
     }
 
     public int getsData() {

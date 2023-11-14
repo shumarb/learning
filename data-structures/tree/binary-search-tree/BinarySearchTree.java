@@ -41,10 +41,7 @@ public class BinarySearchTree {
     // Precon: All elements inserted into Binary Search Tree
     // Postcon: Nil
     private void displaysElementInformation(Node node) {
-        System.out.print("[" + node.getsData()
-                        + ", h: " + node.getsHeight()
-                        + "]  "
-        );
+        System.out.print("[" + node.getsData() + ", h: " + node.getsHeight() + "]  ");
     }
 
     // Updates height of node
@@ -53,11 +50,9 @@ public class BinarySearchTree {
     private void updatesHeight(Node node, String operation) {
         if (node == null) {
             return;
-        }
-        if (operation.equals("increase")) {
+        } else if (operation.equals("increase")) {
             node.setsHeight(1 + Math.max(getsHeight(node.getsLeftChild()), getsHeight(node.getsRightChild())));
-        }
-        if (operation.equals("updates height of elements in left and right subtrees")) {
+        } else if (operation.equals("updates height of elements in left and right subtrees")) {
             if (node.hasLeftChild()) {
                 node.getsLeftChild().setsHeight(node.getsHeight() - 1);
                 updatesHeight(node.getsLeftChild(), "updates height of elements in left and right subtrees");
@@ -69,24 +64,42 @@ public class BinarySearchTree {
         }
     }
 
-    // Forms data set to insert into Binary Search Tree
+    // Forms data in relation to elements in AVL Tree
+    // Precon: Nil
+    // Postcon: Nil
+    private int formsData(boolean isDataInAVLTree) {
+        int data;
+        if (isDataInAVLTree) {
+            // Generates data based on element in the AVL Tree
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            // Generates data based on element not in the AVL Tree
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
+
+    // Forms data set to insert into AVL Tree
     // Precon: Nil
     // Postcon: Nil
     private void formsSet() {
-        int data = myRandom.nextInt(-10, 10);
-        int order = myRandom.nextInt(1, 3);
-        for (int i = 0; i < myRandom.nextInt(8, 12); i++) {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = myRandom.nextInt(-100, 101);
+        int order = myRandom.nextInt(1, 4);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
             if (order == 1) {
-                // Ascending order of number to be inserted into the Binary Search Tree
+                // Ascending order of number to be inserted into AVL tree
                 set.add(data++);
             } else if (order == 2) {
-                // Descending order of number to be inserted into the Binary Search Tree
+                // Descending order of number to be inserted into AVL tree
                 set.add(data--);
             } else {
-                while (set.contains(data)) {
-                    data = myRandom.nextInt(-10, 10);
-                }
-                set.add(data);
+                set.add(formsData(false));
             }
         }
     }
@@ -105,6 +118,7 @@ public class BinarySearchTree {
         // than it's parent, so update to ensure it is correct.
         updatesHeight(root, "updates height of elements in left and right subtrees");
         displaysNewLine();
+        displaysBinarySearchTree();
         displaysLine();
     }
 
@@ -148,7 +162,6 @@ public class BinarySearchTree {
     // Precon: Binary Search Tree is formed
     // Postcon: Nil
     private void displaysBinarySearchTree() {
-        System.out.println("======= Traversal =======");
         System.out.println("Displaying Binary Search Tree of " + set.size() + " elements:");
         displaysNewLine();
         System.out.print(" * In-order:\t");
@@ -243,10 +256,83 @@ public class BinarySearchTree {
         return null;
     }
     
+    // Deletes element from Binary Search Tree
+    // Precon: Binary Search Tree has N elements
+    // Postcon: Binary Search Tree has N - 1 elements
+    private void deletionInBinarySearchTree() {
+        System.out.println("======= Deletion =======");
+        int key = formsData(true);
+        root = deletion(root, key);
+        set.remove(key);
+        System.out.println("Deleted: " + key);
+        updatesHeight(root, "updates height of elements in left and right subtrees");
+        displaysNewLine();
+        displaysBinarySearchTree();
+    }
+
+     // Deletion of element from AVL Tree
+    // Precon: Element is in AVL Tree
+    // Postcon: Element deleted from AVL Tree
+    private Node deletion(Node node, int key) {
+        // 1. Finds key to be deleted by traversing from the root
+        if (node == null) {
+            return node;
+        } else if (key < node.getsData()) {
+            node.setsLeftChild(deletion(node.getsLeftChild(), key));
+        } else if (key > node.getsData()) {
+            node.setsRightChild(deletion(node.getsRightChild(), key));
+        } else {
+            Node temp = null;
+            if (!node.hasLeftChild() || !node.hasRightChild()) {
+                temp = (temp == node.getsLeftChild()) ? node.getsRightChild() : node.getsLeftChild();
+
+                // Deleting a leaf
+                if (temp == null) {
+                    temp = node;
+
+                    // Node deleted
+                    node = null;
+                } else {
+                    // Deleting element with 1 child
+                    node = temp;
+                }
+            } else {
+                // Deleting element with 2 children
+                // Get in-order successor (smallest element in right subtree)
+                temp = searchMinimum(node.getsRightChild());
+
+                // Set current node's value to be that of it's successor
+                node.setsData(temp.getsData());
+
+                // Delete in-order successor
+                node.setsRightChild(deletion(node.getsRightChild(), node.getsData()));
+            }
+        }
+        
+        // If tree has only 1 element, then return
+        if (node == null) {
+            return node;
+        }
+
+        // 2. Updates height of current node
+        updatesHeight(node, "increase");
+        return node;
+    }
+
+    // Finds minimum of a subtree
+    // Precon: Nil
+    // Postcon: Nil
+    private Node searchMinimum(Node node) {
+        if (node == null || !node.hasLeftChild()) {
+            return node;
+        }
+        return searchMinimum(node.getsLeftChild());
+    }
+
     private void run() {
         formsBinarySearchTree();
-        displaysBinarySearchTree();
         searchesBinarySearchTree();
+        deletionInBinarySearchTree();
     }
 
     public static void main(String[] args) { 
@@ -287,6 +373,10 @@ class Node {
 
     public Node getsRightChild() {
         return this.rightChild;
+    }
+
+    public void setsData(int data) {
+        this.data = data;
     }
 
     public void setsHeight(int height) {
