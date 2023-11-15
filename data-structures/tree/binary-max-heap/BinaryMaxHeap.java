@@ -48,7 +48,7 @@ public class BinaryMaxHeap {
     // Forms Binary Max Heap
     // Precon: No Binary Max Heap created
     // Postcon: Binary Max Heap of N elements created
-    private int[] insertElements() {
+    private int[] insertion() {
         int[] inputArray = new int[myRandom.nextInt(5, 12)];
         for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] = myRandom.nextInt(-10000, 10000);
@@ -172,7 +172,7 @@ public class BinaryMaxHeap {
     // Searches for an element
     // Precon: Elements arranged based on Max Heap
     // Postcon: End of program
-    private void searchesElement(int[] inputArray) {
+    private void search(int[] inputArray) {
         System.out.println("======== Searches Element ========");
         displaysArray("* inputArray: [", inputArray, false);
         displaysNewLine();
@@ -193,13 +193,13 @@ public class BinaryMaxHeap {
     }
 
     private void run() {
-        int[] inputArray = insertElements();
+        int[] inputArray = insertion();
         int[] initialArray = formsInitialArray(inputArray);
         executesMaxHeapify(inputArray);
         displaysChange(inputArray, initialArray);
         searchesMaximum(inputArray);
         searchesMinimum(inputArray);
-        searchesElement(inputArray);
+        search(inputArray);
     }
 
     public static void main(String[] args) {

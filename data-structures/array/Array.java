@@ -1,23 +1,36 @@
+import java.util.HashSet;
 import java.util.Random;
 
 class Array {
-
+    private int[] inputArray;
     private Random myRandom = new Random();
 
     // Inserts elements into array
     // Precon: InputArray unitialised
     // Postcon: InputArray initialised with >= 1 element
-    private int[] insertsElements() {
+    private void insertion() {
         displaysLine();
         System.out.println("============ Insertion ============");
-        int numberOfElements = myRandom.nextInt(5, 12);
-        int[] inputArray = new int[numberOfElements];
+        int numberOfElements = myRandom.nextInt(5, 13);
+        System.out.println("Creating an Array with " + numberOfElements + " elements:");
+        displaysNewLine();
+        
+        // HashSet used only to generate unique numbers
+        HashSet <Integer> uniqueSet = new HashSet <> ();
+        inputArray = new int[numberOfElements];
         for (int i = 0; i < inputArray.length; i++) {
-            inputArray[i] = myRandom.nextInt(-10, 10);
+            int toAdd = myRandom.nextInt(-10, 10);
+            while (uniqueSet.contains(toAdd)) {
+                toAdd = myRandom.nextInt(-10, 10);
+            }
+            uniqueSet.add(toAdd);
+            System.out.println(" * Element #" + (i + 1) + ": " + toAdd);
+            inputArray[i] = toAdd;
         }
-        displaysElements(inputArray);
+
+        displaysNewLine();
+        displaysArray();
         displaysLine();
-        return inputArray;
     }
 
     // Displays line
@@ -26,11 +39,19 @@ class Array {
     private void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------");
     }
+
+    // Displays New Line
+    // Precon: Nil
+    // Postcon: Nil
+    private void displaysNewLine() {
+        System.out.println();
+    }
+
     // Displays array
     // Precon: Nil
     // Postcon: Nil
-    private void displaysElements(int[] inputArray) {
-        System.out.print("* Array: [");
+    private void displaysArray() {
+        System.out.print("Array: [");
         for (int i = 0; i < inputArray.length - 1; i++) {
             System.out.print(inputArray[i] + " ");
         }
@@ -40,75 +61,49 @@ class Array {
     // Searches for an element using binary search
     // Precon: Array has 5 - 12 elements
     // Postcon: Searches for maximum element
-    private void searchesElement(int[] inputArray) {
+    private void search() {
         System.out.println("============ Search ============");
-        displaysElements(inputArray);
+        displaysArray();
+        displaysNewLine();
         boolean isKeyFound = false;
         int key = myRandom.nextInt(-10, 10);
+        System.out.println("Linear Search on Array to find: " + key);
         for (int i = 0; i < inputArray.length; i++) {
-            System.out.print(" * key: " + key + " | current element: " + inputArray[i]);
+            System.out.print(" * current element: " + inputArray[i]);
             if (key == inputArray[i]) {
                 System.out.println(" | Found!");
                 isKeyFound = true;
                 break;
             } else {
-                System.out.println();
+                displaysNewLine();
             }
         }
-
         if (isKeyFound) {
             System.out.println(key + " is in array");
         } else {
             System.out.println(key + " is not in array");
         }
-        displaysLine();
-    }
+        displaysNewLine();
 
-    // Searches for maximum element
-    // Precon: Array has 5 - 12 elements
-    // Postcon: Searches for minimum element
-    private void searchesMaximum(int[] inputArray) {
-        System.out.println("============ Search Maximum ============");
-        displaysElements(inputArray);
         int maximum = inputArray[0];
+        int minimum = inputArray[0];
         for (int i = 1; i < inputArray.length; i++) {
-            System.out.print(" * maximum so far: " + maximum + " | current element: " + inputArray[i]);
             if (inputArray[i] > maximum) {
                 maximum = inputArray[i];
-                System.out.println(" | new maximum: " + maximum);
-            } else {
-                System.out.println();
+            }
+            if (inputArray[i] < minimum) {
+                minimum = inputArray[i];
             }
         }
-        System.out.println("Maximum: " + maximum);
-        displaysLine();
-    }
-
-    // Searches for minimum element
-    // Precon: Array has 5 - 12 elements
-    // Postcon: Searches for minimum element
-    private void searchesMinimum(int[] inputArray) {
-        System.out.println("============ Search Minimum ============");
-        displaysElements(inputArray);
-        int minumum = inputArray[0];
-        for (int i = 1; i < inputArray.length; i++) {
-            System.out.print(" * minumum so far: " + minumum + " | current element: " + inputArray[i]);
-            if (inputArray[i] < minumum) {
-                minumum = inputArray[i];
-                System.out.println(" | new minumum: " + minumum);
-            } else {
-                System.out.println();
-            }
-        }
-        System.out.println("Minimum: " + minumum);
+        System.out.println(" * Maximum: " + maximum);
+        displaysNewLine();
+        System.out.println(" * Miniimum: " + minimum);
         displaysLine();
     }
 
     private void run() {
-        int[] inputArray = insertsElements();
-        searchesElement(inputArray);
-        searchesMaximum(inputArray);
-        searchesMinimum(inputArray);
+        insertion();
+        search();
     }
 
     public static void main(String[] args) {
