@@ -154,7 +154,7 @@ public class AVLTree {
             return rightRotation(node);
         }
 
-        // 3.2. Left-Right imbalance ==> Left0Right rotation
+        // 3.2. Left-Right imbalance ==> Left-Right rotation
         if (balanceFactor > 1 && getsBalanceFactor(node.getsLeftChild()) < 0) {
             node.setsLeftChild(leftRotation(node.getsLeftChild()));
             return rightRotation(node);
