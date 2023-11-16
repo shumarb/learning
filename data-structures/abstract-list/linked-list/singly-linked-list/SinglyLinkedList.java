@@ -78,7 +78,7 @@ class SinglyLinkedList {
     // Searches for element in Singly Linked List
     // Precon: Singly Linked List of with 5 - 12 elements formed
     // Postcon: Searches for minimum element
-    private void searchesElement() {
+    private void search() {
         System.out.println("============ Search ============");
         displaysSinglyLinkedList(false);
         boolean isFound = false;
@@ -95,52 +95,35 @@ class SinglyLinkedList {
 
         displaysNewLine();
         if (isFound) {
-            System.out.println(key + " is in Singly Linked List");
+            System.out.println(" * " + key + " is in Singly Linked List");
         } else {
-            System.out.println(key + " is not in Singly Linked List");
+            System.out.println(" * " + key + " is not in Singly Linked List");
         }
-        displaysLine();
-    }
+        displaysNewLine();
 
-    // Searches for maximum element in Singly Linked List
-    // Precon: Singly Linked List has 5 to 12 elements
-    // Postcon: Search for minimum element
-    private void searchesMaximum() {
-        System.out.println("============ Search Maximum ============");
-        displaysSinglyLinkedList(false);
-        int maximum = head.getsNextNode().getsData();
-        Node currentNode = head.getsNextNode();
+        currentNode = head.getsNextNode();
+        int maximum = currentNode.getsData();
+        int minimum = currentNode.getsData();
         while (currentNode != null) {
             if (currentNode.getsData() > maximum) {
                 maximum = currentNode.getsData();
             }
-            currentNode = currentNode.getsNextNode();
-        }
-        displaysNewLine();
-        System.out.println("Maximum: " + maximum);
-        displaysLine();
-    }
-
-    private void searchesMinimum() {
-        System.out.println("============ Search Minimum ============");
-        displaysSinglyLinkedList(false);
-        int minimum = head.getsNextNode().getsData();
-        Node currentNode = head.getsNextNode();
-        while (currentNode != null) {
             if (currentNode.getsData() < minimum) {
                 minimum = currentNode.getsData();
             }
             currentNode = currentNode.getsNextNode();
         }
+
+        System.out.println(" * Maximum: " + maximum);
         displaysNewLine();
-        System.out.println("Minimum: " + minimum);
+        System.out.println(" * Minimum: " + minimum);
         displaysLine();
     }
 
     // Deletes element from Singly Linked List
     // Precon: Singly Linked List has 5 - 12 elements
     // Postcon: End of Program
-    private void deletesElement() {
+    private void deletion() {
         System.out.println("============ Deletion ============");
         int totalElements = 0;
         Node currentNode = head.getsNextNode();
@@ -196,10 +179,8 @@ class SinglyLinkedList {
 
     private void run() {
         formsSinglyLinkedList();
-        searchesElement();
-        searchesMaximum();
-        searchesMinimum();
-        deletesElement();
+        search();
+        deletion();
     }
     public static void main(String[] args) {
         SinglyLinkedList obj = new SinglyLinkedList();
@@ -213,7 +194,6 @@ class Node {
 
     public Node(int data) {
         this.data = data;
-        this.nextNode = null;
     }
 
     public boolean isLastNode() {

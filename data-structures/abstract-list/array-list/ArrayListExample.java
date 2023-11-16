@@ -23,7 +23,7 @@ class ArrayListExample {
     // Forms ArrayList
     // Precon: ArrayList initialised and has 0 elements
     // Postcon: ArrayList has 5 - 12 elements
-    private void insertElements() {
+    private void insertion() {
         System.out.println("============ Insertion ============");
         int numberOfElements = myRandom.nextInt(5, 12);
         System.out.println("Creating an ArrayList with " + numberOfElements + " elements:");
@@ -48,50 +48,32 @@ class ArrayListExample {
     // Searches for element in ArrayList
     // Precon: ArrayList has 5 - 12 elements
     // Postcon: Search for maximum element
-    private void searchesElement() {
+    private void search() {
         System.out.println("============ Search ============");
         displaysArrayList("");
         displaysNewLine();
         int key = myRandom.nextInt(-10, 10);
         if (arrayList.contains(key)) {
-            System.out.println(key + " is in ArrayList");
+            System.out.println(" * " + key + " is in ArrayList");
         } else {
-            System.out.println(key + " is not in ArrayList");
-        }
-        displaysLine();
-    }
-
-    // Searches for maximum element
-    // Precon: ArrayList has 5 - 12 elements
-    // Postcon: Search for minimum element
-    private void searchesMaximum() {
-        System.out.println("============ Search Maximum ============");
-        displaysArrayList("");
-        int maximumElement = arrayList.get(0);
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i) > maximumElement) {
-                maximumElement = arrayList.get(i);
-            }
+            System.out.println(" * " + key + " is not in ArrayList");
         }
         displaysNewLine();
-        System.out.println("Maximum: " + maximumElement);
-        displaysLine();
-    }
 
-    // Searches for minimum element
-    // Precon: ArrayList has 5 - 12 elements
-    // Postcon: Deletes element from ArrayList
-    private void searchesMinimum() {
-        System.out.println("============ Search Minimum ============");
-        displaysArrayList("");
-        int minimumElement = arrayList.get(0);
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i) < minimumElement) {
-                minimumElement = arrayList.get(i);
+        int maximum = arrayList.get(0);
+        int minimum = arrayList.get(0);
+        for (int i = 1; i < arrayList.size(); i++) {
+            if (arrayList.get(i) > maximum) {
+                maximum = arrayList.get(i);
+            }
+            if (arrayList.get(i) < minimum) {
+                minimum = arrayList.get(i);
             }
         }
+
+        System.out.println(" * Maximum: " + maximum);
         displaysNewLine();
-        System.out.println("Minimum: " + minimumElement);
+        System.out.println(" * Minimum: " + minimum);
         displaysLine();
     }
 
@@ -121,7 +103,7 @@ class ArrayListExample {
     // Deletes element from ArrayList
     // Precon: ArrayList has 5 - 12 elements
     // Postcon: Nil
-    private void deletesElement() {
+    private void deletion() {
         System.out.println("============ Deletion ============");
         displaysArrayList("Before deletion, ");
         displaysNewLine();
@@ -137,11 +119,9 @@ class ArrayListExample {
 
     private void run() {
         explainsArrayList();
-        insertElements();
-        searchesElement();
-        searchesMaximum();
-        searchesMinimum();
-        deletesElement();
+        insertion();
+        search();
+        deletion();
     }
     public static void main(String[] args) {
         ArrayListExample obj = new ArrayListExample();
