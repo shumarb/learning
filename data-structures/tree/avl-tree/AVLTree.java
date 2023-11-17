@@ -84,7 +84,7 @@ public class AVLTree {
         }
     }
 
-    // Forms data in relation to elements in AVL Tree
+    // Forms data in relation to elements in the AVL Tree
     // Precon: Nil
     // Postcon: Nil
     private int formsData(boolean isDataInAVLTree) {
@@ -280,7 +280,7 @@ public class AVLTree {
         displaysLine();
     }
 
-    // Searches for element in AVL Tree
+    // Searches for element in the AVL Tree
     // Precon: AVL Tree formed
     // Postcon: Nil
     private void searchesAVLTree() {
@@ -289,10 +289,10 @@ public class AVLTree {
         for (int i = 0; i < 2; i++) {
             int key;
             if (i == 0) {
-                // Find existing element in AVL Tree
+                // Find existing element in the AVL Tree
                 key = formsData(true);
             } else {
-                // Find non-existent element in AVL Tree
+                // Find non-existent element in the AVL Tree
                 key = formsData(false);
             }
             System.out.println("Search: " + key + " | Starting from the root of the AVL Tree...");
@@ -375,7 +375,7 @@ public class AVLTree {
     }
 
     // Deletion of element from AVL Tree
-    // Precon: Element is in AVL Tree
+    // Precon: Element is in the AVL Tree
     // Postcon: Element deleted from AVL Tree
     private Node deletion(Node node, int key) {
         // 1. Finds key to be deleted by traversing from the root

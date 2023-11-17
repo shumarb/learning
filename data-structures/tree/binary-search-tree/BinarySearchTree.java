@@ -64,12 +64,12 @@ public class BinarySearchTree {
         }
     }
 
-    // Forms data in relation to elements in AVL Tree
+    // Forms data in relation to elements in the Binary Search Tree
     // Precon: Nil
     // Postcon: Nil
-    private int formsData(boolean isDataInAVLTree) {
+    private int formsData(boolean isDataInBinarySearchTree) {
         int data;
-        if (isDataInAVLTree) {
+        if (isDataInBinarySearchTree) {
             // Generates data based on element in the AVL Tree
             do {
                 data = myRandom.nextInt(-100, 101);
@@ -271,7 +271,7 @@ public class BinarySearchTree {
     }
 
      // Deletion of element from AVL Tree
-    // Precon: Element is in AVL Tree
+    // Precon: Element is in the Binary Search Tree
     // Postcon: Element deleted from AVL Tree
     private Node deletion(Node node, int key) {
         // 1. Finds key to be deleted by traversing from the root
