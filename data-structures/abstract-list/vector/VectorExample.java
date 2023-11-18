@@ -23,7 +23,7 @@ class VectorExample {
     // Forms Vector
     // Precon: Vector initialised and has 0 elements
     // Postcon: Vector has 5 - 12 elements
-    private void insertElements() {
+    private void insertion() {
         System.out.println("============ Insertion ============");
         int numberOfElements = myRandom.nextInt(5, 12);
         System.out.println("Creating an Vector with " + numberOfElements + " elements:");
@@ -45,53 +45,35 @@ class VectorExample {
         System.out.println(message + "Vector: " + vector);
     }
 
-    // Searches for element in Vector
+    // Searches for an element, maximum, and minimum elements in the Vector
     // Precon: Vector has 5 - 12 elements
-    // Postcon: Search for maximum element
-    private void searchesElement() {
+    // Postcon: End of program
+    private void search() {
         System.out.println("============ Search ============");
         displaysVector("");
         displaysNewLine();
         int key = myRandom.nextInt(-10, 10);
         if (vector.contains(key)) {
-            System.out.println(key + " is in Vector");
+            System.out.println(" * " + key + " is in Vector");
         } else {
-            System.out.println(key + " is not in Vector");
+            System.out.println(" * " + key + " is not in Vector");
         }
-        displaysLine();
-    }
 
-    // Searches for maximum element
-    // Precon: Vector has 5 - 12 elements
-    // Postcon: Search for minimum element
-    private void searchesMaximum() {
-        System.out.println("============ Search Maximum ============");
-        displaysVector("");
-        int maximumElement = vector.get(0);
+        int maximum = vector.get(0);
+        int minimum = vector.get(0);
         for (int i = 0; i < vector.size(); i++) {
-            if (vector.get(i) > maximumElement) {
-                maximumElement = vector.get(i);
+            if (vector.get(i) > maximum) {
+                maximum = vector.get(i);
+            }
+            if (vector.get(i) < minimum) {
+                minimum = vector.get(i);
             }
         }
-        displaysNewLine();
-        System.out.println("Maximum: " + maximumElement);
-        displaysLine();
-    }
 
-    // Searches for minimum element
-    // Precon: Vector has 5 - 12 elements
-    // Postcon: Deletes element from Vector
-    private void searchesMinimum() {
-        System.out.println("============ Search Minimum ============");
-        displaysVector("");
-        int minimumElement = vector.get(0);
-        for (int i = 0; i < vector.size(); i++) {
-            if (vector.get(i) < minimumElement) {
-                minimumElement = vector.get(i);
-            }
-        }
         displaysNewLine();
-        System.out.println("Minimum: " + minimumElement);
+        System.out.println(" * Maximum: " + maximum);
+        displaysNewLine();
+        System.out.println(" * Minimum: " + minimum);
         displaysLine();
     }
 
@@ -120,7 +102,7 @@ class VectorExample {
     // Deletes element from Vector
     // Precon: Vector has 5 - 12 elements
     // Postcon: Nil
-    private void deletesElement() {
+    private void deletion() {
         System.out.println("============ Deletion ============");
         displaysVector("Before deletion, ");
         displaysNewLine();
@@ -136,11 +118,9 @@ class VectorExample {
 
     private void run() {
         explainsVector();
-        insertElements();
-        searchesElement();
-        searchesMaximum();
-        searchesMinimum();
-        deletesElement();
+        insertion();
+        search();
+        deletion();
     }
     public static void main(String[] args) {
         VectorExample obj = new VectorExample();

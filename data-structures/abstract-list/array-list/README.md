@@ -17,7 +17,7 @@ set(int index, Element e)| Replace the current element at specified index of the
 size()                   | Obtain the number of elements in the ArrayList
 
 ## How to use this folder
-1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/notes-and-code#how-to-use-this-repository).
+1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.
 4. Navigate to the location where the repository is cloned.
