@@ -1,4 +1,4 @@
-# Notes and Code
+# Learning
 This repository contains both my explanation and code (written in **Java**) of key Computer Science concepts.
 
 Concept                                                                             

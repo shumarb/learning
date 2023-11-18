@@ -3,6 +3,8 @@ import java.util.Random;
 
 class Array {
     private int[] inputArray;
+    // HashSet used only to generate unique numbers
+    HashSet <Integer> set = new HashSet <> ();
     private Random myRandom = new Random();
 
     // Inserts elements into array
@@ -16,14 +18,13 @@ class Array {
         displaysNewLine();
         
         // HashSet used only to generate unique numbers
-        HashSet <Integer> uniqueSet = new HashSet <> ();
         inputArray = new int[numberOfElements];
         for (int i = 0; i < inputArray.length; i++) {
             int toAdd = myRandom.nextInt(-10, 10);
-            while (uniqueSet.contains(toAdd)) {
+            while (set.contains(toAdd)) {
                 toAdd = myRandom.nextInt(-10, 10);
             }
-            uniqueSet.add(toAdd);
+            set.add(toAdd);
             System.out.println(" * Element #" + (i + 1) + ": " + toAdd);
             inputArray[i] = toAdd;
         }
@@ -58,32 +59,58 @@ class Array {
         System.out.println(inputArray[inputArray.length - 1] + "]");
     }
 
-    // Searches for an element using binary search
+    // Forms data in relation to elements in the Array
+    // Precon: Nil
+    // Postcon: Nil
+    private int formsData(boolean isDataInArray) {
+        int data;
+        if (isDataInArray) {
+            // Generates data based on element in the Array
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            // Generates data based on element not in the Array
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
+    
+
+    // Searches for an element using linear search
     // Precon: Array has 5 - 12 elements
     // Postcon: Searches for maximum element
     private void search() {
         System.out.println("============ Search ============");
         displaysArray();
         displaysNewLine();
-        boolean isKeyFound = false;
-        int key = myRandom.nextInt(-10, 10);
-        System.out.println("Linear Search on Array to find: " + key);
-        for (int i = 0; i < inputArray.length; i++) {
-            System.out.print(" * current element: " + inputArray[i]);
-            if (key == inputArray[i]) {
-                System.out.println(" | Found!");
-                isKeyFound = true;
-                break;
+
+        for (int i = 0; i < 2; i++) {
+            boolean isKeyFound = false;
+            int key;
+            if (i == 0) {
+                // Finds element in the Array
+                key = formsData(true);
             } else {
-                displaysNewLine();
+                // Finds element not in the Array
+                 key = formsData(false);
             }
+            System.out.println("Linear Search on Array to find: " + key);
+            for (int j = 0; j < inputArray.length; j++) {
+                if (key == inputArray[j]) {
+                    isKeyFound = true;
+                    break;
+                }
+            }
+            if (isKeyFound) {
+                System.out.println(key + " is in array");
+            } else {
+                System.out.println(key + " is not in array");
+            }
+            displaysNewLine();
         }
-        if (isKeyFound) {
-            System.out.println(key + " is in array");
-        } else {
-            System.out.println(key + " is not in array");
-        }
-        displaysNewLine();
 
         int maximum = inputArray[0];
         int minimum = inputArray[0];
@@ -95,15 +122,47 @@ class Array {
                 minimum = inputArray[i];
             }
         }
-        System.out.println(" * Maximum: " + maximum);
+        System.out.println("Maximum: " + maximum);
         displaysNewLine();
-        System.out.println(" * Miniimum: " + minimum);
+        System.out.println("Miniimum: " + minimum);
         displaysLine();
+    }
+
+    // Deletes an element from the array
+    // Precon: Search of array complete
+    // Postcon: End of program
+    private void deletion() {
+        System.out.println("============ Deletion ============");
+        System.out.print("Before deletion: ");
+        displaysArray();
+        displaysNewLine();
+        int indexOfDeletion = myRandom.nextInt(0, inputArray.length);
+        System.out.println(" * Deletion at index " + indexOfDeletion + ", which is element " + inputArray[indexOfDeletion]);
+        inputArray = deletion(indexOfDeletion);
+        displaysNewLine();
+        System.out.print("After deletion: ");
+        displaysArray();
+        displaysLine();
+    }
+
+    // Deletes an element from the array
+    // Precon: Search of array complete
+    // Postcon: End of program
+    private int[] deletion(int indexOfDeletion) {
+        int[] updatedArray = new int[inputArray.length - 1];
+        int j = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            if (i != indexOfDeletion) {
+                updatedArray[j++] = inputArray[i];
+            }
+        }
+        return updatedArray;
     }
 
     private void run() {
         insertion();
         search();
+        deletion();
     }
 
     public static void main(String[] args) {
