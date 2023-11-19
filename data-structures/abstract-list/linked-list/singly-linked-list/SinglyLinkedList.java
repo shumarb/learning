@@ -1,6 +1,9 @@
+import java.util.HashSet;
 import java.util.Random;
 
 class SinglyLinkedList {
+    // HashSet used only to generate unique numbers
+    private HashSet <Integer> set = new HashSet <> ();
     private Node head;
     private Random myRandom = new Random();
     
@@ -8,7 +11,7 @@ class SinglyLinkedList {
     // Precon: Nil
     // Postcon: Nil
     private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     // Displays New Line
@@ -17,6 +20,25 @@ class SinglyLinkedList {
     private void displaysNewLine() {
         System.out.println();
     }
+
+    // Forms data in relation to elements in the Array
+    // Precon: Nil
+    // Postcon: Nil
+    private int formsData(boolean isDataInSinglyLinkedList) {
+        int data;
+        if (isDataInSinglyLinkedList) {
+            // Generates data based on element in the Singly Linked List
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            // Generates data based on element not in the Singly Linked List
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
 
     // Finds last node in Singly Linked List
     // Precon: Formation of Singly Linked List ongoing
@@ -32,21 +54,22 @@ class SinglyLinkedList {
     // Forms Singly Linked List
     // Precon: Singly Linked List not formed
     // Postcon: Singly Linked List containing 5 to 12 elements formed
-    private void formsSinglyLinkedList() {
+    private void insertion() {
         displaysLine();
         System.out.println("============ Insertion ============");
-        int totalElements = myRandom.nextInt(5, 12);
-        System.out.println("Forming a Singly Linked List with " + totalElements + " elements:");
+        int numberOfElements = myRandom.nextInt(5, 12);
+        System.out.println("Forming a Singly Linked List with " + numberOfElements + " elements:");
         displaysNewLine();
-        for (int i = 0; i < totalElements; i++) {
-            Node incomingNode = new Node(myRandom.nextInt(-10, 10));
+        for (int i = 0; i < numberOfElements; i++) {
+            int data = formsData(false);
+            set.add(data);
+            Node incomingNode = new Node(data);
+            System.out.println(" * Inserting " + incomingNode.getsData());
             if (head == null) {
                 head = new Node(-1);
-                System.out.println(" * Inserting " + incomingNode.getsData());
                 head.setsNextNode(incomingNode);
             } else {
                 Node lastNode = findsLastNode(head.getsNextNode());
-                System.out.println(" * Inserting " + incomingNode.getsData());
                 lastNode.setsNextNode(incomingNode);
             }
         }
@@ -69,7 +92,6 @@ class SinglyLinkedList {
             currentNode = currentNode.getsNextNode();
         }
         displaysNewLine();
-
         if (isDisplayLine) {
             displaysLine();
         }
@@ -81,25 +103,33 @@ class SinglyLinkedList {
     private void search() {
         System.out.println("============ Search ============");
         displaysSinglyLinkedList(false);
-        boolean isFound = false;
-        int key = myRandom.nextInt(-10, 10);
-
-        Node currentNode = head.getsNextNode();
-        while (currentNode != null) {
-            if (currentNode.getsData() == key) {
-                isFound = true;
-                break;
+        displaysNewLine();
+        int key = formsData(false);
+        Node currentNode;
+        for (int i = 0; i < 2; i++) {
+            boolean isFound = false;
+            currentNode = head.getsNextNode();
+            if (i == 0) {
+                key = formsData(true);
+            } else {
+                key = formsData(false);
             }
-            currentNode = currentNode.getsNextNode();
-        }
+            currentNode = head.getsNextNode();
+            while (currentNode != null) {
+                if (currentNode.getsData() == key) {
+                    isFound = true;
+                    break;
+                }
+                currentNode = currentNode.getsNextNode();
+            }
 
-        displaysNewLine();
-        if (isFound) {
-            System.out.println(" * " + key + " is in Singly Linked List");
-        } else {
-            System.out.println(" * " + key + " is not in Singly Linked List");
+            if (isFound) {
+                System.out.println(" * " + key + " is in Singly Linked List");
+            } else {
+                System.out.println(" * " + key + " is not in Singly Linked List");
+            }
+            displaysNewLine();
         }
-        displaysNewLine();
 
         currentNode = head.getsNextNode();
         int maximum = currentNode.getsData();
@@ -113,7 +143,6 @@ class SinglyLinkedList {
             }
             currentNode = currentNode.getsNextNode();
         }
-
         System.out.println(" * Maximum: " + maximum);
         displaysNewLine();
         System.out.println(" * Minimum: " + minimum);
@@ -125,18 +154,18 @@ class SinglyLinkedList {
     // Postcon: End of Program
     private void deletion() {
         System.out.println("============ Deletion ============");
-        int totalElements = 0;
+        int numberOfElements = 0;
         Node currentNode = head.getsNextNode();
         while (currentNode != null) {
-            totalElements++;
+            numberOfElements++;
             currentNode = currentNode.getsNextNode();
         }
 
-        int indexOfDeletion = myRandom.nextInt(1, totalElements);
+        int indexOfDeletion = myRandom.nextInt(1, numberOfElements);
         System.out.print("Before deletion, ");
         displaysSinglyLinkedList(false);
         displaysNewLine();
-        System.out.println("Delete element #" + indexOfDeletion);
+        System.out.println("* Delete element #" + indexOfDeletion);
         displaysNewLine();
         // 1. Delete first element
         if (indexOfDeletion == 1) {
@@ -144,7 +173,7 @@ class SinglyLinkedList {
             Node toRemoveNode = head.getsNextNode();
             toRemoveNode.setsNextNode(null);
             head.setsNextNode(newFirstNode);
-        } else if (indexOfDeletion == totalElements) {
+        } else if (indexOfDeletion == numberOfElements) {
             // 2. Delete last element
             int currentIndex = 0;
             currentNode = head.getsNextNode();
@@ -172,13 +201,12 @@ class SinglyLinkedList {
                 currentNode = currentNode.getsNextNode();
             }
         }
-
         System.out.print("After deletion, ");
         displaysSinglyLinkedList(true);
     }
 
     private void run() {
-        formsSinglyLinkedList();
+        insertion();
         search();
         deletion();
     }
@@ -196,12 +224,12 @@ class Node {
         this.data = data;
     }
 
-    public boolean isLastNode() {
-        return this.nextNode == null;
-    }
-
     public boolean hasNextNode() {
         return this.nextNode != null;
+    }
+
+    public boolean isLastNode() {
+        return this.nextNode == null;
     }
 
     public int getsData() {
