@@ -62,9 +62,9 @@ class Array {
     // Forms data in relation to elements in the Array
     // Precon: Nil
     // Postcon: Nil
-    private int formsData(boolean isDataInArray) {
+    private int formsData(boolean isDataInSinglyLinkedList) {
         int data;
-        if (isDataInArray) {
+        if (isDataInSinglyLinkedList) {
             // Generates data based on element in the Array
             do {
                 data = myRandom.nextInt(-100, 101);
