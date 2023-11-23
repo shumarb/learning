@@ -138,6 +138,7 @@ class HeapSort {
         heapSort();
         displaysChange();
     }
+    
     public static void main(String[] args) {
         HeapSort obj = new HeapSort();
         obj.run();
