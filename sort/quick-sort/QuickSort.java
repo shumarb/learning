@@ -1,92 +1,88 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 
 class QuickSort {
-    // Randomly generate values for array
-    // Precon: Array not created
-    // Postcon: Array containing randomly-generated values created
-    private int[] insertion() {
-        Random rand = new Random();
-        int arraySize = rand.nextInt(5, 12);
-        int[] inputArray = new int[arraySize];
-        for (int i = 0; i < inputArray.length; i++) {
-            inputArray[i] = rand.nextInt(-10000, 10000);
-        }
-        return inputArray;
-    }
 
-    // Displays array for checking
-    // Precon: inputArray split into 2 arrays of near-equal/equal length
-    // Postcon: Executes Quick Sort
-    private void displaysArray(String firstPartString, int[] subArray) {
-        System.out.print(firstPartString + ": [");
-        for (int i = 0; i < subArray.length - 1; i++) {
-            System.out.print(subArray[i] + " ");
-        }
-        System.out.println(subArray[subArray.length - 1] + "]");
-    }
+    private HashSet <Integer> set = new HashSet <> ();
+    private int[] initialArray;
+    private int[] inputArray;
+    private Random myRandom = new Random();
 
-    // Displays line for easier readibility
-    // Precon: Nil
-    // Postcon: Nil
-    private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    // Copies inputArray into another array
-    // Precon: Initial values of inputArray not stored in ordered form another array
-    // Post Initial values of inputArray stored in ordered form another array
-    private int[] storesInitialArray(int[] inputArray) {
-        return Arrays.copyOf(inputArray, inputArray.length);
-    }
-
-    // Displays array before Quick Sort
-    // Precon: Array not sorted before Quick Sort
-    // Postcon: Executes Quick Sort on array
-    private void displaysArrayBeforeSort(int[] inputArray) {
-        displaysLine();
-        displaysArray("Before Quick Sort", inputArray);
-        displaysLine();
-    }
-
-    // Displays array after Quick Sort
-    // Precon: Array is sorted via Quick Sort
-    // Postcon: Nil
-    private void displaysArrayAfterSort(int[] inputArray, int[] initialArray) {
-        displaysArray("After Quick Sort", inputArray);
-        displaysLine();   
-        System.out.print("Change: [");
-        for (int i = 0; i < initialArray.length - 1; i++) {
-            System.out.print(initialArray[i] + " ");
-        }
-        System.out.print(initialArray[initialArray.length - 1] + "] -----------------> [");
+    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysLine) {
+        System.out.print(sentence);
         for (int i = 0; i < inputArray.length - 1; i++) {
             System.out.print(inputArray[i] + " ");
         }
         System.out.println(inputArray[inputArray.length - 1] + "]");
+        if (isDisplaysLine) {
+            displaysLine();
+        }
+    }
+
+    private void displaysChange() {
+        System.out.println("======= Quick Sort =======");
+        displaysArray(" * Before:\t[", initialArray, false);
+        displaysNewLine();
+        displaysArray(" * After:\t[", inputArray, true);
+    }
+
+    private void displaysLine() {
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
+    private void displaysNewLine() {
+        System.out.println();
+    }
+
+    private int formsData(boolean isDataInArray) {
+        int data;
+        if (isDataInArray) {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
+
+    private void formsSet() {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = formsData(false);
+        int order = myRandom.nextInt(0, 2);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
+            if (order == 0) {
+                // Descending order of number to be inserted into the Array
+                // because Quick Sort sorts the elements in ascending order
+                set.add(data--);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
+
+    private void insertion() {
         displaysLine();
+        System.out.println("======= Insertion =======");
+        formsSet();
+        inputArray = new int[set.size()];
+        System.out.println("Forming an array with " + inputArray.length + " elements:");
+        displaysNewLine();
+        int i = 0;
+        for (int data: set) {
+            System.out.println(" * inserting " + data);
+            inputArray[i++] = data;
+        }
+        initialArray = Arrays.copyOf(inputArray, inputArray.length);
+        displaysNewLine();
     }
 
-    // Swaps 2 elements
-    // Precon: Quick Sort is currently being executed
-    // Postcon: Elements are swapped
-    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
-        int temp = inputArray[firstIndex];
-        inputArray[firstIndex] = inputArray[secondIndex];
-        inputArray[secondIndex] = temp;
-    }
-
-    // Sets partition
-    // Precon: lowIndex < highIndex
-    // Postcon: Executes Quick Sort
-    private int executesPartition(int[] inputArray, int lowIndex, int highIndex) {
-        displaysArray("* array before partition", inputArray);
-        
-        // 1. Randomly choose pivot to reduce chances of worst average performance for quick sort
-        // and swap this element with the last element of the partition
-        // then select last element of partition as pivot
-        int pivotIndex = new Random().nextInt(highIndex - lowIndex) + lowIndex;
-        swapElements(inputArray, pivotIndex, highIndex);
+    private int partition(int[] inputArray, int lowIndex, int highIndex) {
+        // 1. Select last element of the partition as the pivot
         int pivot = inputArray[highIndex];
 
         // 2. Create 2 variables,
@@ -118,42 +114,39 @@ class QuickSort {
         // correct index that pivot has to be and highIndex represents current index of pivot
         // because at the start of program, the pivot is the last element of the partition at highIndex
         swapElements(inputArray, leftPointer, highIndex);
-        System.out.println("* pivot: " + pivot);
-        displaysArray("* array after partition", inputArray);
-        displaysLine();
 
         // 4. Return index of pivot, which can be either leftPointer or rightPointer
         // because both pointers are pointing to the index of the partition
         return leftPointer;
     }
 
-    // Executes Quick Sort on inputArray
-    // Precon: inputArray containing values user entered in order user entered has been created
-    // Postcon: Values of inputArray are in increasing order after sorted via Quick Sort.
-    private void executesQuickSort(int[] inputArray, int lowIndex, int highIndex) {
-        // 1. No need to execute quick sort for partition of only 1 element
+    private void quickSort() {
+        quickSort(inputArray, 0, inputArray.length - 1);
+    }
+
+    private void quickSort(int[] inputArray, int lowIndex, int highIndex) {
         if (lowIndex >= highIndex) {
             return;
         }
 
-        // 2. Select partitioning index such that
+        // 1. Select partitioning index and execute quick sort so that
         // elements smaller than pivot are on the left of the pivot and
         // elements larger than the pivot are on the right 
-        int pivotIndex = executesPartition(inputArray, lowIndex, highIndex);
+        int pivotIndex = partition(inputArray, lowIndex, highIndex);
+        quickSort(inputArray, lowIndex, pivotIndex - 1);
+        quickSort(inputArray, pivotIndex + 1, highIndex);
+    }
 
-        // 3. Execute quick sort on all elements to the left of the pivot
-        executesQuickSort(inputArray, lowIndex, pivotIndex - 1);
-
-        // 4. Execute quick sort on all elements to the right of the pivot
-        executesQuickSort(inputArray, pivotIndex + 1, highIndex);
+    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
+        int temp = inputArray[firstIndex];
+        inputArray[firstIndex] = inputArray[secondIndex];
+        inputArray[secondIndex] = temp;
     }
 
     private void run() {
-        int[] inputArray = insertion();
-        int[] initialArray = storesInitialArray(inputArray);
-        displaysArrayBeforeSort(inputArray);
-        executesQuickSort(inputArray, 0, inputArray.length - 1);
-        displaysArrayAfterSort(inputArray, initialArray);
+        insertion();
+        quickSort();
+        displaysChange();
     }
     public static void main(String[] args) {
         QuickSort obj = new QuickSort();
