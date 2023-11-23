@@ -66,8 +66,8 @@ class HeapSort {
     }
 
     private void heapSort() {
+        maxHeapify();
         for (int i = inputArray.length - 1; i > 0; i--) {
-
             // 1. Extract the root of the current max heap of elements
             // by replacing the root (maximum element) 
             // with the last element of the current max heap of elements
@@ -134,11 +134,10 @@ class HeapSort {
     
     private void run() {
         insertion();
-        maxHeapify();
         heapSort();
         displaysChange();
     }
-    
+
     public static void main(String[] args) {
         HeapSort obj = new HeapSort();
         obj.run();
