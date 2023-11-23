@@ -5,7 +5,7 @@ class InsertionSort {
     // Randomly generate values for array
     // Precon: Array not created
     // Postcon: Array containing randomly-generated values created
-    private int[] formsArray() {
+    private int[] insertion() {
         Random rand = new Random();
         int arraySize = rand.nextInt(5, 12);
         int[] inputArray = new int[arraySize];
@@ -111,7 +111,7 @@ class InsertionSort {
     }
 
     private void run() {
-        int[] inputArray = formsArray();
+        int[] inputArray = insertion();
         int[] initialArray = storesInitialArray(inputArray);
         displaysArrayBeforeSort(inputArray);
         executesInsertionSort(inputArray);
