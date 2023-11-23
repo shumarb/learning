@@ -5,7 +5,7 @@ A `Graph` can be constructed via these `graph data structures`:
 Graph Data Structure                                                                                            | Space Complexity
 ----------------------------------------------------------------------------------------------------------------|--------------------
 [Adjacency Matrix](https://github.com/shumarb/learning/tree/main/graphs/graph-data-structures/adjacency-matrix) | O($V^2$)
-Adjacency List     | O(V + E)
+[Adjacency List](https://github.com/shumarb/learning/tree/main/graphs/graph-data-structures/adjacency-list)     | O(V + E)
 Edge List          | O(E) = O($V^2$)
 
 ## How to use this folder
