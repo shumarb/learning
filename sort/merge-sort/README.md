@@ -23,4 +23,4 @@ An array of N elements is divided to form N arrays of size 1 before the merge.
 3. Navigate to this directory by entering `cd merge-sort`.
 4. Compile the program by entering `javac MergeSort.java`.
 5. Run the program by entering `java MergeSort`.
-6. The program creates an array randomly. The elements are of type `integer`. The number of elements range from `5 to 12`, and the value elements range from `-10000 to 10000`. The program displays the array before the sort, the relevant steps during the sort, the array after the sort, and the side-by-side comparison of the array before and after the sort.
+6. The program creates an array randomly. The elements are of type `integer`. The number of elements range from `5 to 12`, and the value elements range from `-100 to 100`. The program displays the array before the sort, the relevant steps during the sort, the array after the sort, and the side-by-side comparison of the array before and after the sort.

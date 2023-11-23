@@ -70,7 +70,7 @@ class QuickSort {
     // Swaps 2 elements
     // Precon: Quick Sort is currently being executed
     // Postcon: Elements are swapped
-    private void swapsElements(int[] inputArray, int firstIndex, int secondIndex) {
+    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
         int temp = inputArray[firstIndex];
         inputArray[firstIndex] = inputArray[secondIndex];
         inputArray[secondIndex] = temp;
@@ -86,7 +86,7 @@ class QuickSort {
         // and swap this element with the last element of the partition
         // then select last element of partition as pivot
         int pivotIndex = new Random().nextInt(highIndex - lowIndex) + lowIndex;
-        swapsElements(inputArray, pivotIndex, highIndex);
+        swapElements(inputArray, pivotIndex, highIndex);
         int pivot = inputArray[highIndex];
 
         // 2. Create 2 variables,
@@ -110,14 +110,14 @@ class QuickSort {
             // If condition in case leftPointer and rightPointer
             // do not encounter an element > pivot and <= pivot respectively
             if (leftPointer < rightPointer) {
-                swapsElements(inputArray, leftPointer, rightPointer);
+                swapElements(inputArray, leftPointer, rightPointer);
             }
         }
 
         // 3. Now, both leftPointer and rightPointer represents 
         // correct index that pivot has to be and highIndex represents current index of pivot
         // because at the start of program, the pivot is the last element of the partition at highIndex
-        swapsElements(inputArray, leftPointer, highIndex);
+        swapElements(inputArray, leftPointer, highIndex);
         System.out.println("* pivot: " + pivot);
         displaysArray("* array after partition", inputArray);
         displaysLine();

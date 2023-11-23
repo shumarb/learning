@@ -24,9 +24,9 @@ class HeapSort {
     }
 
     // Stores array before Heap Sort
-    // Precon: Array formed has 5 - 12 elements
+    // Precon: Array with 5 to 12 elements formed
     // Postcon: Execute Heap Sort
-    private int[] formsInitialArray() {
+    private int[] storesInitialArray() {
         return Arrays.copyOf(inputArray, inputArray.length);
     }
 
@@ -58,7 +58,7 @@ class HeapSort {
     // Swaps elements with one another
     // Precon: largest element != root
     // Postcon: Root is largest element
-    private void swapsElements(int[] inputArray, int parentIndex, int largestIndex) {
+    private void swapElements(int[] inputArray, int parentIndex, int largestIndex) {
         int temp = inputArray[parentIndex];
         inputArray[parentIndex] = inputArray[largestIndex];
         inputArray[largestIndex] = temp;
@@ -84,7 +84,7 @@ class HeapSort {
         // 2. If any of the children are larger than the parent, swap that child with the parent,
         // and MaxHeapify the the array based on the largest element found so far
         if (largestIndex != parentIndex) {
-            swapsElements(inputArray, parentIndex, largestIndex);
+            swapElements(inputArray, parentIndex, largestIndex);
             maxHeapify(inputArray, numberOfElements, largestIndex);
         }
     }
@@ -101,7 +101,7 @@ class HeapSort {
             // with the last element of the current max heap of elements
             // this ensures that the maximum element of the current iteration
             // is at it's final sorted position
-            swapsElements(inputArray, i, 0);
+            swapElements(inputArray, i, 0);
             
             // 1.2  Max-heapify all elements before the current element
             // until the max heap is of size 1
@@ -136,27 +136,8 @@ class HeapSort {
             System.out.println(" * inserting " + data);
             inputArray[i++] = data;
         }
-        initialArray = formsInitialArray();
+        initialArray = storesInitialArray();
         displaysNewLine();
-    }
-
-    // Forms data set to insert into the Binary Max Heap
-    // Precon: Nil
-    // Postcon: Nil
-    private void formsSet() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = formsData(false);
-        int order = myRandom.nextInt(0, 2);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 0) {
-                // Descending order of number to be inserted into the Array
-                // because heap sort sorts the elements in ascending order
-                set.add(data--);
-            } else {
-                set.add(formsData(false));
-            }
-        }
     }
 
     // Forms data in relation to elements in the Binary Max Heap
@@ -177,6 +158,25 @@ class HeapSort {
         }
         return data;
     } 
+
+    // Forms data set to insert into the Binary Max Heap
+    // Precon: Nil
+    // Postcon: Nil
+    private void formsSet() {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = formsData(false);
+        int order = myRandom.nextInt(0, 2);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
+            if (order == 0) {
+                // Descending order of number to be inserted into the Array
+                // because heap sort sorts the elements in ascending order
+                set.add(data--);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
 
     private void run() {
         insertion();

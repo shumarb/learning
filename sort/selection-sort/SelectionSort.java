@@ -70,7 +70,7 @@ class SelectionSort {
     // Swaps elements in array with one another
     // Precon: Selection Sort in progress
     // Postcon: Continue Selection Sort
-    private void swapsElements(int[] inputArray, int firstIndex, int secondIndex) {
+    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
         int temp = inputArray[firstIndex];
         inputArray[firstIndex] = inputArray[secondIndex];
         inputArray[secondIndex] = temp; 
@@ -96,7 +96,7 @@ class SelectionSort {
                     );
                     // A swap occurs, so array is not sorted in increasing order
                     isSorted = false;
-                    swapsElements(inputArray, nextIndex, startIndex);
+                    swapElements(inputArray, nextIndex, startIndex);
                 }
             }
             displaysArray("* End of iteration #" + (startIndex + 1) + ", current inputArray", inputArray);

@@ -1,19 +1,77 @@
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 
 class BubbleSort {
-    // Randomly generate values for array
-    // Precon: Array not created
-    // Postcon: Array containing randomly-generated values created
-    private int[] insertion() {
-        Random rand = new Random();
-        int arraySize = rand.nextInt(5, 12);
-        int[] inputArray = new int[arraySize];
-        for (int i = 0; i < inputArray.length; i++) {
-            inputArray[i] = rand.nextInt(-10000, 10000);
+
+    private HashSet <Integer> set = new HashSet <> ();
+    private int[] initialArray;
+    private int[] inputArray;
+    private Random myRandom = new Random();
+
+    // Insert elements into array
+    // Precon: No array formed
+    // Postcon: Array with 5 to 12 elements formed
+    private void insertion() {
+        displaysLine();
+        System.out.println("======= Insertion =======");
+        formsSet();
+        inputArray = new int[set.size()];
+        System.out.println("Forming an array with " + inputArray.length + " elements:");
+        displaysNewLine();
+        int i = 0;
+        for (int data: set) {
+            System.out.println(" * inserting " + data);
+            inputArray[i++] = data;
         }
-        return inputArray;
+        initialArray = storesInitialArray();
+        displaysNewLine();
+    }
+
+    // Forms data set to insert into the Array
+    // Precon: Nil
+    // Postcon: Nil
+    private void formsSet() {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = formsData(false);
+        int order = myRandom.nextInt(0, 2);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
+            if (order == 0) {
+                // Descending order of number to be inserted into the Array
+                // because Bubble Sort sorts the elements in ascending order
+                set.add(data--);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
+
+    // Forms data in relation to elements in the Array
+    // Precon: Nil
+    // Postcon: Nil
+    private int formsData(boolean isDataInBinaryMaxHeap) {
+        int data;
+        if (isDataInBinaryMaxHeap) {
+            // Generates data based on element in the Array
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            // Generates data based on element not in the Array
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
+
+    // Stores array before Bubble Sort
+    // Precon: Array with 5 to 12 elements formed
+    // Postcon: Execute Bubble Sort
+    private int[] storesInitialArray() {
+        return Arrays.copyOf(inputArray, inputArray.length);
     }
 
     // Displays line for easier readibility
@@ -23,55 +81,17 @@ class BubbleSort {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays array for checking
-    // Precon: inputArray split into 2 arrays of near-equal/equal length
-    // Postcon: Executes Bubble Sort
-    private void displaysArray(String firstPartString, int[] subArray) {
-        System.out.print(firstPartString + ": [");
-        for (int i = 0; i < subArray.length - 1; i++) {
-            System.out.print(subArray[i] + " ");
-        }
-        System.out.println(subArray[subArray.length - 1] + "]");
-    }
-
-    // Copies inputArray into another array
-    // Precon: Initial values of inputArray not stored in ordered form another array
-    // Post Initial values of inputArray stored in ordered form another array
-    private int[] storesInitialArray(int[] inputArray) {
-        return Arrays.copyOf(inputArray, inputArray.length);
-    }
-
-    // Displays array before Bubble Sort
-    // Precon: Array not sorted before Bubble Sort
-    // Postcon: Executes Bubble Sort on array
-    private void displaysArrayBeforeSort(int[] inputArray) {
-        displaysLine();
-        displaysArray("Before Bubble Sort", inputArray);
-        displaysLine();
-    }
-
-    // Displays array after Bubble Sort
-    // Precon: Array is sorted via Bubble Sort
+    // Displays New Line
+    // Precon: Nil
     // Postcon: Nil
-    private void displaysArrayAfterSort(int[] inputArray, int[] initialArray) {
-        displaysArray("After Bubble Sort", inputArray);
-        displaysLine(); 
-        System.out.print("Change: [");
-        for (int i = 0; i < initialArray.length - 1; i++) {
-            System.out.print(initialArray[i] + " ");
-        }
-        System.out.print(initialArray[initialArray.length - 1] + "] -----------------> [");
-        for (int i = 0; i < inputArray.length - 1; i++) {
-            System.out.print(inputArray[i] + " ");
-        }
-        System.out.println(inputArray[inputArray.length - 1] + "]");
-        displaysLine();
+    private void displaysNewLine() {
+        System.out.println();
     }
 
     // Swaps elements in array with one another
     // Precon: Bubble Sort in progress
     // Postcon: Continue Bubble Sort
-    private void swapsElements(int[] inputArray, int firstIndex, int secondIndex) {
+    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
         int temp = inputArray[firstIndex];
         inputArray[firstIndex] = inputArray[secondIndex];
         inputArray[secondIndex] = temp; 
@@ -80,37 +100,49 @@ class BubbleSort {
     // Executes Bubble Sort on inputArray
     // Precon: inputArray containing values user entered in order user entered has been created
     // Postcon: Values of inputArray are in increasing order after sorted via Bubble Sort
-    private void executesBubbleSort(int[] inputArray) {
+    private void bubbleSort() {
         boolean isArraySorted = false;
         while (!isArraySorted) {
             isArraySorted = true;
             for (int i = 0; i < inputArray.length - 1; i++) {
-                displaysArray(("* Iteration " + (i + 1) + "\n* Before check, inputArray").toString(), inputArray);
                 if (inputArray[i] > inputArray[i + 1]) {
                     // A swap is required, so array is not sorted so far
                     isArraySorted = false;
-                    System.out.println("* Swap: (Index: " + i 
-                                        + ", element: " + inputArray[i] 
-                                        + ") <--------> (Index " + (i + 1) 
-                                        + " | element: " + inputArray[i + 1] + ")"
-                    );
-                    swapsElements(inputArray, i, i + 1);
+                    swapElements(inputArray, i, i + 1);
                 }
-
-                // At this stage, if isArraySorted == true, no swap occurred after iterating all elements in 1 pass,
-                // hence elements are sorted in increasing order, so no need to check elements any more
-                displaysArray("* End of current iteration, inputArray", inputArray);
-                displaysLine();
             }
         }
     }
 
+    // Displays array after Bubble Sort
+    // Precon: Array sorted via Bubble Sort
+    // Postcon: End of program
+    private void displaysChange() {
+        System.out.println("Bubble Sort:");
+        displaysNewLine();
+        displaysArray(" * Before:\t[", initialArray, false);
+        displaysNewLine();
+        displaysArray(" * After:\t[", inputArray, true);
+    }
+
+    // Displays array
+    // Precon: Array is unsorted
+    // Postcon: Executes Bubble Sort
+    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysLine) {
+        System.out.print(sentence);
+        for (int i = 0; i < inputArray.length - 1; i++) {
+            System.out.print(inputArray[i] + " ");
+        }
+        System.out.println(inputArray[inputArray.length - 1] + "]");
+        if (isDisplaysLine) {
+            displaysLine();
+        }
+    }
+
     private void run() {
-        int[] inputArray = insertion();
-        int[] initialArray = storesInitialArray(inputArray);
-        displaysArrayBeforeSort(inputArray);
-        executesBubbleSort(inputArray);
-        displaysArrayAfterSort(inputArray, initialArray);
+        insertion();
+        bubbleSort();
+        displaysChange();
     }
     public static void main(String[] args) {
         BubbleSort obj = new BubbleSort();
