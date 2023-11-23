@@ -87,7 +87,7 @@ class SelectionSort {
             for (int nextIndex = startIndex + 1; nextIndex < inputArray.length; nextIndex++) {
                 if (inputArray[nextIndex] < inputArray[startIndex]) {
                     isSorted = false;
-                    swapElements(inputArray, nextIndex, startIndex);
+                    swap(inputArray, nextIndex, startIndex);
                 }
             }
             if (isSorted) {
@@ -96,7 +96,7 @@ class SelectionSort {
         }
     }
 
-    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
+    private void swap(int[] inputArray, int firstIndex, int secondIndex) {
         int temp = inputArray[firstIndex];
         inputArray[firstIndex] = inputArray[secondIndex];
         inputArray[secondIndex] = temp; 

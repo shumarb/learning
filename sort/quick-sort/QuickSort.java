@@ -106,14 +106,14 @@ class QuickSort {
             // If condition in case leftPointer and rightPointer
             // do not encounter an element > pivot and <= pivot respectively
             if (leftPointer < rightPointer) {
-                swapElements(inputArray, leftPointer, rightPointer);
+                swap(inputArray, leftPointer, rightPointer);
             }
         }
 
         // 3. Now, both leftPointer and rightPointer represents 
         // correct index that pivot has to be and highIndex represents current index of pivot
         // because at the start of program, the pivot is the last element of the partition at highIndex
-        swapElements(inputArray, leftPointer, highIndex);
+        swap(inputArray, leftPointer, highIndex);
 
         // 4. Return index of pivot, which can be either leftPointer or rightPointer
         // because both pointers are pointing to the index of the partition
@@ -137,7 +137,7 @@ class QuickSort {
         quickSort(inputArray, pivotIndex + 1, highIndex);
     }
 
-    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
+    private void swap(int[] inputArray, int firstIndex, int secondIndex) {
         int temp = inputArray[firstIndex];
         inputArray[firstIndex] = inputArray[secondIndex];
         inputArray[secondIndex] = temp;

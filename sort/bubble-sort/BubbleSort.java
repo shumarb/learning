@@ -17,7 +17,7 @@ class BubbleSort {
             for (int i = 0; i < inputArray.length - 1; i++) {
                 if (inputArray[i] > inputArray[i + 1]) {
                     isArraySorted = false;
-                    swapElements(inputArray, i, i + 1);
+                    swap(inputArray, i, i + 1);
                 }
             }
         }
@@ -95,7 +95,7 @@ class BubbleSort {
         displaysLine();
     }
 
-    private void swapElements(int[] inputArray, int firstIndex, int secondIndex) {
+    private void swap(int[] inputArray, int firstIndex, int secondIndex) {
         int temp = inputArray[firstIndex];
         inputArray[firstIndex] = inputArray[secondIndex];
         inputArray[secondIndex] = temp; 

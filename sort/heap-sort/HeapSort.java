@@ -73,7 +73,7 @@ class HeapSort {
             // with the last element of the current max heap of elements
             // this ensures that the maximum element of the current iteration
             // is at it's final sorted position
-            swapElements(inputArray, i, 0);
+            swap(inputArray, i, 0);
             
             // 2.  Max-heapify all elements before the current element
             // until the max heap is of size 1
@@ -121,12 +121,12 @@ class HeapSort {
         // 2. If any of the children are larger than the parent, swap that child with the parent,
         // and MaxHeapify the the array based on the largest element found so far
         if (largestIndex != parentIndex) {
-            swapElements(inputArray, parentIndex, largestIndex);
+            swap(inputArray, parentIndex, largestIndex);
             maxHeapify(inputArray, numberOfElements, largestIndex);
         }
     }
 
-    private void swapElements(int[] inputArray, int parentIndex, int largestIndex) {
+    private void swap(int[] inputArray, int parentIndex, int largestIndex) {
         int temp = inputArray[parentIndex];
         inputArray[parentIndex] = inputArray[largestIndex];
         inputArray[largestIndex] = temp;
