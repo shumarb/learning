@@ -3,65 +3,148 @@ import java.util.Vector;
 
 class VectorExample {
 
+    private Vector <Integer> vector = new Vector<>();
     private Random myRandom = new Random();
-    private Vector <Integer> vector = new Vector <> ();
     
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Forms Vector
-    // Precon: Vector initialised and has 0 elements
-    // Postcon: Vector has 5 - 12 elements
+    private void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
+    }
+
+    private void displaysVector(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
+        System.out.print(message + "Vector: " + vector);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayTwoNewLines) {
+            displaysTwoNewLines();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
+    private void explanation() {
+        displaysLine();
+        displaysMessage("=========== Explanation ============", false, false);
+        displaysMessage("A Vector is a linear and dynamic data structure that operates as a resizable array", true, false);
+        displaysMessage("Key Vector operations based on the Vector Java API: ", true, false);
+        displaysMessage(" * add(Element e): Add the specified element to end of the Vector", true, false);
+        displaysMessage(" * add(int index, Element e): Add the specified element at the specified index of Vector", true, false);
+        displaysMessage(" * clear(): Remove all elements in the Vector", true, false);
+        displaysMessage(" * contains(Element e): Return true if the Vector contains specified element, else return false", true, false);
+        displaysMessage(" * get(int index): Retrieve the element at the specified index of the Vector. Note: Ensure 0 <= index < size of the Vector", true, false);
+        displaysMessage(" * isEmpty(): Return true if the Vector is empty, else return false", true, false);
+        displaysMessage(" * indexOf(Element e): Returns the index of the first occurrence of the specified element in the Vector, or -1 if this list does not contain the element", true, false);
+        displaysMessage(" * remove(int index): Remove the element at specified index of the Vector", true, false);
+        displaysMessage(" * set(int index, Element e): Replace the current element at the specified index of Vector with the specified element", true, false);
+        displaysMessage(" * size(): Obtain number of the elements in the Vector", false, true);
+    }
+
+    private int formsData(boolean isDataInVector) {
+        int data;
+        if (isDataInVector) {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!vector.contains(data));
+        } else {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (vector.contains(data));
+        }
+        return data;
+    }
+
+    private int formsIndex() {
+        return myRandom.nextInt(0, vector.size());
+    }
+
     private void insertion() {
-        System.out.println("============ Insertion ============");
+        displaysMessage("=========== Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
-        System.out.println("Creating an Vector with " + numberOfElements + " elements:");
+        System.out.println("Forming an Vector with " + numberOfElements + " elements:");
         displaysNewLine();
         for (int i = 0; i < numberOfElements; i++) {
-            int toAdd = myRandom.nextInt(-10, 10);
-            System.out.println(" * Element #" + (i + 1) + ": " + toAdd);
-            vector.add(i, toAdd);
+            int data = formsData(false);
+            System.out.println(" * Inserting " + data);
+            vector.add(i, data);
         }
         displaysNewLine();
-        displaysVector("Insertion of " + numberOfElements + " elements complete. ");
-        displaysLine();
-    }
-    
-    // Displays Vector
-    // Precon: Vector has 5 - 12 elements
-    // Postcon: Execute some operations on Vector
-    private void displaysVector(String message) {
-        System.out.println(message + "Vector: " + vector);
+        displaysVector("", true, false, true);
     }
 
-    // Searches for an element, maximum, and minimum elements in the Vector
-    // Precon: Vector has 5 - 12 elements
-    // Postcon: End of program
+    private void operations() {
+        displaysMessage("=========== Operations ============", false, false);
+        displaysVector("", false, true, false);
+        int index;
+        int key;
+
+        System.out.println(" * isEmpty(): " + vector.isEmpty());
+        displaysNewLine();
+
+        key = formsData(true);
+        System.out.print(" * contains(" +  key + "): " + vector.contains(key));
+        System.out.println(", indexOf(" +  key + "): " + vector.indexOf(key));
+        displaysNewLine();
+
+        key = formsData(false);
+        System.out.print(" * contains(" +  key + "): " + vector.contains(key));
+        System.out.println(", indexOf(" +  key + "): " + vector.indexOf(key));
+        displaysNewLine();
+
+        System.out.println(" * size(): " + vector.size());
+        displaysNewLine();
+
+        index = formsIndex();
+        System.out.println(" * get(" + index + "): " + vector.get(index));
+        displaysNewLine();
+
+        index = formsIndex();
+        key = formsData(false);
+        vector.set(index, key);
+        System.out.print(" * set(" + index + ", " + key + ")");
+        displaysVector("\t\t| ", false, true, false);
+
+        index = formsIndex();
+        key = formsData(false);
+        vector.add(index, key);
+        System.out.print(" * add(" + index + ", " + key + ")");
+        displaysVector("\t\t| ", false, true, false);
+
+        key = formsData(false);
+        vector.add(key);
+        System.out.print(" * add(" + key + ")");
+        displaysVector("\t\t| ", false, true, false);
+
+        index = formsIndex();
+        System.out.print(" * remove(" + index + "): " + vector.remove(index));
+        displaysVector("\t| ", true, false, true);
+    }
+
     private void search() {
-        System.out.println("============ Search ============");
-        displaysVector("");
-        displaysNewLine();
-        int key = myRandom.nextInt(-10, 10);
-        if (vector.contains(key)) {
-            System.out.println(" * " + key + " is in Vector");
-        } else {
-            System.out.println(" * " + key + " is not in Vector");
-        }
-
+        displaysMessage("=========== Search ============", false, false);
+        displaysVector("", false, true, false);
         int maximum = vector.get(0);
         int minimum = vector.get(0);
-        for (int i = 0; i < vector.size(); i++) {
+        for (int i = 1; i < vector.size(); i++) {
             if (vector.get(i) > maximum) {
                 maximum = vector.get(i);
             }
@@ -69,59 +152,19 @@ class VectorExample {
                 minimum = vector.get(i);
             }
         }
-
-        displaysNewLine();
         System.out.println(" * Maximum: " + maximum);
         displaysNewLine();
         System.out.println(" * Minimum: " + minimum);
         displaysLine();
     }
 
-    // Displays key Vector operations
-    // Precon: Vector of size >= 1 formed
-    // Postcon: Apply some of these key operations on the Vector
-    private void explainsVector() {
-        displaysLine();
-        System.out.println("=========== What is an Vector? ============");
-        System.out.println("Vector is a resizable array");
-        displaysNewLine();
-        int i = 1;
-        System.out.println("Key Vector operations: ");
-        System.out.println(" " + i++ + ". add(Element e): Add element to end of the Vector");
-        System.out.println(" " + i++ + ". add(int index, Element e): Add an element at specified index of the Vector");
-        System.out.println(" " + i++ + ". clear(): Remove all elements in Vector");
-        System.out.println(" " + i++ + ". contains(Element e): Return true if the Vector contains specified element, else return false");
-        System.out.println(" " + i++ + ". get(int index): Retrieve  element at position index. Note: Ensure 0 <= index < size of the Vector");
-        System.out.println(" " + i++ + ". isEmpty(): Return true if the Vector is empty, else return false");
-        System.out.println(" " + i++ + ". remove(int index): Remove element at the specified index of the Vector");
-        System.out.println(" " + i++ + ". set(int index, Element e): Replace current element at specified index of the Vector with specified element");
-        System.out.println(" " + i + ". size(): Obtains number of elements in the Vector");
-        displaysLine();
-    }
-
-    // Deletes element from Vector
-    // Precon: Vector has 5 - 12 elements
-    // Postcon: Nil
-    private void deletion() {
-        System.out.println("============ Deletion ============");
-        displaysVector("Before deletion, ");
-        displaysNewLine();
-
-        int indexOfDeletion = myRandom.nextInt(0, vector.size() - 1);
-        System.out.println(" * Deletion at index " + indexOfDeletion + ", which has element " + vector.get(indexOfDeletion));
-        vector.remove(indexOfDeletion);
-        displaysNewLine();
-
-        displaysVector("After deletion, ");
-        displaysLine();
-    }
-
     private void run() {
-        explainsVector();
+        explanation();
         insertion();
+        operations();
         search();
-        deletion();
     }
+
     public static void main(String[] args) {
         VectorExample obj = new VectorExample();
         obj.run();

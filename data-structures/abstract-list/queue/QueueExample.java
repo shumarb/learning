@@ -7,71 +7,133 @@ class QueueExample {
     private Queue <Integer> myQueue = new LinkedList <> ();
     private Random myRandom = new Random();
 
-    // Forms queue of N values from user
-    // Precon: N > 0
-    // Postcon: Queue of N values formed
-    private void formsQueue() {
-        displaysLine();
-        for (int i = 0; i < myRandom.nextInt(5, 12); i++) {
-            myQueue.offer(myRandom.nextInt(-1000, 1000));
-        }
-    }
-
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysLine() {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays new line
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
     private void displaysNewLine() {
         System.out.println();
     }
-    
-    // Displays key queue operations
-    // Precon: myQueue has N values entered from user
-    // Postcon: Execute these operations on queue
-    private void explainsQueue() {
-        displaysLine();
-        System.out.println("=========== What is a Queue? ============");
-        System.out.println("Queue is a data structure operating on a FIFO principle: First In First Out.");
-        displaysNewLine();
 
-        int i = 1;
-        System.out.println("Key Queue operations: ");
-        System.out.println(" " + i++ + ". offer(element E): Insert element into the queue, or return null if queue is empty, without violating capacity restrictions");
-        System.out.println(" " + i++ + ". peek(): Retrieve, but does not remove, the head of queue, or return null if queue is empty");
-        System.out.println(" " + i++ + ". poll(): Retrieve and remove (dequeuing) the head of queue, or return null if queue is empty");
-        System.out.println(" " + i++ + ". isEmpty(): Return true if no element in the queue");
-        System.out.println(" " + i++ + ". clear(): Remove all the elements in the queue");
-        System.out.println(" " + i + ". size(): Return the total number of elements in the queue");
-        displaysLine();
+    private void displaysQueue(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
+        System.out.print(message + "Queue: " + myQueue);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayTwoNewLines) {
+            displaysTwoNewLines();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
     }
 
-    // Executes some operations on queue
-    // Precon: Method displaying key operations of queue displayed
-    // Postcon: End of program
-    private void executesKeyQueueOperations() {
-        int numberToFind = myRandom.nextInt(-1000, 1000);
-        System.out.println("Queue: " + myQueue);
-        displaysNewLine();
-        System.out.println("Apply some key operations on queue:");
-        System.out.println(" * peek(): Top element in the queue ----------> " + myQueue.peek());
-        System.out.println(" * poll(): To remove ----------> " + myQueue.poll() + " | After poll(), queue: " + myQueue);
-        System.out.println(" * contains(Element e): Does queue contain " + numberToFind 
-                            + "? ----------> " + myQueue.contains(numberToFind)
-        );
-        System.out.println(" * size(): Number of elements in myQueue ----------> " + myQueue.size());
+    private void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
+    }
+    
+    private void explanation() {
         displaysLine();
+        displaysMessage("=========== Explanation ============", false, false);
+        displaysMessage("Queue is a linear and dynamic data structure that operates on a FIFO principle: First In First Out", true, false);
+        displaysMessage("Key Queue operations based on Java API: ", true, false);
+        displaysMessage(" * offer(element E): Insert element into the queue, or return null if queue is empty, without violating capacity restrictions", true, false);
+        displaysMessage(" * peek(): Retrieve, but does not remove, the head of queue, or return null if queue is empty", true, false);
+        displaysMessage(" * poll(): Retrieve and remove (dequeuing) the head of queue, or return null if queue is empty", true, false);
+        displaysMessage(" * isEmpty(): Return true if no element in the queue", true, false);
+        displaysMessage(" * clear(): Remove all the elements in the queue", true, false);
+        displaysMessage(" * size(): Return the total number of elements in the queue", false, true);
+    }
+
+    private int formsData(boolean isDataInQueue) {
+        int data;
+        if (isDataInQueue) {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!myQueue.contains(data));
+        } else {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (myQueue.contains(data));
+        }
+        return data;
+    } 
+    
+    private void insertion() {
+        displaysMessage("=========== Insertion ============", false, false);
+        int numberOfElements = myRandom.nextInt(5, 12);
+        System.out.println("Forming a Queue with " + numberOfElements + " elements:");
+        displaysNewLine();
+        for (int i = 0; i < numberOfElements; i++) {
+            int data = formsData(false);
+            System.out.println(" * Inserting " + data);
+            myQueue.offer(data);
+        }
+        displaysNewLine();
+        displaysQueue("", true, false, true);
+    }
+
+    private void operations() {
+        displaysMessage("=========== Operations ============", false, false);
+        displaysQueue("", false, true, false);
+        int key;
+
+        displaysMessage((" * size(): " + myQueue.size()).toString(), true, false);
+        displaysMessage((" * peek(): " + myQueue.peek()).toString(), true, false);
+
+        key = formsData(true);
+        displaysMessage((" * contains(" + key + "): " + myQueue.contains(key)).toString(), true, false);
+
+        key = formsData(false);
+        displaysMessage((" * contains(" + key + "): " + myQueue.contains(key)).toString(), true, false);
+
+        myQueue.poll();
+        displaysMessage((" * poll()\t| Queue: " + myQueue).toString(), true, false);
+
+        int data = formsData(false);
+        myQueue.offer(data);
+        displaysMessage((" * offer(" + data + ")\t| Queue: " + myQueue).toString(), false, true);
+    }
+
+    private void search() {
+        displaysMessage("=========== Search ============", false, false);
+        displaysQueue("", true, false, false);
+        int[] queueArray = new int[myQueue.size()];
+        int i = 0;
+        while (!myQueue.isEmpty()) {
+            queueArray[i++] = myQueue.poll();
+        }
+        int maximum = 0;
+        int minimum = 0;
+        for (i = 0; i < queueArray.length; i++) {
+            if (queueArray[i] > maximum) {
+                maximum = queueArray[i];
+            }
+            if (queueArray[i] < minimum) {
+                minimum = queueArray[i];
+            }
+        }
+        displaysNewLine();
+        displaysMessage((" * Maximum: " + maximum).toString(), true, false);
+        displaysMessage((" * Minimum: " + minimum).toString(), false, true);
     }
 
     private void run() {
-        formsQueue();
-        explainsQueue();
-        executesKeyQueueOperations();
+        explanation();
+        insertion();
+        operations();
+        search();
     }
 
     public static void main(String[] args) {

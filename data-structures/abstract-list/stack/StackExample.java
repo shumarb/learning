@@ -5,69 +5,130 @@ import java.util.Stack;
 public class StackExample {
 
     private Random myRandom = new Random();
-    // Forms stack from values user enters
-    // Precon: no stack formed
-    // Postcon: Stack of size >= 1 formed
-    private Stack <Integer> formsStack() {
-        displaysLine();
-        Stack <Integer> myStack = new Stack <>();
-        for (int i = 0; i < myRandom.nextInt(5, 12); i++) {
-            myStack.push(myRandom.nextInt(-1000, 1000));
-        }
-        return myStack;
-    }
+    private Stack <Integer> myStack = new Stack <>();
 
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysLine() {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays key stack operations
-    // Precon: Stack of size >= 1 formed
-    // Postcon: Apply some of these key operations on the stack
-    private void displaysKeyStackOperations(Stack <Integer> myStack) {
-        int i = 1;
-        System.out.println("Stack: " + myStack);
+    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
+    private void displaysNewLine() {
+        System.out.println();
+    }
+
+    private void displaysStack() {
+        System.out.println("Stack:\t" + myStack);
+    }
+
+    private void explanation() {
         displaysLine();
-        System.out.println("Stack operates on LIFO principle: Last In First Out.");
-        System.out.println("Key stack operations: ");
-        System.out.println(i++ + ". push(Element e): Pushes object/element into top of the stack");
-        System.out.println(i++ + ". peek(): Retrieves, but does not remove, object/element at top of the stack");
-        System.out.println(i++ + ". pop(): Removes the object at the top of the stack");
-        System.out.println(i++ + ". isEmpty(): Returns true only if stack is empty, else return false");
-        System.out.println(i++ + ". search(Element e): Returns 1-based position where object/object/element is on the stack, else return -1 if object not in stack");
-        System.out.println(i++ + ". clear(): Removes all object/elements in stack");
-        System.out.println(i++ + ". size(): Obtains number of object/elements in stack");
-        System.out.println(i++ + ". get(int index): Retrieves object/element at position index. Note: Ensure index <= size of stack");
-        System.out.println(i + ". contains(Element e): Returns true if stack contains specified object/object/element, else return false");
+        displaysMessage("=========== Explanation ============", false, false);
+        displaysMessage("Stack is a linear and dynamic data structure that operates on a LIFO principle: Last In First Out", true, false);
+        displaysMessage("Key stack operations based on the Java API: ", true, false);
+        displaysMessage(" * push(Element e): Pushes object/element into top of the stack", true, false);
+        displaysMessage(" * peek(): Retrieves, but does not remove, object/element at top of the stack", true, false);
+        displaysMessage(" * pop(): Removes the object at the top of the stack", true, false);
+        displaysMessage(" * isEmpty(): Returns true only if stack is empty, else return false", true, false);
+        displaysMessage(" * search(Element e): Returns 1-based position where object/object/element is on the stack, else return -1 if object not in stack", true, false);
+        displaysMessage(" * clear(): Removes all object/elements in stack", true, false);
+        displaysMessage(" * size(): Obtains number of object/elements in stack", true, false);
+        displaysMessage(" * get(int index): Retrieves object/element at position index. Note: Ensure index <= size of stack", true, false);
+        displaysMessage(" * contains(Element e): Returns true if stack contains specified object/object/element, else return false", false, true);
+    }
+
+    private int formsData(boolean isDataInStack) {
+        int data;
+        if (isDataInStack) {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!myStack.contains(data));
+        } else {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (myStack.contains(data));
+        }
+        return data;
+    } 
+
+    private int formsIndex() {
+        return myRandom.nextInt(0, myStack.size());
+    }
+
+    private void insertion() {
+        displaysMessage("============ Insertion ============", false, false);
+        int numberOfElements = myRandom.nextInt(5, 12);
+        displaysMessage("Forming a Stack with " + numberOfElements + " elements:", true, false);
+        for (int i = 0; i < numberOfElements; i++) {
+            int data = formsData(false);
+            System.out.println(" * Inserting " + data);
+            myStack.push(data);
+        }
+        displaysNewLine();
+        displaysStack();
         displaysLine();
     }
 
-    // Executes some operations on operations on stack
-    // Precon: Method displaying key operations of stack displayed
-    // Postcon: End of program
-    private void executesKeyStackOperations(Stack <Integer> myStack) {
-        int numberToFind = myRandom.nextInt(-1000, 1000);
-        System.out.println("Apply some of operations on stack:");
-        System.out.println("myStack: " + myStack);
-        System.out.println("* peek(): Element at top of stack ----------> " + myStack.peek());
-        System.out.println("* isEmpty(): Is the stack empty? ----------> " + myStack.isEmpty());
-        System.out.println("* pop(): Removes top element in stack ----------> " + myStack.pop() + " | After pop(), myStack: " + myStack);
-        System.out.println("* peek(): Top element in stack ----------> " + myStack.peek() + " | myStack: " + myStack);
-        System.out.println("* contains(Element e): Does stack contain " +  numberToFind 
-                            + "? --------------> " + myStack.contains(numberToFind) 
-                            + " | myStack: " + myStack);
-        System.out.println("* size(): Number of elements in stack ----------> " + myStack.size() + " | myStack: " + myStack);
-        displaysLine();
+    private void operations() {
+        displaysMessage("============ Operations ============", false, false);
+        displaysStack();
+        displaysNewLine();
+        int index;
+        int key;
+
+        displaysMessage(" * peek(): " + myStack.peek(), true, false);
+        displaysMessage(" * isEmpty(): " + myStack.isEmpty(), true, false);
+        displaysMessage(" * size(): " + myStack.size(), true, false);
+
+        key = formsData(true);
+        displaysMessage((" * contains(" +  key + "): " + myStack.contains(key) + " | search(" +  key + "): " + myStack.search(key)).toString(), true, false);
+
+        key = formsData(false);
+        displaysMessage((" * contains(" +  key + "): " + myStack.contains(key) + " | search(" +  key + "): " + myStack.search(key)).toString(), true, false);
+
+        index = formsIndex();
+        displaysMessage((" * get(" + index + "): " + myStack.get(index)).toString(), true, false);
+
+        myStack.pop();
+        displaysMessage((" * pop()\t| Stack: " + myStack).toString(), true, false);
+
+        int data = formsData(false);
+        displaysMessage((" * push(" + myStack.push(data) + ")\t| Stack: " + myStack).toString(), false, true);
+    }
+
+    private void search() {
+        displaysMessage("============ Search ============", false, false);
+        displaysStack();
+        displaysNewLine();
+        int maximum = myStack.get(0);
+        int minimum = myStack.get(0);
+        for (int i = 1; i < myStack.size(); i++) {
+            if (myStack.get(i) > maximum) {
+                maximum = myStack.get(i);
+            }
+            if (myStack.get(i) < minimum) {
+                minimum = myStack.get(i);
+            }
+        }
+        displaysMessage((" * Maximum: " + maximum).toString(), true, false);
+        displaysMessage((" * Minimum: " + minimum).toString(), false, true);
     }
     
     private void run() {
-        Stack <Integer> myStack = formsStack();
-        displaysKeyStackOperations(myStack);
-        executesKeyStackOperations(myStack);
+        explanation();
+        insertion();
+        operations();
+        search();
     }
+
     public static void main(String[] args) {
         StackExample obj = new StackExample();
         obj.run();

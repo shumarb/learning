@@ -6,60 +6,142 @@ class ArrayListExample {
     private ArrayList <Integer> arrayList = new ArrayList<>();
     private Random myRandom = new Random();
     
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysArrayList(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
+        System.out.print(message + "ArrayList: " + arrayList);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayTwoNewLines) {
+            displaysTwoNewLines();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
     private void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Forms ArrayList
-    // Precon: ArrayList initialised and has 0 elements
-    // Postcon: ArrayList has 5 - 12 elements
+    private void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
+    }
+
+    private void explanation() {
+        displaysLine();
+        displaysMessage("=========== Explanation ============", false, false);
+        displaysMessage("An ArrayList is a linear and dynamic data structure that operates as a resizable array", true, false);
+        displaysMessage("Key ArrayList operations based on the ArrayList Java API: ", true, false);
+        displaysMessage(" * add(Element e): Add the specified element to end of the ArrayList", true, false);
+        displaysMessage(" * add(int index, Element e): Add the specified element at the specified index of ArrayList", true, false);
+        displaysMessage(" * clear(): Remove all elements in the ArrayList", true, false);
+        displaysMessage(" * contains(Element e): Return true if the ArrayList contains specified element, else return false", true, false);
+        displaysMessage(" * get(int index): Retrieve the element at the specified index of the ArrayList. Note: Ensure 0 <= index < size of the ArrayList", true, false);
+        displaysMessage(" * isEmpty(): Return true if the ArrayList is empty, else return false", true, false);
+        displaysMessage(" * indexOf(Element e): Returns the index of the first occurrence of the specified element in the ArrayList, or -1 if this list does not contain the element", true, false);
+        displaysMessage(" * remove(int index): Remove the element at specified index of the ArrayList", true, false);
+        displaysMessage(" * set(int index, Element e): Replace the current element at the specified index of ArrayList with the specified element", true, false);
+        displaysMessage(" * size(): Obtain number of the elements in the ArrayList", false, true);
+    }
+
+    private int formsData(boolean isDataInArrayList) {
+        int data;
+        if (isDataInArrayList) {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!arrayList.contains(data));
+        } else {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (arrayList.contains(data));
+        }
+        return data;
+    }
+
+    private int formsIndex() {
+        return myRandom.nextInt(0, arrayList.size());
+    }
+
     private void insertion() {
-        System.out.println("============ Insertion ============");
+        displaysMessage("============ Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
-        System.out.println("Creating an ArrayList with " + numberOfElements + " elements:");
+        System.out.println("Forming an ArrayList with " + numberOfElements + " elements:");
         displaysNewLine();
         for (int i = 0; i < numberOfElements; i++) {
-            int toAdd = myRandom.nextInt(-10, 10);
-            System.out.println(" * Element #" + (i + 1) + ": " + toAdd);
-            arrayList.add(i, toAdd);
+            int data = formsData(false);
+            System.out.println(" * Inserting " + data);
+            arrayList.add(i, data);
         }
         displaysNewLine();
-        displaysArrayList("Insertion of " + numberOfElements + " elements complete. ");
-        displaysLine();
-    }
-    
-    // Displays ArrayList
-    // Precon: ArrayList has 5 - 12 elements
-    // Postcon: Execute some operations on ArrayList
-    private void displaysArrayList(String message) {
-        System.out.println(message + "ArrayList: " + arrayList);
+        displaysArrayList("", true, false, true);
     }
 
-    // Searches for element in ArrayList
-    // Precon: ArrayList has 5 - 12 elements
-    // Postcon: Search for maximum element
+    private void operations() {
+        displaysMessage("=========== Operations ============", false, false);
+        displaysArrayList("", false, true, false);
+        int index;
+        int key;
+
+        System.out.println(" * isEmpty(): " + arrayList.isEmpty());
+        displaysNewLine();
+
+        key = formsData(true);
+        System.out.print(" * contains(" +  key + "): " + arrayList.contains(key));
+        System.out.println(", indexOf(" +  key + "): " + arrayList.indexOf(key));
+        displaysNewLine();
+
+        key = formsData(false);
+        System.out.print(" * contains(" +  key + "): " + arrayList.contains(key));
+        System.out.println(", indexOf(" +  key + "): " + arrayList.indexOf(key));
+        displaysNewLine();
+
+        System.out.println(" * size(): " + arrayList.size());
+        displaysNewLine();
+
+        index = formsIndex();
+        System.out.println(" * get(" + index + "): " + arrayList.get(index));
+        displaysNewLine();
+
+        index = formsIndex();
+        key = formsData(false);
+        arrayList.set(index, key);
+        System.out.print(" * set(" + index + ", " + key + ")");
+        displaysArrayList("\t\t| ", false, true, false);
+
+        index = formsIndex();
+        key = formsData(false);
+        arrayList.add(index, key);
+        System.out.print(" * add(" + index + ", " + key + ")");
+        displaysArrayList("\t\t| ", false, true, false);
+
+        key = formsData(false);
+        arrayList.add(key);
+        System.out.print(" * add(" + key + ")");
+        displaysArrayList("\t\t| ", false, true, false);
+
+        index = formsIndex();
+        System.out.print(" * remove(" + index + "): " + arrayList.remove(index));
+        displaysArrayList("\t| ", true, false, true);
+    }
+
     private void search() {
-        System.out.println("============ Search ============");
-        displaysArrayList("");
-        displaysNewLine();
-        int key = myRandom.nextInt(-10, 10);
-        if (arrayList.contains(key)) {
-            System.out.println(" * " + key + " is in ArrayList");
-        } else {
-            System.out.println(" * " + key + " is not in ArrayList");
-        }
-        displaysNewLine();
-
+        displaysMessage("============ Search ============", false, false);
+        displaysArrayList("", false, true, false);
         int maximum = arrayList.get(0);
         int minimum = arrayList.get(0);
         for (int i = 1; i < arrayList.size(); i++) {
@@ -70,59 +152,19 @@ class ArrayListExample {
                 minimum = arrayList.get(i);
             }
         }
-
         System.out.println(" * Maximum: " + maximum);
         displaysNewLine();
         System.out.println(" * Minimum: " + minimum);
         displaysLine();
     }
 
-    // Displays key ArrayList operations
-    // Precon: ArrayList of size >= 1 formed
-    // Postcon: Apply some of these key operations on the ArrayList
-    private void explainsArrayList() {
-        displaysLine();
-        System.out.println("=========== What is an ArrayList? ============");
-        System.out.println("ArrayList is a resizable array");
-        displaysNewLine();
-
-        int i = 1;
-        System.out.println("Key ArrayList operations: ");
-        System.out.println(" " + i++ + ". add(Element e): Add the specified element to end of the ArrayList");
-        System.out.println(" " + i++ + ". add(int index, Element e): Add the specified element at the specified index of ArrayList");
-        System.out.println(" " + i++ + ". clear(): Remove all elements in the ArrayList");
-        System.out.println(" " + i++ + ". contains(Element e): Return true if the ArrayList contains specified element, else return false");
-        System.out.println(" " + i++ + ". get(int index): Retrieve the element at the specified index of the ArrayList. Note: Ensure 0 <= index < size of the ArrayList");
-        System.out.println(" " + i++ + ". isEmpty(): Return true if the ArrayList is empty, else return false");
-        System.out.println(" " + i++ + ". remove(int index): Remove the element at specified index of the ArrayList");
-        System.out.println(" " + i++ + ". set(int index, Element e): Replace the current element at the specified index of ArrayList with the specified element");
-        System.out.println(" " + i + ". size(): Obtain number of the elements in the ArrayList");
-        displaysLine();
-    }
-
-    // Deletes element from ArrayList
-    // Precon: ArrayList has 5 - 12 elements
-    // Postcon: Nil
-    private void deletion() {
-        System.out.println("============ Deletion ============");
-        displaysArrayList("Before deletion, ");
-        displaysNewLine();
-
-        int indexOfDeletion = myRandom.nextInt(0, arrayList.size() - 1);
-        System.out.println(" * Deletion at index " + indexOfDeletion + ", which has element " + arrayList.get(indexOfDeletion));
-        arrayList.remove(indexOfDeletion);
-        displaysNewLine();
-
-        displaysArrayList("After deletion, ");
-        displaysLine();
-    }
-
     private void run() {
-        explainsArrayList();
+        explanation();
         insertion();
+        operations();
         search();
-        deletion();
     }
+
     public static void main(String[] args) {
         ArrayListExample obj = new ArrayListExample();
         obj.run();
