@@ -49,7 +49,7 @@ class BubbleSort {
         System.out.println();
     }
 
-    private void formsSet() {
+    private void formsData() {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
         int data = formsData(false);
@@ -82,7 +82,7 @@ class BubbleSort {
     private void insertion() {
         displaysLine();
         System.out.println("======= Insertion =======");
-        formsSet();
+        formsData();
         inputArray = new int[set.size()];
         System.out.println("Forming an array with " + inputArray.length + " elements:");
         displaysNewLine();
