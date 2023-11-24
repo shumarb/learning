@@ -5,39 +5,27 @@ import java.util.Random;
 
 class HashMapExample {
     private HashMap <String, Integer> hMap = new HashMap <> ();
-    // HashSet used only to generate unique values for the HashMap
     private HashSet <Integer> uniqueNumbers = new HashSet <> ();
     private HashSet <String> uniqueStrings = new HashSet <> ();
     private Random myRandom = new Random();
 
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Forms data set to insert into AVL Tree
-    // Precon: Nil
-    // Postcon: Nil
-    private void formsSet() {
+    private void formsData() {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
         int data = myRandom.nextInt(-100, 101);
         int order = myRandom.nextInt(1, 4);
         for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
             if (order == 1) {
-                // Ascending order of number to be inserted into AVL tree
                 uniqueNumbers.add(data++);
             } else if (order == 2) {
-                // Descending order of number to be inserted into AVL tree
                 uniqueNumbers.add(data--);
             } else {
                 uniqueNumbers.add(formsData(false));
@@ -45,18 +33,13 @@ class HashMapExample {
         }
     }
 
-    // Forms data in relation to elements in the HashMap
-    // Precon: Nil
-    // Postcon: Nil
-    private int formsData(boolean isDataInHashMap) {
+    private int formsData(boolean isDataPresent) {
         int data;
-        if (isDataInHashMap) {
-            // Generates data based on element in the AVL Tree
+        if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!uniqueNumbers.contains(data));
         } else {
-            // Generates data based on element not in the AVL Tree
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (uniqueNumbers.contains(data));
@@ -64,47 +47,38 @@ class HashMapExample {
         return data;
     } 
     
-    // Displays key HashMap operations
-    // Precon: HashMap of size >= 1 formed
-    // Postcon: Apply some of these key operations on the HashMap
-    private void explainsHashMap() {
+    private void explanation() {
         displaysLine();
         System.out.println("=========== What is a HashMap? ============");
         System.out.println("HashMap is a data structure that stores key-value mappings based on a hash function.");
         displaysNewLine();
         int i = 1;
-        System.out.println("Key HashMap operations: ");
+        System.out.println("Key HashMap operations based on the Java API: ");
         displaysNewLine();
-        System.out.println(" " + i++ + ". put(K key, V value): Stores the key-value mapping into the HashMap");
-        System.out.println(" " + i++ + ". remove(K key, V value): Removes the key-value mapping from the HashMap");
-        System.out.println(" " + i++ + ". replace(K key, V oldValue, V newValue): Replaces the value of a key-value mapping if the key is mapped to the specified value in the HashMap");
-        System.out.println(" " + i++ + ". get(K key): Returns the value that the specified key is mapped to, or return null if the HashMap contains no mapping for this key");
-        System.out.println(" " + i++ + ". keySet(): Returns a set view of the mappings in the HashMap");
-        System.out.println(" " + i++ + ". containsValue(V value): Returns true if the specified value is associated with >= 1 key-value mapping in the HashMap");
-        System.out.println(" " + i++ + ". containKey(K key): Returns true if the HashMap contains a mapping for the specified key.");
-        System.out.println(" " + i++ + ". clear(): Remove all elements in HashMap");
-        System.out.println(" " + i++ + ". isEmpty(): Return true if the HashMap is empty, else return false");
-        System.out.println(" " + i++ + ". values(): Returns a Collection view of the values contained in the HashMap");
+        System.out.println(" * put(K key, V value): Stores the key-value mapping into the HashMap");
+        System.out.println(" * remove(K key, V value): Removes the key-value mapping from the HashMap");
+        System.out.println(" * replace(K key, V oldValue, V newValue): Replaces the value of a key-value mapping if the key is mapped to the specified value in the HashMap");
+        System.out.println(" * get(K key): Returns the value that the specified key is mapped to, or return null if the HashMap contains no mapping for this key");
+        System.out.println(" * keySet(): Returns a set view of the mappings in the HashMap");
+        System.out.println(" * containsValue(V value): Returns true if the specified value is associated with >= 1 key-value mapping in the HashMap");
+        System.out.println(" * containKey(K key): Returns true if the HashMap contains a mapping for the specified key.");
+        System.out.println(" * clear(): Remove all elements in HashMap");
+        System.out.println(" * isEmpty(): Return true if the HashMap is empty, else return false");
+        System.out.println(" * values(): Returns a Collection view of the values contained in the HashMap");
         System.out.println(" " + i + ". size(): Obtains number of key-value mappings in the HashMap");
         displaysLine();
     }
 
-    // Displays HashMap
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysHashMap() {
         System.out.println("HashMap: " + hMap);
     }
 
-    // Forms HashMap
-    // Precon: Nil
-    // Postcon: Nil
-    private void formsHashMap() {
+    private void insertion() {
         System.out.println("============ Insertion ============");
         int numberOfElements = myRandom.nextInt(5, 13);
         System.out.println("Forming a HashMap with " + numberOfElements + " elements:");
         displaysNewLine();
-        formsSet();
+        formsData();
         String alphabeticString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         for (int i = 0; i < numberOfElements; i++) {
             StringBuilder name = new StringBuilder();
@@ -128,8 +102,8 @@ class HashMapExample {
         displaysLine();
     }
 
-    private void executeHashMapOperations() {
-        System.out.println("============ HashMap Operations ============");
+    private void operations() {
+        System.out.println("============ Operations ============");
         displaysHashMap();
         displaysNewLine();
         System.out.println("Apply some key operations on HashMap:");
@@ -148,10 +122,7 @@ class HashMapExample {
         displaysLine();
     }
 
-    // Searches a HashMap
-    // Precon: Nil
-    // Postcon: Nil
-    private void searchesHashMap() {
+    private void search() {
         System.out.println("============ Search ============");
         displaysHashMap();
         displaysNewLine();
@@ -175,12 +146,9 @@ class HashMapExample {
         displaysLine();
     }
 
-    // Deletes element from HashMap
-    // Precon: Search in HashMap executed
-    // Postcon: End of program
-    private void deletioninHashMap() {
+    private void deletion() {
         System.out.println("============ Deletion ============");
-        System.out.print("Before deletion | ");
+        System.out.print("Before: ");
         displaysHashMap();
         int indexToDelete = myRandom.nextInt(0, hMap.size());
         int i = 0;
@@ -195,17 +163,17 @@ class HashMapExample {
         System.out.println(" * Deleting: [" + keyToDelete + ", " + hMap.get(keyToDelete) + "]");
         hMap.remove(keyToDelete);
         displaysNewLine();
-        System.out.print("After deletion | ");
+        System.out.print("After: ");
         displaysHashMap();
         displaysLine();
     }
     
     private void run() {
-        explainsHashMap();
-        formsHashMap();
-        executeHashMapOperations();
-        searchesHashMap();
-        deletioninHashMap();
+        explanation();
+        insertion();
+        operations();
+        search();
+        deletion();
     }
     public static void main(String[] args) {
         HashMapExample obj = new HashMapExample();

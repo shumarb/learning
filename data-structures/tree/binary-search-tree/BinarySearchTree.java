@@ -86,7 +86,7 @@ public class BinarySearchTree {
     // Forms data set to insert into AVL Tree
     // Precon: Nil
     // Postcon: Nil
-    private void formsSet() {
+    private void formsData() {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
         int data = myRandom.nextInt(-100, 101);
@@ -107,7 +107,7 @@ public class BinarySearchTree {
     private void formsBinarySearchTree() {
         displaysLine();
         System.out.println("======= Insertion =======");
-        formsSet();
+        formsData();
         System.out.println("Forming Binary Search Tree with " + set.size() + " elements:");
         displaysNewLine();
         for (int data: set) {

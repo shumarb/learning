@@ -1,21 +1,25 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 
 public class BinaryMaxHeap {
 
-    Random myRandom = new Random();
+    private HashSet <Integer> set = new HashSet <> ();
+    private int[] initialArray;
+    private int[] inputArray;
+    private Random myRandom = new Random();
 
     // Displays Elements
     // Precon: List of unsorted N elements formed
     // Postcon: Nil
-    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysLine) {
+    private void displaysArray(String sentence, int[] arr, boolean isDisplaysLine) {
         System.out.print(sentence);
-        for (int i = 0; i < inputArray.length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             System.out.print(inputArray[i] + ", ");
         }
-        System.out.print(inputArray[inputArray.length - 1] + "]");
+        System.out.print(arr[inputArray.length - 1] + "]");
         if (isDisplaysLine) {
-            System.out.println();
+            displaysNewLine();
             displaysLine();
         }
     }
@@ -23,12 +27,12 @@ public class BinaryMaxHeap {
     // Displays array before and after Max-Heapify
     // Precon: Array has been max heapified
     // Postcon: End of program
-    private void displaysChange(int[] inputArray, int[] initialArray) {
-        displaysLine();
-        System.out.println("Max-Heapify | " + inputArray.length + " elements:");
-        displaysArray("Before: [", initialArray, false);
-        System.out.println();
-        displaysArray("After: [", inputArray, true);
+    private void displaysChange() {
+        System.out.println("Max-Heapifying the " + inputArray.length + " elements:");
+        displaysNewLine();
+        displaysArray(" * Before:\t[", initialArray, false);
+        displaysTwoNewLines();
+        displaysArray(" * After:\t[", inputArray, true);
     }
 
     // Displays Line
@@ -36,6 +40,14 @@ public class BinaryMaxHeap {
     // Postcon: Nil
     private void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
+    }
+    
+    // Displays Two New Lines
+    // Precon: Nil
+    // Postcon: Nil
+    private void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
     }
 
     // Displays New Line
@@ -45,29 +57,75 @@ public class BinaryMaxHeap {
         System.out.println();
     }
 
+    // Forms data set to insert into the Binary Max Heap
+    // Precon: Nil
+    // Postcon: Nil
+    private void formsData() {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = formsData(false);
+        int order = myRandom.nextInt(0, 2);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
+            if (order == 0) {
+                // Ascending order of number to be inserted into the Binary Max Heap
+                set.add(data++);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
+
+    // Forms data in relation to elements in the Binary Max Heap
+    // Precon: Nil
+    // Postcon: Nil
+    private int formsData(boolean isDataPresent) {
+        int data;
+        if (isDataPresent) {
+            // Generates data based on element in the Binary Max Heap
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            // Generates data based on element not in the Binary Max Heap
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
+
     // Forms Binary Max Heap
     // Precon: No Binary Max Heap created
     // Postcon: Binary Max Heap of N elements created
-    private int[] insertion() {
-        int[] inputArray = new int[myRandom.nextInt(5, 12)];
-        for (int i = 0; i < inputArray.length; i++) {
-            inputArray[i] = myRandom.nextInt(-10000, 10000);
-        }
+    private void insertion() {
         displaysLine();
-        return inputArray;
+        System.out.println("======= Insertion =======");
+        formsData();
+        inputArray = new int[set.size()];
+        System.out.println("Forming a Binary Max Heap with " + inputArray.length + " elements:");
+        displaysNewLine();
+        int i = 0;
+        for (int data: set) {
+            System.out.println(" * inserting " + data);
+            inputArray[i++] = data;
+        }
+        initialArray = storesInitialArray();
+        displaysNewLine();
+        maxHeapify();
+        displaysChange();
     }
 
     // Forms initial array based on input array before Max-Heapify
     // Precon: initialArray unitialised
     // Postcon: initialArray formed is the inputArray before Max-Heapify
-    private int[] formsInitialArray(int[] inputArray) {
+    private int[] storesInitialArray() {
         return Arrays.copyOf(inputArray, inputArray.length);
     }    
 
     // Swaps elements
     // Precon: Root != Largest element
     // Postcon: Root == Largest element encounter so far
-    private void swapsElements(int[] inputArray, int largestElementIndex, int currentIndex) {
+    private void swap(int[] inputArray, int largestElementIndex, int currentIndex) {
         int temp = inputArray[currentIndex];
         inputArray[currentIndex] = inputArray[largestElementIndex];
         inputArray[largestElementIndex] = temp;
@@ -76,130 +134,120 @@ public class BinaryMaxHeap {
     // Max-Heapify the elements
     // Precon: Elements are currently unsorted in array
     // Postcon: Elements are arranged in array such that it forms a binary max heap
-    private void executesMaxHeapify(int[] inputArray) {
+    private void maxHeapify() {
         // 1. MaxHeapify the array
         // Iterate from the lowest-level leaf to the root
         for (int i = inputArray.length - 1; i >= 0; i--) {
-            executesMaxHeapify(inputArray, i);
+            maxHeapify(inputArray, i);
         }
     }
 
     // Max-Heapify the eleemnts based on the current index
     // Precon: Max-Heapify in-progress
     // Postcon: Proceed to next element
-    private void executesMaxHeapify(int[] inputArray, int currentIndex) {
+    private void maxHeapify(int[] inputArray, int currentIndex) {
         // 1. Check if child > parent
         // First part of condition ensures no array out of bounds by confirming this is a check on a non-leaf element
         int parentIndex = currentIndex;
         int leftChildIndex = (2 * currentIndex) + 1;
         int rightChildIndex = (2 * currentIndex) + 2;
-        displaysArray("* now executing max-heapify | inputArray so far: [", inputArray, false);
-        System.out.println();
         
         if (leftChildIndex < inputArray.length && inputArray[leftChildIndex] > inputArray[parentIndex]) {
             parentIndex = leftChildIndex;
-            System.out.println("* current: (index , " + currentIndex 
-                                + ", " + inputArray[currentIndex]
-                                + ") | leftChild: (index " + leftChildIndex 
-                                + ", " + inputArray[leftChildIndex]
-                                + ") | largest: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex]
-                                + ")"
-            );
         }
         if (rightChildIndex < inputArray.length && inputArray[rightChildIndex] > inputArray[parentIndex]) {
             parentIndex = rightChildIndex;
-            System.out.println("* current: (index , " + currentIndex
-                                + ", " + inputArray[currentIndex]
-                                + ") | rightChild: (index " + rightChildIndex 
-                                + ", " + inputArray[rightChildIndex]
-                                + ") | largest: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex]
-                                + ")"
-            );
         }
 
         // 2. If a child > parent, swap the elements
         // and max-heapify subtree where either the left child or right child element
         // which after the swap is <= it's parent, is the root of the subtree
         if (parentIndex != currentIndex) {
-            System.out.println("* to swap | current: (index " + currentIndex 
-                                + ", " + inputArray[currentIndex]
-                                + ") <-----------------------> largest: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex]
-                                + ")"
-            );
-            swapsElements(inputArray, currentIndex, parentIndex);
-            displaysArray("** swap done, inputArray so far: [", inputArray, false);
-            System.out.println();
-            System.out.println("** after swap, max-heapify subtree with root: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex] 
-                                + ")"
-            );
-            displaysLine();
-            executesMaxHeapify(inputArray, parentIndex);
+            swap(inputArray, currentIndex, parentIndex);
+            maxHeapify(inputArray, parentIndex);
         }
     }
 
-    // Searches for maximum element
-    // Precon: Elements arranged based on a Max Heap
-    // Postcon: Finds minimum element
-    private void searchesMaximum(int[] inputArray) {
-        System.out.println("======== Searches Maximum ========");
-        displaysArray("* inputArray: [", inputArray, false);
-        displaysNewLine();
-        System.out.println("* maximum element: " + inputArray[0]);
-        displaysLine();
-    }
-
-    // Searches for minimum element
-    // Precon: Elements arranged based on Max Heap
-    // Postcon: Searches for element
-    private void searchesMinimum(int[] inputArray) {
-        System.out.println("======== Searches Minimum ========");
-        displaysArray("* inputArray: [", inputArray, false);
-        displaysNewLine();
-        int minimumElement = inputArray[inputArray.length - 1];
-        for (int i = inputArray.length - 2; i >= 0; i--) {
-            if (inputArray[i] < minimumElement) {
-                minimumElement = inputArray[i];
-            }
-        }
-        System.out.println("* minimum element: " + minimumElement);
-        displaysLine();
-    }
-
-    // Searches for an element
+    // Searches for an element, as well as both maximum and minimum elements
     // Precon: Elements arranged based on Max Heap
     // Postcon: End of program
-    private void search(int[] inputArray) {
-        System.out.println("======== Searches Element ========");
-        displaysArray("* inputArray: [", inputArray, false);
-        displaysNewLine();
-        boolean isFound = false;
-        int key = myRandom.nextInt(-10, 10);
+    private void search() {
+        System.out.println("======== Search ========");
+        displaysArray("Array:\t[", inputArray, false);
+        displaysTwoNewLines();
+
+        for (int i = 0; i < 2; i++) {
+            int key;
+            boolean isKeyFound = false;
+            if (i == 0) {
+                key = formsData(true);
+            } else {
+                key = formsData(false);
+            }
+            for (int j = 0; j < inputArray.length; j++) {
+                if (inputArray[j] == key) {
+                    isKeyFound = true;
+                    break;
+                }
+            }
+            if (isKeyFound) {
+                System.out.println(" * " + key + " is in the Binary Max Heap");
+            } else {
+                System.out.println(" * " + key + " is not in the Binary Max Heap");
+            }
+            displaysNewLine();
+        }
+
+        int maximum = inputArray[0];
+        int minimum = inputArray[0];
         for (int i = 0; i < inputArray.length; i++) {
-            if (inputArray[i] == key) {
-                isFound = true;
-                break;
+            if (inputArray[i] < minimum) {
+                minimum = inputArray[i];
             }
         }
-        if (isFound) {
-            System.out.println("* key: " + key + " | is in the Binary Max Heap");
-        } else {
-            System.out.println("* key: " + key + " | is not in the Binary Max Heap");
-        }
+        System.out.println(" * Maximum: " + maximum);
+        displaysNewLine();
+        System.out.println(" * Minimum: " + minimum);
         displaysLine();
+    }
+
+    // Deletes an element from the Binary Max Heap
+    // Precon: Search method executed on Binary Max Heap
+    // Postcon: Nil
+    private void deletion() {
+        System.out.println("======== Deletion ========");
+        int indexOfDeletion = myRandom.nextInt(0, inputArray.length);
+        System.out.println("Deletion at index " + indexOfDeletion + ": " + inputArray[indexOfDeletion]);
+        displaysNewLine();
+        displaysArray(" * Before:\t[", inputArray, false);
+        displaysTwoNewLines();
+        inputArray = deletion(indexOfDeletion);
+        displaysArray(" * After:\t[", inputArray, false);
+        displaysTwoNewLines();
+        initialArray = storesInitialArray();
+        maxHeapify();
+        displaysChange();
+    }
+
+    // Deletes an element from the array
+    // Precon: Search of array complete
+    // Postcon: End of program
+    private int[] deletion(int indexOfDeletion) {
+        set.remove(inputArray[indexOfDeletion]);
+        int[] updatedArray = new int[inputArray.length - 1];
+        int j = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            if (i != indexOfDeletion) {
+                updatedArray[j++] = inputArray[i];
+            }
+        }
+        return updatedArray;
     }
 
     private void run() {
-        int[] inputArray = insertion();
-        int[] initialArray = formsInitialArray(inputArray);
-        executesMaxHeapify(inputArray);
-        displaysChange(inputArray, initialArray);
-        searchesMaximum(inputArray);
-        searchesMinimum(inputArray);
-        search(inputArray);
+        insertion();
+        search();
+        deletion();
     }
 
     public static void main(String[] args) {

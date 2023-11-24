@@ -59,9 +59,9 @@ class ArrayListExample {
         displaysMessage(" * size(): Obtain number of the elements in the ArrayList", false, true);
     }
 
-    private int formsData(boolean isDataInArrayList) {
+    private int formsData(boolean isDataPresent) {
         int data;
-        if (isDataInArrayList) {
+        if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!arrayList.contains(data));
@@ -97,25 +97,17 @@ class ArrayListExample {
         int index;
         int key;
 
-        System.out.println(" * isEmpty(): " + arrayList.isEmpty());
-        displaysNewLine();
+        displaysMessage(" * size(): " + arrayList.size(), true, false);
+        displaysMessage(" * isEmpty(): " + arrayList.isEmpty(), true, false);
 
         key = formsData(true);
-        System.out.print(" * contains(" +  key + "): " + arrayList.contains(key));
-        System.out.println(", indexOf(" +  key + "): " + arrayList.indexOf(key));
-        displaysNewLine();
+        displaysMessage(" * contains(" +  key + "): " + arrayList.contains(key) + "\t| indexOf(" +  key + "): " + arrayList.indexOf(key), true, false);
 
         key = formsData(false);
-        System.out.print(" * contains(" +  key + "): " + arrayList.contains(key));
-        System.out.println(", indexOf(" +  key + "): " + arrayList.indexOf(key));
-        displaysNewLine();
-
-        System.out.println(" * size(): " + arrayList.size());
-        displaysNewLine();
+        displaysMessage(" * contains(" +  key + "): " + arrayList.contains(key) + "\t| indexOf(" +  key + "): " + arrayList.indexOf(key), true, false);
 
         index = formsIndex();
-        System.out.println(" * get(" + index + "): " + arrayList.get(index));
-        displaysNewLine();
+        displaysMessage(" * get(" + index + "): " + arrayList.get(index), true, false);
 
         index = formsIndex();
         key = formsData(false);
@@ -152,10 +144,8 @@ class ArrayListExample {
                 minimum = arrayList.get(i);
             }
         }
-        System.out.println(" * Maximum: " + maximum);
-        displaysNewLine();
-        System.out.println(" * Minimum: " + minimum);
-        displaysLine();
+        displaysMessage(" * Maximum: " + maximum, true, false);
+        displaysMessage(" * Minimum: " + minimum, false, true);
     }
 
     private void run() {

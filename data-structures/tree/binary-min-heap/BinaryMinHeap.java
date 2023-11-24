@@ -1,9 +1,13 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 
 public class BinaryMinHeap {
 
-    Random myRandom = new Random();
+    private HashSet <Integer> set = new HashSet <> ();
+    private int[] initialArray;
+    private int[] inputArray;
+    private Random myRandom = new Random();
 
     // Displays Elements
     // Precon: List of unsorted N elements formed
@@ -15,7 +19,7 @@ public class BinaryMinHeap {
         }
         System.out.print(inputArray[inputArray.length - 1] + "]");
         if (isDisplaysLine) {
-            System.out.println();
+            displaysNewLine();
             displaysLine();
         }
     }
@@ -23,12 +27,12 @@ public class BinaryMinHeap {
     // Displays array before and after min-heapify
     // Precon: Array has been Min Heapified
     // Postcon: End of program
-    private void displaysChange(int[] inputArray, int[] initialArray) {
-        displaysLine();
-        System.out.println("min-heapify | " + inputArray.length + " elements:");
-        displaysArray("Before: [", initialArray, false);
-        System.out.println();
-        displaysArray("After: [", inputArray, true);
+    private void displaysChange() {
+        System.out.println("Min-heapify:");
+        displaysNewLine();
+        displaysArray(" * Before:\t[", initialArray, false);
+        displaysTwoNewLines();
+        displaysArray(" * After:\t[", inputArray, true);
     }
     
     // Displays Line
@@ -45,29 +49,83 @@ public class BinaryMinHeap {
         System.out.println();
     }
 
+    // Displays Two New Lines
+    // Precon: Nil
+    // Postcon: Nil
+    private void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
+    }
+
     // Forms Binary Min Heap
     // Precon: No Binary Min Heap created
     // Postcon: Binary Min Heap of N elements created
-    private int[] insertion() {
-        int[] inputArray = new int[myRandom.nextInt(5, 12)];
-        for (int i = 0; i < inputArray.length; i++) {
-            inputArray[i] = myRandom.nextInt(-10, 10);
-        }
+    private void insertion() {
         displaysLine();
-        return inputArray;
+        System.out.println("======= Insertion =======");
+        formsData();
+        inputArray = new int[set.size()];
+        System.out.println("Forming a Binary Min Heap with " + inputArray.length + " elements:");
+        displaysNewLine();
+        int i = 0;
+        for (int data: set) {
+            System.out.println(" * inserting " + data);
+            inputArray[i++] = data;
+        }
+        initialArray = storesInitialArray();
+        displaysNewLine();
+        minHeapify();
+        displaysChange();
     }
+
+    // Forms data set to insert into the Binary Min Heap
+    // Precon: Nil
+    // Postcon: Nil
+    private void formsData() {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = formsData(false);
+        int order = myRandom.nextInt(0, 2);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
+            if (order == 0) {
+                // Descending order of number to be inserted into the Binary Min Heap
+                set.add(data--);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
+
+    // Forms data in relation to elements in the Binary Min Heap
+    // Precon: Nil
+    // Postcon: Nil
+    private int formsData(boolean isDataPresent) {
+        int data;
+        if (isDataPresent) {
+            // Generates data based on element in the Binary Min Heap
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            // Generates data based on element not in the Binary Min Heap
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
 
     // Forms initial array based on input array before min-heapify
     // Precon: initialArray unitialised
     // Postcon: initialArray formed is the inputArray before min-heapify
-    private int[] formsInitialArray(int[] inputArray) {
+    private int[] storesInitialArray() {
         return Arrays.copyOf(inputArray, inputArray.length);
     }    
 
     // Swaps elements
     // Precon: Root != smallest element
     // Postcon: Root == smallest element encounter so far
-    private void swapsElements(int[] inputArray, int smallestElementIndex, int currentIndex) {
+    private void swap(int[] inputArray, int smallestElementIndex, int currentIndex) {
         int temp = inputArray[currentIndex];
         inputArray[currentIndex] = inputArray[smallestElementIndex];
         inputArray[smallestElementIndex] = temp;
@@ -76,129 +134,118 @@ public class BinaryMinHeap {
     // Min-heapify the elements
     // Precon: Elements are currently unsorted in array
     // Postcon: Elements are arranged in array such that it forms a binary Min Heap
-    private void executesMinHeapify(int[] inputArray) {
+    private void minHeapify() {
         // 1. minHeapify the array
         // Iterate from the lowest-level leaf to the root
         for (int i = inputArray.length - 1; i >= 0; i--) {
-            executesMinHeapify(inputArray, i);
+            minHeapify(inputArray, i);
         }
     }
 
     // Min-heapify the eleemnts based on the current index
     // Precon: min-heapify in-progress
     // Postcon: Proceed to next element
-    private void executesMinHeapify(int[] inputArray, int currentIndex) {
+    private void minHeapify(int[] inputArray, int currentIndex) {
         // 1. Check if child < parent
         // First part of condition ensures no array out of bounds by confirming this is a check on a non-leaf element
         int parentIndex = currentIndex;
         int leftChildIndex = (2 * currentIndex) + 1;
         int rightChildIndex = (2 * currentIndex) + 2;
-        displaysArray("* now executing min-heapify | inputArray so far: [", inputArray, false);
-        System.out.println();
         
         if (leftChildIndex < inputArray.length && inputArray[leftChildIndex] < inputArray[parentIndex]) {
             parentIndex = leftChildIndex;
-            System.out.println("* current: (index , " + currentIndex 
-                                + ", " + inputArray[currentIndex]
-                                + ") | leftChild: (index " + leftChildIndex 
-                                + ", " + inputArray[leftChildIndex]
-                                + ") | smallest: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex]
-                                + ")"
-            );
         }
         if (rightChildIndex < inputArray.length && inputArray[rightChildIndex] < inputArray[parentIndex]) {
             parentIndex = rightChildIndex;
-            System.out.println("* current: (index , " + currentIndex 
-                                + ", " + inputArray[currentIndex]
-                                + ") | rightChild: (index " + rightChildIndex 
-                                + ", " + inputArray[rightChildIndex]
-                                + ") | smallest: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex]
-                                + ")"
-            );
         }
 
         // 2. If a child > parent, swap the elements
         // and min-heapify subtree is either the left or right child of the parent elmenet
         if (parentIndex != currentIndex) {
-            System.out.println("* to swap | current: (index " + currentIndex 
-                                + ", " + inputArray[currentIndex]
-                                + ") <-----------------------> smallest: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex]
-                                + ")"
-            );
-            swapsElements(inputArray, currentIndex, parentIndex);
-            displaysArray("** swap done, inputArray so far: [", inputArray, false);
-            System.out.println();
-            System.out.println("** after swap, min-heapify subtree with root: (index " + parentIndex 
-                                + ", " + inputArray[parentIndex] 
-                                + ")"
-            );
-            displaysLine();
-            executesMinHeapify(inputArray, parentIndex);
+            swap(inputArray, currentIndex, parentIndex);
+            minHeapify(inputArray, parentIndex);
         }
-    }
-
-    // Searches for maximum element
-    // Precon: Elements arranged based on a Max Heap
-    // Postcon: Finds minimum element
-    private void searchesMinimum(int[] inputArray) {
-        System.out.println("======== Searches Maximum ========");
-        displaysArray("* inputArray: [", inputArray, false);
-        displaysNewLine();
-        System.out.println("* maximum element: " + inputArray[0]);
-        displaysLine();
-    }
-
-    // Searches for minimum element
-    // Precon: Elements arranged based on Max Heap
-    // Postcon: Searches for element
-    private void searchesMaximum(int[] inputArray) {
-        System.out.println("======== Searches Minimum ========");
-        displaysArray("* inputArray: [", inputArray, false);
-        displaysNewLine();
-        int minimumElement = inputArray[inputArray.length - 1];
-        for (int i = inputArray.length - 2; i >= 0; i--) {
-            if (inputArray[i] < minimumElement) {
-                minimumElement = inputArray[i];
-            }
-        }
-        System.out.println("* minimum element: " + minimumElement);
-        displaysLine();
     }
 
     // Searches for an element
-    // Precon: Elements arranged based on Max Heap
+    // Precon: Elements arranged based on Min Heap
     // Postcon: End of program
-    private void search(int[] inputArray) {
-        System.out.println("======== Searches Element ========");
-        displaysArray("* inputArray: [", inputArray, false);
-        displaysNewLine();
-        boolean isFound = false;
-        int key = myRandom.nextInt(-10, 10);
+    private void search() {
+        System.out.println("======== Search ========");
+        displaysArray("Array:\t[", inputArray, false);
+        displaysTwoNewLines();
+        for (int i = 0; i < 2; i++) {
+            int key;
+            boolean isKeyFound = false;
+            if (i == 0) {
+                key = formsData(true);
+            } else {
+                key = formsData(false);
+            }
+            for (int j = 0; j < inputArray.length; j++) {
+                if (inputArray[j] == key) {
+                    isKeyFound = true;
+                    break;
+                }
+            }
+            if (isKeyFound) {
+                System.out.println(" * " + key + " is in the Binary Min Heap");
+            } else {
+                System.out.println(" * " + key + " is not in the Binary Min Heap");
+            }
+            displaysNewLine();
+        }
+
+        int maximum = inputArray[0];
+        int minimum = inputArray[0];
         for (int i = 0; i < inputArray.length; i++) {
-            if (inputArray[i] == key) {
-                isFound = true;
-                break;
+            if (inputArray[i] > maximum) {
+                maximum = inputArray[i];
             }
         }
-        if (isFound) {
-            System.out.println("* key: " + key + " | is in the Binary Max Heap");
-        } else {
-            System.out.println("* key: " + key + " | is not in the Binary Max Heap");
-        }
+        System.out.println(" * Maximum: " + maximum);
+        displaysNewLine();
+        System.out.println(" * Minimum: " + minimum);
         displaysLine();
     }
-    
+
+    // Deletes an element from the Binary Min Heap
+    // Precon: Search method executed on Binary Min Heap
+    // Postcon: Nil
+    private void deletion() {
+        System.out.println("======== Deletion ========");
+        int indexOfDeletion = myRandom.nextInt(0, inputArray.length);
+        System.out.println("Deletion at index " + indexOfDeletion + ": " + inputArray[indexOfDeletion]);
+        displaysNewLine();
+        displaysArray(" * Before:\t[", inputArray, false);
+        displaysTwoNewLines();
+        inputArray = deletion(indexOfDeletion);
+        displaysArray(" * After:\t[", inputArray, false);
+        displaysTwoNewLines();
+        initialArray = storesInitialArray();
+        minHeapify();
+        displaysChange();
+    }
+
+    // Deletes an element from the array
+    // Precon: Search of array complete
+    // Postcon: End of program
+    private int[] deletion(int indexOfDeletion) {
+        set.remove(inputArray[indexOfDeletion]);
+        int[] updatedArray = new int[inputArray.length - 1];
+        int j = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            if (i != indexOfDeletion) {
+                updatedArray[j++] = inputArray[i];
+            }
+        }
+        return updatedArray;
+    }
+
     private void run() {
-        int[] inputArray = insertion();
-        int[] initialArray = formsInitialArray(inputArray);
-        executesMinHeapify(inputArray);
-        displaysChange(inputArray, initialArray);
-        searchesMaximum(inputArray);
-        searchesMinimum(inputArray);
-        search(inputArray);
+        insertion();
+        search();
+        deletion();
     }
 
     public static void main(String[] args) {

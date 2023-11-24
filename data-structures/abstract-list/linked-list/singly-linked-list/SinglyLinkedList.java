@@ -107,7 +107,7 @@ class SinglyLinkedList {
         int key = formsData(false);
         Node currentNode;
         for (int i = 0; i < 2; i++) {
-            boolean isFound = false;
+            boolean isKeyFound = false;
             currentNode = head.getsNextNode();
             if (i == 0) {
                 key = formsData(true);
@@ -117,13 +117,13 @@ class SinglyLinkedList {
             currentNode = head.getsNextNode();
             while (currentNode != null) {
                 if (currentNode.getsData() == key) {
-                    isFound = true;
+                    isKeyFound = true;
                     break;
                 }
                 currentNode = currentNode.getsNextNode();
             }
 
-            if (isFound) {
+            if (isKeyFound) {
                 System.out.println(" * " + key + " is in Singly Linked List");
             } else {
                 System.out.println(" * " + key + " is not in Singly Linked List");

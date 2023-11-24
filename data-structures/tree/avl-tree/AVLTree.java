@@ -7,45 +7,27 @@ public class AVLTree {
     private Node root; 
     private Random myRandom = new Random();
 
-    // Gets height of a node
-    // Precon: Nil
-    // Postcon: Nil
     private int getsHeight(Node node) { 
         return (node == null) ? -1 : node.getsHeight();
     } 
-  
-    // Computes balance factor of an element
-    // Precon: Rebalancing of element ongoing
-    // Postcon: AVL Tree maintained 
+
     private int getsBalanceFactor(Node node) { 
         return (node == null) ? 0 : getsHeight(node.getsLeftChild()) - getsHeight(node.getsRightChild()); 
     }
 
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysLine() {
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Displays two new Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysTwoNewLines() {
         System.out.println();
         System.out.println();
     }
 
-    // Updates height of node
-    // Precon: Node inserted into AVL Tree
-    // Postcon: Rotate AVL Tree if required
     private void updatesHeight(Node node, String operation) {
         if (node == null) {
             return;
@@ -63,20 +45,15 @@ public class AVLTree {
         }
     }
 
-    // Forms data set to insert into AVL Tree
-    // Precon: Nil
-    // Postcon: Nil
-    private void formsSet() {
+    private void formsData() {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
         int data = myRandom.nextInt(-100, 101);
         int order = myRandom.nextInt(1, 4);
         for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
             if (order == 1) {
-                // Ascending order of number to be inserted into AVL tree
                 set.add(data++);
             } else if (order == 2) {
-                // Descending order of number to be inserted into AVL tree
                 set.add(data--);
             } else {
                 set.add(formsData(false));
@@ -84,18 +61,13 @@ public class AVLTree {
         }
     }
 
-    // Forms data in relation to elements in the AVL Tree
-    // Precon: Nil
-    // Postcon: Nil
     private int formsData(boolean isDataInAVLTree) {
         int data;
         if (isDataInAVLTree) {
-            // Generates data based on element in the AVL Tree
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
         } else {
-            // Generates data based on element not in the AVL Tree
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (set.contains(data));
@@ -103,10 +75,10 @@ public class AVLTree {
         return data;
     } 
 
-    private void formsAVLTree() {
+    private void insertion() {
         displaysLine();
         System.out.println("======= Insertion =======");
-        formsSet();
+        formsData();
         System.out.println("Forming AVL Tree with " + set.size() + " elements:");
         displaysNewLine();
         for (int data: set) {
@@ -121,10 +93,11 @@ public class AVLTree {
         displaysAVLTree();
     }
 
-    // Insert an element into AVL Tree
-    // Precon: AVL Tree with specified number of elements not formed
-    // Postcon: AVL Tree with specified number of elements formed
-    // Reference: https://www.geeksforgeeks.org/insertion-in-an-avl-tree/, https://www.baeldung.com/java-avl-trees
+    /**
+     * References: 
+     * https://www.geeksforgeeks.org/insertion-in-an-avl-tree/
+     * https://www.baeldung.com/java-avl-trees
+     */ 
     private Node insertion(Node node, int data) { 
         if (node == null) {
             return new Node(data);
@@ -137,35 +110,35 @@ public class AVLTree {
         return rebalancesAVLTree(node);
     } 
     
-    // Rebalances AVL Tree
-    // Precon: Element inserted into AVL Tree
-    // Postcon: Insert next element into AVL Tree
-    // Reference: https://www.youtube.com/watch?v=TbvhGcf6UJU&ab_channel=nptelhrd, https://github.com/geekific-official/geekific-youtube/blob/main/tree-implementations/avl-tree/src/main/java/com/youtube/geekific/AVLTree.java#L94
+    /**
+     * Reference: 
+     * https://www.youtube.com/watch?v=TbvhGcf6UJU&ab_channel=nptelhrd, 
+     * https://github.com/geekific-official/geekific-youtube/blob/main/tree-implementations/avl-tree/src/main/java/com/youtube/geekific/AVLTree.java#L94
+     */
     private Node rebalancesAVLTree(Node node) {
         if (node == null) {
             return root;
         }
 
-        // 3. Obtain balance factor of current node and rebalance if required
         int balanceFactor = getsBalanceFactor(node);
 
-        // 3.1. Left-Left imbalance ==> Right rotation
+        // Left-Left imbalance ==> Right rotation
         if (balanceFactor > 1 && getsBalanceFactor(node.getsLeftChild()) >= 0) {
             return rightRotation(node);
         }
 
-        // 3.2. Left-Right imbalance ==> Left-Right rotation
+        // Left-Right imbalance ==> Left-Right rotation
         if (balanceFactor > 1 && getsBalanceFactor(node.getsLeftChild()) < 0) {
             node.setsLeftChild(leftRotation(node.getsLeftChild()));
             return rightRotation(node);
         }
 
-        // 3.3. Right-Right imbalance ==> Left rotation
+        // Right-Right imbalance ==> Left rotation
         if (balanceFactor < -1 && getsBalanceFactor(node.getsRightChild()) <= 0) {
             return leftRotation(node);
         }
 
-        // 3.4. Right-Left imbalance ==> Right-Left rotation
+        // Right-Left imbalance ==> Right-Left rotation
         if (balanceFactor < -1 && getsBalanceFactor(node.getsRightChild()) > 0) {
             node.setsRightChild(rightRotation(node.getsRightChild()));
             return leftRotation(node);
@@ -174,59 +147,45 @@ public class AVLTree {
         return node;
     }
 
-    // Right Rotation
-    // Precon: Balance factor of node is < -1
-    // Postcon: Nil
     private Node rightRotation(Node node) { 
         if (node == null) {
             return node;
         }
 
-        // 1. Obtain node's left child and the left child's right child
         Node leftChild = node.getsLeftChild(); 
         Node centerNode = leftChild.getsRightChild();
   
-        // 2. Right rotation
-        // Note that node > centerNode > leftChild
+        // node > centerNode > leftChild
         leftChild.setsRightChild(node);
         node.setsLeftChild(centerNode);
   
-        // 3. Update heights 
         updatesHeight(node, "increase");
         updatesHeight(leftChild, "increase");
         
-        // 4. Return new root
+        // Return new root
         return leftChild; 
     } 
   
-    // Left Rotation
-    // Precon: Balance factor of node is > 1
-    // Postcon: Nil
     private Node leftRotation(Node node) { 
         if (node == null) {
             return node;
         }
 
-        // 1. Obtain node's right child and the right child's left child
         Node rightChild = node.getsRightChild(); 
         Node centerNode = rightChild.getsLeftChild();
   
-        // 2. Left rotation 
-        // Note that node < centerNode < rightChild
+        // Left rotation 
+        // node < centerNode < rightChild
         rightChild.setsLeftChild(node);
         node.setsRightChild(centerNode);
   
-        // 3. Update heights 
         updatesHeight(node, "increase");
         updatesHeight(rightChild, "increase");
   
-        // 4. Return new root
+        // Return new root
         return rightChild; 
     } 
 
-    // Finds minimum of a subtree
-    // Precon: Nil
-    // Postcon: Nil
     private Node searchMinimum(Node node) {
         if (node == null || !node.hasLeftChild()) {
             return node;
@@ -234,9 +193,6 @@ public class AVLTree {
         return searchMinimum(node.getsLeftChild());
     }
 
-    // Displays AVL Tree
-    // Precon: All elements inserted into AVL Tree
-    // Postcon: Nil
     private void displaysAVLTree(Node node, String traversalOrder) {
         if (node == null) {
             return;
@@ -255,16 +211,10 @@ public class AVLTree {
         }
     }
 
-    // Displays element information
-    // Precon: All elements inserted into AVL Tree
-    // Postcon: Nil
     private void displaysElementInformation(Node node) {
         System.out.print("[" + node.getsData() + ", h: " + node.getsHeight() + "]  ");
     }
 
-    // Displays AVL Tree
-    // Precon: AVL Tree is formed
-    // Postcon: Nil
     private void displaysAVLTree() {
         System.out.println("Displaying AVL Tree of " + set.size() + " elements:");
         displaysNewLine();
@@ -280,19 +230,14 @@ public class AVLTree {
         displaysLine();
     }
 
-    // Searches for element in the AVL Tree
-    // Precon: AVL Tree formed
-    // Postcon: Nil
-    private void searchesAVLTree() {
+    private void search() {
         System.out.println("======= Search =======");
         Node node;
         for (int i = 0; i < 2; i++) {
             int key;
             if (i == 0) {
-                // Find existing element in the AVL Tree
                 key = formsData(true);
             } else {
-                // Find non-existent element in the AVL Tree
                 key = formsData(false);
             }
             System.out.println("Search: " + key + " | Starting from the root of the AVL Tree...");
@@ -316,15 +261,11 @@ public class AVLTree {
         displaysLine();
     }
 
-    // Searches for maximum or minimum element
-    // Precon: AVL Tree formed
-    // Postcon: Nil
     private Node search(Node node, String searchOperation, int key) {
         if (node == null) {
             return node;
         }
         
-        // searchOperation: binary search, searches maximum, searches minimum
         System.out.print(" * current element: " + node.getsData());
         if (key == node.getsData()) {
             System.out.println(" | Found!");
@@ -360,10 +301,7 @@ public class AVLTree {
         return null;
     }
 
-    // Deletes an element from the AVL Tree
-    // Precon: AVL Tree formed
-    // Postcon: Nil
-    private void deletionInAVLTree() {
+    private void deletion() {
         System.out.println("======= Deletion =======");
         int key = formsData(true);
         root = deletion(root, key);
@@ -374,11 +312,7 @@ public class AVLTree {
         displaysAVLTree();
     }
 
-    // Deletion of element from AVL Tree
-    // Precon: Element is in the AVL Tree
-    // Postcon: Element deleted from AVL Tree
     private Node deletion(Node node, int key) {
-        // 1. Finds key to be deleted by traversing from the root
         if (node == null) {
             return node;
         } else if (key < node.getsData()) {
@@ -418,18 +352,15 @@ public class AVLTree {
             return node;
         }
 
-        // 2. Updates height of current node
         updatesHeight(node, "increase");
 
-
-        // 3. Rebalance AVL Tree if required
         return rebalancesAVLTree(node);
     }
 
     private void run() {
-        formsAVLTree();
-        searchesAVLTree();
-        deletionInAVLTree();
+        insertion();
+        search();
+        deletion();
     }
 
     public static void main(String[] args) { 

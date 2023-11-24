@@ -59,9 +59,9 @@ class VectorExample {
         displaysMessage(" * size(): Obtain number of the elements in the Vector", false, true);
     }
 
-    private int formsData(boolean isDataInVector) {
+    private int formsData(boolean isDataPresent) {
         int data;
-        if (isDataInVector) {
+        if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!vector.contains(data));
