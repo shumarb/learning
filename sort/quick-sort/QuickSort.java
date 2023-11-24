@@ -35,20 +35,6 @@ class QuickSort {
         System.out.println();
     }
 
-    private int formsData(boolean isDataInArray) {
-        int data;
-        if (isDataInArray) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!set.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (set.contains(data));
-        }
-        return data;
-    } 
-
     private void formsData() {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
@@ -64,6 +50,20 @@ class QuickSort {
             }
         }
     }
+
+    private int formsData(boolean isDataInArray) {
+        int data;
+        if (isDataInArray) {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (!set.contains(data));
+        } else {
+            do {
+                data = myRandom.nextInt(-100, 101);
+            } while (set.contains(data));
+        }
+        return data;
+    } 
 
     private void insertion() {
         displaysLine();

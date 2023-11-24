@@ -35,9 +35,25 @@ class HeapSort {
         System.out.println();
     }
 
-    private int formsData(boolean isDataInBinaryMaxHeap) {
+    private void formsData() {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = formsData(false);
+        int order = myRandom.nextInt(0, 2);
+        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
+            if (order == 0) {
+                // Descending order of number to be inserted into the Array
+                // because merge sort sorts the elements in ascending order
+                set.add(data--);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
+
+    private int formsData(boolean isDataInArray) {
         int data;
-        if (isDataInBinaryMaxHeap) {
+        if (isDataInArray) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
@@ -47,22 +63,6 @@ class HeapSort {
             } while (set.contains(data));
         }
         return data;
-    } 
-
-    private void formsData() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = formsData(false);
-        int order = myRandom.nextInt(0, 2);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 0) {
-                // Descending order of number to be inserted into the Array
-                // because heap sort sorts the elements in ascending order
-                set.add(data--);
-            } else {
-                set.add(formsData(false));
-            }
-        }
     }
 
     private void heapSort() {
