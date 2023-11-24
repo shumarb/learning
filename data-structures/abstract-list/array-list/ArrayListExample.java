@@ -80,8 +80,7 @@ class ArrayListExample {
     private void insertion() {
         displaysMessage("============ Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
-        System.out.println("Forming an ArrayList with " + numberOfElements + " elements:");
-        displaysNewLine();
+        displaysMessage("Forming an ArrayList with " + numberOfElements + " elements:", true, false);
         for (int i = 0; i < numberOfElements; i++) {
             int data = formsData(false);
             System.out.println(" * Inserting " + data);
