@@ -5,8 +5,8 @@ import java.util.Random;
 
 class HashMapExample {
     private HashMap <String, Integer> hMap = new HashMap <> ();
-    private HashSet <Integer> uniqueNumbers = new HashSet <> ();
-    private HashSet <String> uniqueStrings = new HashSet <> ();
+    private HashSet <Integer> numbersSet = new HashSet <> ();
+    private HashSet <String> namesSet = new HashSet <> ();
     private Random myRandom = new Random();
 
     private void displaysLine() {
@@ -38,11 +38,11 @@ class HashMapExample {
         int order = myRandom.nextInt(1, 4);
         for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
             if (order == 1) {
-                uniqueNumbers.add(data++);
+                numbersSet.add(data++);
             } else if (order == 2) {
-                uniqueNumbers.add(data--);
+                numbersSet.add(data--);
             } else {
-                uniqueNumbers.add(formsData(false));
+                numbersSet.add(formsData(false));
             }
         }
     }
@@ -52,11 +52,11 @@ class HashMapExample {
         if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
-            } while (!uniqueNumbers.contains(data));
+            } while (!numbersSet.contains(data));
         } else {
             do {
                 data = myRandom.nextInt(-100, 101);
-            } while (uniqueNumbers.contains(data));
+            } while (numbersSet.contains(data));
         }
         return data;
     } 
@@ -68,7 +68,7 @@ class HashMapExample {
             for (int j = 0; j < 5; j++) {
                 name.append(alphabeticString.charAt(myRandom.nextInt(alphabeticString.length())));
             }    
-        } while (uniqueStrings.contains(name.toString()));
+        } while (namesSet.contains(name.toString()));
         return name.toString();
     }
     
@@ -112,8 +112,8 @@ class HashMapExample {
         for (int i = 0; i < numberOfElements; i++) {
             int data = formsData(false);
             String name = formsKey();
-            uniqueStrings.add(name);
-            uniqueNumbers.add(data);
+            namesSet.add(name);
+            numbersSet.add(data);
             displaysMessage(0, " * Inserting: [" + name + ", " + data + "]", true, false);
             hMap.put(name, data);  
         }
