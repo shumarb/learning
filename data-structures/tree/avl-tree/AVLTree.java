@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
   
@@ -19,8 +20,30 @@ public class AVLTree {
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
+    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        if (messageType == 0) {
+            System.out.println(message);
+        } else {
+            System.out.print(message);
+        }
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
     private void displaysNewLine() {
         System.out.println();
+    }
+
+    private void displaysSearchPath(ArrayList <Integer> searchPath) {
+        System.out.print("\t| Search Path:\t");
+        for (int i = 0; i < searchPath.size() - 1; i++) {
+            System.out.print(searchPath.get(i) + " ---> ");
+        }
+        System.out.println(searchPath.get(searchPath.size() - 1));
     }
 
     private void displaysTwoNewLines() {
@@ -77,19 +100,17 @@ public class AVLTree {
 
     private void insertion() {
         displaysLine();
-        System.out.println("======= Insertion =======");
         formsData();
-        System.out.println("Forming AVL Tree with " + set.size() + " elements:");
-        displaysNewLine();
+        displaysMessage(0, "======= Insertion =======", false, false);
+        displaysMessage(0, "Forming AVL Tree with " + set.size() + " elements:", true, false);
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            displaysMessage(0, " * Inserting " + data, true, false);
             root = insertion(root, data);
         }
         // AVL Tree may have a child is > 1 level below it's parent
         // Eg: element 5 is at level 3, but it's left child 4 is at level 1 and not level 2.
         // Hence, this update ensures every child is 1 level below it's parent.
         updatesHeight(root, "updates height of elements in left and right subtrees");
-        displaysNewLine();
         displaysAVLTree();
     }
 
@@ -216,82 +237,72 @@ public class AVLTree {
     }
 
     private void displaysAVLTree() {
-        System.out.println("Displaying AVL Tree of " + set.size() + " elements:");
-        displaysNewLine();
-        System.out.print(" * In-order:\t");
+        displaysMessage(0, "AVL Tree:", true, false);
+        displaysMessage(1, " * In-order:\t", false, false);
         displaysAVLTree(root, "in-order");
         displaysTwoNewLines();
-        System.out.print(" * Pre-order:\t");
+        displaysMessage(1, " * Pre-order:\t", false, false);
         displaysAVLTree(root, "pre-order");
         displaysTwoNewLines();
-        System.out.print(" * Post-order:\t");
+        displaysMessage(1, " * Post-order:\t", false, false);
         displaysAVLTree(root, "post-order");
         displaysNewLine();
         displaysLine();
     }
 
     private void search() {
-        System.out.println("======= Search =======");
+        displaysMessage(0, "======= Search =======", false, false);
         Node node;
         for (int i = 0; i < 2; i++) {
+            ArrayList <Integer> searchPath = new ArrayList <> ();
             int key;
             if (i == 0) {
                 key = formsData(true);
             } else {
                 key = formsData(false);
             }
-            System.out.println("Search: " + key + " | Starting from the root of the AVL Tree...");
-            node = search(root, "binary search", key);
-            if (node != null) {
-                System.out.println(node.getsData() + " is in the AVL Tree");
-            } else {
-                System.out.println(key + " is not in the AVL Tree");
-            }
-            displaysTwoNewLines();
+            displaysMessage(1, "Search: " + key, false, false);
+            node = search(root, "binary search", key, searchPath);
+            displaysSearchPath(searchPath);
+            displaysNewLine();
         }
 
-        System.out.println("Search for minimum element | Starting from the root of the AVL Tree...");
-        node = search(root, "searches minimum", Integer.MIN_VALUE);
-        System.out.println("Minimum element: " + node.getsData());
-        displaysTwoNewLines();
-        
-        System.out.println("Search for maximum element | Starting from the root of the AVL Tree...");
-        node = search(root, "searches maximum", Integer.MAX_VALUE);
-        System.out.println("Maximum element: " + node.getsData());
+        for (int i = 0; i < 2; i++) {
+            ArrayList <Integer> searchPath = new ArrayList <> ();
+            if (i == 0) {
+                node = search(root, "searches minimum", Integer.MIN_VALUE, searchPath);
+                displaysMessage(1, "Minimum: " + node.getsData(), false, false);
+            } else {
+                displaysNewLine();
+                node = search(root, "searches maximum", Integer.MAX_VALUE, searchPath);
+                displaysMessage(1, "Maximum: " + node.getsData(), false, false);
+            }
+            displaysSearchPath(searchPath);
+        }
         displaysLine();
     }
 
-    private Node search(Node node, String searchOperation, int key) {
+    private Node search(Node node, String searchOperation, int key, ArrayList <Integer> searchPath) {
         if (node == null) {
             return node;
         }
+
+        searchPath.add(node.getsData());
         
-        System.out.print(" * current element: " + node.getsData());
         if (key == node.getsData()) {
-            System.out.println(" | Found!");
             return node;
         } else if (key < node.getsData()) {
-            if (searchOperation.equals("binary search")) {
-                System.out.print(" | " + key + " < " + node.getsData());
-            }
             if (node.hasLeftChild()) {
-                System.out.println(" | go to left child of " + node.getsData() + ", which is " + node.getsLeftChild().getsData());
-                return search(node.getsLeftChild(), searchOperation, key);
+                return search(node.getsLeftChild(), searchOperation, key, searchPath);
             } else {
-                System.out.println(" | " + node.getsData() + " has no left child, so the search ends here");
                 if (searchOperation.equals("searches minimum")) {
                     return node;
                 }
             }
         } else if (key > node.getsData()) {
-            if (searchOperation.equals("binary search")) {
-                System.out.print(" | " + key + " > " + node.getsData());
-            }
             if (node.hasRightChild()) {
-                System.out.println(" | go to right child of " + node.getsData() + ", which is " + node.getsRightChild().getsData());
-                return search(node.getsRightChild(), searchOperation, key);
+                return search(node.getsRightChild(), searchOperation, key, searchPath);
             } else {
-                System.out.println(" | " + node.getsData() + " has no right child, so the search ends here");
                 if (searchOperation.equals("searches maximum")) {
                     return node;
                 }
@@ -302,13 +313,12 @@ public class AVLTree {
     }
 
     private void deletion() {
-        System.out.println("======= Deletion =======");
+        displaysMessage(0, "======= Deletion =======", false, false);
         int key = formsData(true);
         root = deletion(root, key);
         set.remove(key);
-        System.out.println("Deleted: " + key);
+        displaysMessage(0, "Deleted: " + key, true, false);
         updatesHeight(root, "updates height of elements in left and right subtrees");
-        displaysNewLine();
         displaysAVLTree();
     }
 
