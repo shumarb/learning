@@ -39,7 +39,7 @@ public class AVLTree {
     }
 
     private void displaysSearchPath(ArrayList <Integer> searchPath) {
-        System.out.print("\t| Search Path:\t");
+        System.out.print("\t| Search Path: ");
         for (int i = 0; i < searchPath.size() - 1; i++) {
             System.out.print(searchPath.get(i) + " ---> ");
         }
