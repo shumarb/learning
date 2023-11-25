@@ -8,14 +8,6 @@ public class AVLTree {
     private Node root; 
     private Random myRandom = new Random();
 
-    private int getsHeight(Node node) { 
-        return (node == null) ? -1 : node.getsHeight();
-    } 
-
-    private int getsBalanceFactor(Node node) { 
-        return (node == null) ? 0 : getsHeight(node.getsLeftChild()) - getsHeight(node.getsRightChild()); 
-    }
-
     private void displaysLine() {
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
@@ -51,21 +43,62 @@ public class AVLTree {
         System.out.println();
     }
 
-    private void updatesHeight(Node node, String operation) {
+    private void elementInformation(Node node) {
+        System.out.print("[" + node.getsData() + ", h: " + node.getsHeight() + "]  ");
+    }
+
+    private void deletion() {
+        displaysMessage(0, "======= Deletion =======", false, false);
+        int key = formsData(true);
+        root = deletion(root, key);
+        set.remove(key);
+        displaysMessage(0, "Deleted: " + key, true, false);
+        updatesHeight(root, "updates height of elements in left and right subtrees");
+        traversal();
+    }
+
+    private Node deletion(Node node, int key) {
         if (node == null) {
-            return;
-        } else if (operation.equals("increase")) {
-            node.setsHeight(1 + Math.max(getsHeight(node.getsLeftChild()), getsHeight(node.getsRightChild())));
-        } else if (operation.equals("updates height of elements in left and right subtrees")) {
-            if (node.hasLeftChild()) {
-                node.getsLeftChild().setsHeight(node.getsHeight() - 1);
-                updatesHeight(node.getsLeftChild(), "updates height of elements in left and right subtrees");
-            }
-            if (node.hasRightChild()) {
-                node.getsRightChild().setsHeight(node.getsHeight() - 1);
-                updatesHeight(node.getsRightChild(), "updates height of elements in left and right subtrees");
+            return node;
+        } else if (key < node.getsData()) {
+            node.setsLeftChild(deletion(node.getsLeftChild(), key));
+        } else if (key > node.getsData()) {
+            node.setsRightChild(deletion(node.getsRightChild(), key));
+        } else {
+            Node temp = null;
+            if (!node.hasLeftChild() || !node.hasRightChild()) {
+                temp = (temp == node.getsLeftChild()) ? node.getsRightChild() : node.getsLeftChild();
+
+                // Deleting a leaf
+                if (temp == null) {
+                    temp = node;
+
+                    // Node deleted
+                    node = null;
+                } else {
+                    // Deleting element with 1 child
+                    node = temp;
+                }
+            } else {
+                // Deleting element with 2 children
+                // Get in-order successor (smallest element in right subtree)
+                temp = searchMinimum(node.getsRightChild());
+
+                // Set current node's value to be that of it's successor
+                node.setsData(temp.getsData());
+
+                // Delete in-order successor
+                node.setsRightChild(deletion(node.getsRightChild(), node.getsData()));
             }
         }
+        
+        // If tree has only 1 element, then return
+        if (node == null) {
+            return node;
+        }
+
+        updatesHeight(node, "increase");
+        return rebalancesAVLTree(node);
     }
 
     private void formsData() {
@@ -98,6 +131,14 @@ public class AVLTree {
         return data;
     } 
 
+    private int getsHeight(Node node) { 
+        return (node == null) ? -1 : node.getsHeight();
+    } 
+
+    private int getsBalanceFactor(Node node) { 
+        return (node == null) ? 0 : getsHeight(node.getsLeftChild()) - getsHeight(node.getsRightChild()); 
+    }
+
     private void insertion() {
         displaysLine();
         formsData();
@@ -111,7 +152,7 @@ public class AVLTree {
         // Eg: element 5 is at level 3, but it's left child 4 is at level 1 and not level 2.
         // Hence, this update ensures every child is 1 level below it's parent.
         updatesHeight(root, "updates height of elements in left and right subtrees");
-        displaysAVLTree();
+        traversal();
     }
 
     /**
@@ -168,25 +209,6 @@ public class AVLTree {
         return node;
     }
 
-    private Node rightRotation(Node node) { 
-        if (node == null) {
-            return node;
-        }
-
-        Node leftChild = node.getsLeftChild(); 
-        Node centerNode = leftChild.getsRightChild();
-  
-        // node > centerNode > leftChild
-        leftChild.setsRightChild(node);
-        node.setsLeftChild(centerNode);
-  
-        updatesHeight(node, "increase");
-        updatesHeight(leftChild, "increase");
-        
-        // Return new root
-        return leftChild; 
-    } 
-  
     private Node leftRotation(Node node) { 
         if (node == null) {
             return node;
@@ -207,6 +229,25 @@ public class AVLTree {
         return rightChild; 
     } 
 
+    private Node rightRotation(Node node) { 
+        if (node == null) {
+            return node;
+        }
+
+        Node leftChild = node.getsLeftChild(); 
+        Node centerNode = leftChild.getsRightChild();
+  
+        // node > centerNode > leftChild
+        leftChild.setsRightChild(node);
+        node.setsLeftChild(centerNode);
+  
+        updatesHeight(node, "increase");
+        updatesHeight(leftChild, "increase");
+        
+        // Return new root
+        return leftChild; 
+    } 
+
     private Node searchMinimum(Node node) {
         if (node == null || !node.hasLeftChild()) {
             return node;
@@ -214,40 +255,22 @@ public class AVLTree {
         return searchMinimum(node.getsLeftChild());
     }
 
-    private void displaysAVLTree(Node node, String traversalOrder) {
+    private void traversal(Node node, String traversalOrder) {
         if (node == null) {
             return;
         } else if (traversalOrder.equals("in-order")) {
-            displaysAVLTree(node.getsLeftChild(), traversalOrder);
-            displaysElementInformation(node);
-            displaysAVLTree(node.getsRightChild(), traversalOrder);
+            traversal(node.getsLeftChild(), traversalOrder);
+            elementInformation(node);
+            traversal(node.getsRightChild(), traversalOrder);
         } else if (traversalOrder.equals("pre-order")) {
-            displaysElementInformation(node);
-            displaysAVLTree(node.getsLeftChild(), traversalOrder);
-            displaysAVLTree(node.getsRightChild(), traversalOrder);
+            elementInformation(node);
+            traversal(node.getsLeftChild(), traversalOrder);
+            traversal(node.getsRightChild(), traversalOrder);
         } else if (traversalOrder.equals("post-order")) {
-            displaysAVLTree(node.getsLeftChild(), traversalOrder);
-            displaysAVLTree(node.getsRightChild(), traversalOrder);
-            displaysElementInformation(node);
+            traversal(node.getsLeftChild(), traversalOrder);
+            traversal(node.getsRightChild(), traversalOrder);
+            elementInformation(node);
         }
-    }
-
-    private void displaysElementInformation(Node node) {
-        System.out.print("[" + node.getsData() + ", h: " + node.getsHeight() + "]  ");
-    }
-
-    private void displaysAVLTree() {
-        displaysMessage(0, "AVL Tree:", true, false);
-        displaysMessage(1, " * In-order:\t", false, false);
-        displaysAVLTree(root, "in-order");
-        displaysTwoNewLines();
-        displaysMessage(1, " * Pre-order:\t", false, false);
-        displaysAVLTree(root, "pre-order");
-        displaysTwoNewLines();
-        displaysMessage(1, " * Post-order:\t", false, false);
-        displaysAVLTree(root, "post-order");
-        displaysNewLine();
-        displaysLine();
     }
 
     private void search() {
@@ -261,8 +284,13 @@ public class AVLTree {
             } else {
                 key = formsData(false);
             }
-            displaysMessage(1, "Search: " + key, false, false);
+            displaysMessage(1, "Search: " + key + "\t| ", false, false);
             node = search(root, "binary search", key, searchPath);
+            if (node != null) {
+                System.out.print(key + " is in the AVL Tree");
+            } else {
+                System.out.print(key + " is not in the AVL Tree");
+            }
             displaysSearchPath(searchPath);
             displaysNewLine();
         }
@@ -312,59 +340,35 @@ public class AVLTree {
         return null;
     }
 
-    private void deletion() {
-        displaysMessage(0, "======= Deletion =======", false, false);
-        int key = formsData(true);
-        root = deletion(root, key);
-        set.remove(key);
-        displaysMessage(0, "Deleted: " + key, true, false);
-        updatesHeight(root, "updates height of elements in left and right subtrees");
-        displaysAVLTree();
+    private void traversal() {
+        displaysMessage(0, "AVL Tree:", true, false);
+        displaysMessage(1, " * In-order:\t", false, false);
+        traversal(root, "in-order");
+        displaysTwoNewLines();
+        displaysMessage(1, " * Pre-order:\t", false, false);
+        traversal(root, "pre-order");
+        displaysTwoNewLines();
+        displaysMessage(1, " * Post-order:\t", false, false);
+        traversal(root, "post-order");
+        displaysNewLine();
+        displaysLine();
     }
 
-    private Node deletion(Node node, int key) {
+    private void updatesHeight(Node node, String operation) {
         if (node == null) {
-            return node;
-        } else if (key < node.getsData()) {
-            node.setsLeftChild(deletion(node.getsLeftChild(), key));
-        } else if (key > node.getsData()) {
-            node.setsRightChild(deletion(node.getsRightChild(), key));
-        } else {
-            Node temp = null;
-            if (!node.hasLeftChild() || !node.hasRightChild()) {
-                temp = (temp == node.getsLeftChild()) ? node.getsRightChild() : node.getsLeftChild();
-
-                // Deleting a leaf
-                if (temp == null) {
-                    temp = node;
-
-                    // Node deleted
-                    node = null;
-                } else {
-                    // Deleting element with 1 child
-                    node = temp;
-                }
-            } else {
-                // Deleting element with 2 children
-                // Get in-order successor (smallest element in right subtree)
-                temp = searchMinimum(node.getsRightChild());
-
-                // Set current node's value to be that of it's successor
-                node.setsData(temp.getsData());
-
-                // Delete in-order successor
-                node.setsRightChild(deletion(node.getsRightChild(), node.getsData()));
+            return;
+        } else if (operation.equals("increase")) {
+            node.setsHeight(1 + Math.max(getsHeight(node.getsLeftChild()), getsHeight(node.getsRightChild())));
+        } else if (operation.equals("updates height of elements in left and right subtrees")) {
+            if (node.hasLeftChild()) {
+                node.getsLeftChild().setsHeight(node.getsHeight() - 1);
+                updatesHeight(node.getsLeftChild(), "updates height of elements in left and right subtrees");
+            }
+            if (node.hasRightChild()) {
+                node.getsRightChild().setsHeight(node.getsHeight() - 1);
+                updatesHeight(node.getsRightChild(), "updates height of elements in left and right subtrees");
             }
         }
-        
-        // If tree has only 1 element, then return
-        if (node == null) {
-            return node;
-        }
-
-        updatesHeight(node, "increase");
-
-        return rebalancesAVLTree(node);
     }
 
     private void run() {
