@@ -9,57 +9,74 @@ public class BinaryMaxHeap {
     private int[] inputArray;
     private Random myRandom = new Random();
 
-    // Displays Elements
-    // Precon: List of unsorted N elements formed
-    // Postcon: Nil
-    private void displaysArray(String sentence, int[] arr, boolean isDisplaysLine) {
-        System.out.print(sentence);
-        for (int i = 0; i < arr.length - 1; i++) {
-            System.out.print(inputArray[i] + ", ");
+    private void deletion() {
+        displaysMessage("======== Deletion ========", false, false);
+        int indexOfDeletion = myRandom.nextInt(0, inputArray.length);
+        displaysMessage("Deletion at index " + indexOfDeletion + ": " + inputArray[indexOfDeletion], true, false);
+        displaysArray(" * Before:\t[", inputArray, false, true);
+        inputArray = deletion(indexOfDeletion);
+        displaysArray(" * After:\t[", inputArray, false, true);
+        initialArray = storesInitialArray();
+        maxHeapify();
+        displaysChange();
+    }
+
+    private int[] deletion(int indexOfDeletion) {
+        set.remove(inputArray[indexOfDeletion]);
+        int[] updatedArray = new int[inputArray.length - 1];
+        int j = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            if (i != indexOfDeletion) {
+                updatedArray[j++] = inputArray[i];
+            }
         }
-        System.out.print(arr[inputArray.length - 1] + "]");
+        return updatedArray;
+    }
+
+    private void displaysArray(String sentence, int[] array, boolean isDisplaysLine, boolean isDisplayTwoLines) {
+        System.out.print(sentence);
+        for (int i = 0; i < array.length - 1; i++) {
+            System.out.print(array[i] + ", ");
+        }
+        System.out.print(array[array.length - 1] + "]");
         if (isDisplaysLine) {
             displaysNewLine();
             displaysLine();
         }
+        if (isDisplayTwoLines) {
+            displaysTwoNewLines();
+        }
     }
 
-    // Displays array before and after Max-Heapify
-    // Precon: Array has been max heapified
-    // Postcon: End of program
     private void displaysChange() {
-        System.out.println("Max-Heapifying the " + inputArray.length + " elements:");
         displaysNewLine();
-        displaysArray(" * Before:\t[", initialArray, false);
-        displaysTwoNewLines();
-        displaysArray(" * After:\t[", inputArray, true);
+        displaysArray(" * Before:\t[", initialArray, false, true);
+        displaysArray(" * After:\t[", inputArray, true, false);
     }
 
-    // Displays Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
     }
+
+    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
     
-    // Displays Two New Lines
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysNewLine() {
+        System.out.println();
+    }
+
     private void displaysTwoNewLines() {
         System.out.println();
         System.out.println();
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    // Forms data set to insert into the Binary Max Heap
-    // Precon: Nil
-    // Postcon: Nil
     private void formsData() {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
@@ -67,7 +84,6 @@ public class BinaryMaxHeap {
         int order = myRandom.nextInt(0, 2);
         for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
             if (order == 0) {
-                // Ascending order of number to be inserted into the Binary Max Heap
                 set.add(data++);
             } else {
                 set.add(formsData(false));
@@ -75,18 +91,13 @@ public class BinaryMaxHeap {
         }
     }
 
-    // Forms data in relation to elements in the Binary Max Heap
-    // Precon: Nil
-    // Postcon: Nil
     private int formsData(boolean isDataPresent) {
         int data;
         if (isDataPresent) {
-            // Generates data based on element in the Binary Max Heap
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
         } else {
-            // Generates data based on element not in the Binary Max Heap
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (set.contains(data));
@@ -94,57 +105,29 @@ public class BinaryMaxHeap {
         return data;
     } 
 
-    // Forms Binary Max Heap
-    // Precon: No Binary Max Heap created
-    // Postcon: Binary Max Heap of N elements created
     private void insertion() {
         displaysLine();
-        System.out.println("======= Insertion =======");
+        displaysMessage("======= Insertion =======", false, false);
         formsData();
         inputArray = new int[set.size()];
-        System.out.println("Forming a Binary Max Heap with " + inputArray.length + " elements:");
-        displaysNewLine();
+        displaysMessage("Forming a Binary Max Heap with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            displaysMessage(" * Inserting " + data, true, false);
             inputArray[i++] = data;
         }
         initialArray = storesInitialArray();
-        displaysNewLine();
         maxHeapify();
         displaysChange();
     }
 
-    // Forms initial array based on input array before Max-Heapify
-    // Precon: initialArray unitialised
-    // Postcon: initialArray formed is the inputArray before Max-Heapify
-    private int[] storesInitialArray() {
-        return Arrays.copyOf(inputArray, inputArray.length);
-    }    
-
-    // Swaps elements
-    // Precon: Root != Largest element
-    // Postcon: Root == Largest element encounter so far
-    private void swap(int[] inputArray, int largestElementIndex, int currentIndex) {
-        int temp = inputArray[currentIndex];
-        inputArray[currentIndex] = inputArray[largestElementIndex];
-        inputArray[largestElementIndex] = temp;
-    }
-
-    // Max-Heapify the elements
-    // Precon: Elements are currently unsorted in array
-    // Postcon: Elements are arranged in array such that it forms a binary max heap
     private void maxHeapify() {
-        // 1. MaxHeapify the array
-        // Iterate from the lowest-level leaf to the root
+        displaysMessage("Max-Heapify:", false, false);
         for (int i = inputArray.length - 1; i >= 0; i--) {
             maxHeapify(inputArray, i);
         }
     }
 
-    // Max-Heapify the eleemnts based on the current index
-    // Precon: Max-Heapify in-progress
-    // Postcon: Proceed to next element
     private void maxHeapify(int[] inputArray, int currentIndex) {
         // 1. Check if child > parent
         // First part of condition ensures no array out of bounds by confirming this is a check on a non-leaf element
@@ -168,14 +151,9 @@ public class BinaryMaxHeap {
         }
     }
 
-    // Searches for an element, as well as both maximum and minimum elements
-    // Precon: Elements arranged based on Max Heap
-    // Postcon: End of program
     private void search() {
-        System.out.println("======== Search ========");
-        displaysArray("Array:\t[", inputArray, false);
-        displaysTwoNewLines();
-
+        displaysMessage("======== Search ========", false, false);
+        displaysArray("Array:\t[", inputArray, false, true);
         for (int i = 0; i < 2; i++) {
             int key;
             boolean isKeyFound = false;
@@ -191,11 +169,10 @@ public class BinaryMaxHeap {
                 }
             }
             if (isKeyFound) {
-                System.out.println(" * " + key + " is in the Binary Max Heap");
+                displaysMessage(" * " + key + " is in the Binary Max Heap", true, false);
             } else {
-                System.out.println(" * " + key + " is not in the Binary Max Heap");
+                displaysMessage(" * " + key + " is not in the Binary Max Heap", true, false);
             }
-            displaysNewLine();
         }
 
         int maximum = inputArray[0];
@@ -205,43 +182,18 @@ public class BinaryMaxHeap {
                 minimum = inputArray[i];
             }
         }
-        System.out.println(" * Maximum: " + maximum);
-        displaysNewLine();
-        System.out.println(" * Minimum: " + minimum);
-        displaysLine();
+        displaysMessage(" * Maximum: " + maximum, true, false);
+        displaysMessage(" * Minimum: " + minimum, false, true);
     }
 
-    // Deletes an element from the Binary Max Heap
-    // Precon: Search method executed on Binary Max Heap
-    // Postcon: Nil
-    private void deletion() {
-        System.out.println("======== Deletion ========");
-        int indexOfDeletion = myRandom.nextInt(0, inputArray.length);
-        System.out.println("Deletion at index " + indexOfDeletion + ": " + inputArray[indexOfDeletion]);
-        displaysNewLine();
-        displaysArray(" * Before:\t[", inputArray, false);
-        displaysTwoNewLines();
-        inputArray = deletion(indexOfDeletion);
-        displaysArray(" * After:\t[", inputArray, false);
-        displaysTwoNewLines();
-        initialArray = storesInitialArray();
-        maxHeapify();
-        displaysChange();
+    private int[] storesInitialArray() {
+        return Arrays.copyOf(inputArray, inputArray.length);
     }
 
-    // Deletes an element from the array
-    // Precon: Search of array complete
-    // Postcon: End of program
-    private int[] deletion(int indexOfDeletion) {
-        set.remove(inputArray[indexOfDeletion]);
-        int[] updatedArray = new int[inputArray.length - 1];
-        int j = 0;
-        for (int i = 0; i < inputArray.length; i++) {
-            if (i != indexOfDeletion) {
-                updatedArray[j++] = inputArray[i];
-            }
-        }
-        return updatedArray;
+    private void swap(int[] inputArray, int largestElementIndex, int currentIndex) {
+        int temp = inputArray[currentIndex];
+        inputArray[currentIndex] = inputArray[largestElementIndex];
+        inputArray[largestElementIndex] = temp;
     }
 
     private void run() {
