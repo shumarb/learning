@@ -4,7 +4,7 @@
 Heap Sort is a **comparison-based, in-place, and unstable** sorting algorithm based on a `Binary Search Tree`.
 
 ## How does Heap Sort work
-1. `max-heapify` the `array/list` by rearranging the elements based on creating a `Binary Search Tree`, where `every element is >= all of it's descendents`.
+1. `max-heapify` the `array/list` by rearranging the elements based on a `Binary Search Tree`, where `every element is >= all of it's descendents`.
 
 2. `extract` the root of the `Binary Search Tree` by `swapping` the `maximum` and `last` elements, `max-heapify` the remaining elements, and repeating until the `Binary Search Tree` is of size 1.
 

@@ -35,9 +35,9 @@ class SelectionSort {
         System.out.println();
     }
 
-    private int formsData(boolean isDataInArray) {
+    private int formsData(boolean isDataPresent) {
         int data;
-        if (isDataInArray) {
+        if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
