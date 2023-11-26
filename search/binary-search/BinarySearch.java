@@ -10,7 +10,7 @@ class BinarySearch {
     private Random myRandom = new Random();
 
     private void binarySearch() {
-        System.out.println("======= Binary Search =======");
+        displaysMessage(0, "======= Binary Search =======", false, false);
         displaysArray();
         
         for (int i = 0; i < 2; i++) {
@@ -22,14 +22,14 @@ class BinarySearch {
             }
 
             boolean isKeyFound = false; 
-            ArrayList <Integer> elementsCheckedSet = new ArrayList <> ();
+            ArrayList <Integer> elementsCheckedList = new ArrayList <> ();
             int highIndex = inputArray.length - 1;
             int lowIndex = 0;
             
             while (lowIndex <= highIndex) {
                 int midIndex = (highIndex + lowIndex) / 2;
                 int middleElement = inputArray[midIndex];
-                elementsCheckedSet.add(middleElement);
+                elementsCheckedList.add(middleElement);
                 if (middleElement == key) {
                     isKeyFound = true;
                     break;
@@ -46,11 +46,11 @@ class BinarySearch {
 
             displaysNewLine();
             if (isKeyFound) {
-                System.out.print(" * " + key + " found, ");
+                displaysMessage(1, " * " + key + " is in the array\t\t| ", false, false);
             } else {
-                System.out.print(" * " + key + " not found, ");
+                displaysMessage(1, " * " + key + " is not in the array\t| ", false, false);
             }
-            System.out.println("elements checked: " + elementsCheckedSet);
+            displaysMessage(0, "Elements checked: " + elementsCheckedList, false, false);
         }
         displaysLine();
     }
@@ -65,6 +65,20 @@ class BinarySearch {
 
     private void displaysLine() {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
+    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        if (messageType == 0) {
+            System.out.println(message);
+        } else {
+            System.out.print(message);
+        }
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
     }
 
     private void displaysNewLine() {
@@ -87,9 +101,9 @@ class BinarySearch {
         }
     }
 
-    private int formsData(boolean isDataInArray) {
+    private int formsData(boolean isDataPresent) {
         int data;
-        if (isDataInArray) {
+        if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
@@ -103,17 +117,17 @@ class BinarySearch {
 
     private void insertion() {
         displaysLine();
-        System.out.println("======= Insertion =======");
+        displaysMessage(0, "======= Insertion =======", false, false);
         formsData();
         inputArray = new int[set.size()];
-        System.out.println("Forming an array with " + inputArray.length + " elements:");
-        displaysNewLine();
+        displaysMessage(0, "Forming an array with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            displaysMessage(0, " * Insert: " + data, true, false);
             inputArray[i++] = data;
         }
         Arrays.sort(inputArray);
+        displaysArray();
         displaysLine();
     }
     

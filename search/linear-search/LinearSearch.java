@@ -20,6 +20,20 @@ class LinearSearch {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
     }
 
+    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        if (messageType == 0) {
+            System.out.println(message);
+        } else {
+            System.out.print(message);
+        }
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
     private void displaysNewLine() {
         System.out.println();
     }
@@ -40,9 +54,9 @@ class LinearSearch {
         }
     }
 
-    private int formsData(boolean isDataInArray) {
+    private int formsData(boolean isDataPresent) {
         int data;
-        if (isDataInArray) {
+        if (isDataPresent) {
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
@@ -56,24 +70,23 @@ class LinearSearch {
 
     private void insertion() {
         displaysLine();
-        System.out.println("======= Insertion =======");
+        displaysMessage(0, "======= Insertion =======", false, false);
         formsData();
-        inputArray = new int[set.size()];
-        System.out.println("Forming an array with " + inputArray.length + " elements:");
-        displaysNewLine();
+        inputArray = new int[set.size()];displaysMessage(0, "Forming an array with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            displaysMessage(0, " * Insert: " + data, true, false);
             inputArray[i++] = data;
         }
+        displaysArray();
         displaysLine();
     }
     
     private void linearSearch() {
-        System.out.println("======= Linear Search =======");
+        displaysMessage(0, "======= Linear Search =======", false, false);
         displaysArray();
         for (int i = 0; i < 2; i++) {
-            ArrayList <Integer> elementsCheckedSet = new ArrayList <> ();
+            ArrayList <Integer> elementsCheckedList = new ArrayList <> ();
             int key;
             if (i == 0) {
                 key = formsData(true);
@@ -83,7 +96,7 @@ class LinearSearch {
 
             boolean isKeyFound = false;
             for (int j = 0; j < inputArray.length; j++) {
-                elementsCheckedSet.add(inputArray[j]);
+                elementsCheckedList.add(inputArray[j]);
                 if (inputArray[j] == key) {
                     isKeyFound = true;
                     break;
@@ -92,11 +105,11 @@ class LinearSearch {
 
             displaysNewLine();
             if (isKeyFound) {
-                System.out.print(" * " + key + " found, ");
+                displaysMessage(1, " * " + key + " is in the array\t\t| ", false, false);
             } else {
-                System.out.print(" * " + key + " not found, ");
+                displaysMessage(1, " * " + key + " is not in the array\t| ", false, false);
             }
-            System.out.println("elements checked: " + elementsCheckedSet);
+            displaysMessage(0, "Elements checked: " + elementsCheckedList, false, false);
         }
         displaysLine();
     }
