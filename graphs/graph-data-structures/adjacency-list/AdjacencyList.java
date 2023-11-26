@@ -8,30 +8,58 @@ class AdjacencyList {
     private ArrayList <String> verticesList = new ArrayList <> ();
     private Random myRandom = new Random();
 
-    // Displays line
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysAdjacencyList() {
+        System.out.println("Adjacency List: ");
+        for (int i = 0; i < adjacencyList.size(); i++) {
+            displaysNewLine();
+            System.out.print(" * Vertex " + getsVertex(i) + " | ");
+            ArrayList <IntegerPair> neighboursList = adjacencyList.get(i);
+            if (neighboursList.isEmpty()) {
+                System.out.println("No neighbours");
+            } else {
+                for (int j = 0; j < neighboursList.size(); j++) {
+                    IntegerPair currentIntegerPair = neighboursList.get(j);
+                    System.out.print("[" + currentIntegerPair.getsEndVertex() + ", W: " + currentIntegerPair.getsWeight() + "]");
+                    if (j != neighboursList.size() - 1) {
+                        System.out.print(", ");
+                    }
+                    if (j == neighboursList.size() - 1) {
+                        displaysNewLine();
+                    }
+                }
+            }
+        }
+        displaysLine();
+    }
+
     private void displaysLine() {
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Randomly generates boolean value
-    // Precon: Formation of adjacency matrix ongoing
-    // Postcon: Updates next vertex
-    private boolean isFormData() {
-        return myRandom.nextBoolean();
+    private ArrayList <String> formsPossibleNeighboursList(String currentVertex) {
+        ArrayList <String> availableVerticesList = new ArrayList <> ();
+        for (int i = 0; i < verticesList.size(); i++) {
+            if (!getsVertex(i).equals(currentVertex)) {
+                availableVerticesList.add(getsVertex(i));
+            }
+        }
+        return availableVerticesList;
     }
 
-    // Gets vertex corresponding to vertex number
-    // Precon: Formation of adjacency list ongoing
-    // Postcon: Set of vertices for graph formed
+    private IntegerPair getsIntegerPair(ArrayList <IntegerPair> adjList, String neighbour) {
+        for (int i = 0; i < adjList.size(); i++) {
+            IntegerPair currentIntegerPair = adjList.get(i);
+            if (currentIntegerPair.getsEndVertex().equals(neighbour)) {
+                return currentIntegerPair;
+            }
+        }
+        return null;
+    }
+
     private String getsVertex(int vertexNumber) {
         String vertex = "";
         switch(vertexNumber) {
@@ -47,9 +75,6 @@ class AdjacencyList {
         return vertex;
     }
 
-    // Gets number corresponding to vertex name
-    // Precon: Formation of edge list ongoing
-    // Postcon: Set of vertices for graph formed
     private int getsVertex(String vertexName) {
         int vertexNumber = 0;
         switch(vertexName) {
@@ -65,29 +90,14 @@ class AdjacencyList {
         return vertexNumber;
     }
 
-    // Forms available vertices for current vertex to be connected to by an edge
-    // Precon: Formation of EdgeList ongoing
-    // Postcon: Forms next EdgeList object
-    private ArrayList <String> formsPossibleNeighboursList(String currentVertex) {
-        ArrayList <String> availableVerticesList = new ArrayList <> ();
-        for (int i = 0; i < verticesList.size(); i++) {
-            if (!getsVertex(i).equals(currentVertex)) {
-                availableVerticesList.add(getsVertex(i));
-            }
-        }
-        return availableVerticesList;
-    }
-
-    // Forms Adjacency List
-    // Precon: Adjacency List not formed
-    // Postcon: Adjacency List with >= 3 elements formed
-    private void formsAdjacencyList() {
+    private void insertion() {
         displaysLine();
+        System.out.println("======= Insertion =======");
         int numberOfVertices = myRandom.nextInt(3, 7);
         for (int i = 0; i < numberOfVertices; i++) {
             verticesList.add(getsVertex(i));
         }
-        System.out.println("Forming an EdgeList with " + numberOfVertices + " vertices: " + verticesList);
+        System.out.println("Forming an Adjacency List with " + numberOfVertices + " vertices: " + verticesList);
         displaysNewLine();
         for (int i = 0; i < verticesList.size(); i++) {
             String currentVertex = getsVertex(i);
@@ -111,9 +121,6 @@ class AdjacencyList {
         displaysLine();
     }
 
-    // Checks if an adjacency list contains neighbour
-    // Precon: Update of adjacency list ongoing
-    // Postcon: Nil
     private boolean isContainNeighbour(ArrayList <IntegerPair> neighbourAdjList, String neighbour) {
         for (int i = 0; i < neighbourAdjList.size(); i++) {
             IntegerPair currPair = neighbourAdjList.get(i);
@@ -124,22 +131,10 @@ class AdjacencyList {
         return false;
     }
 
-    // Gets IntegerPair corresponding to vertex name
-    // Precon: Update of adjacency list ongoing
-    // Postcon: Nil
-    private IntegerPair getsIntegerPair(ArrayList <IntegerPair> adjList, String neighbour) {
-        for (int i = 0; i < adjList.size(); i++) {
-            IntegerPair currentIntegerPair = adjList.get(i);
-            if (currentIntegerPair.getsEndVertex().equals(neighbour)) {
-                return currentIntegerPair;
-            }
-        }
-        return null;
+    private boolean isFormData() {
+        return myRandom.nextBoolean();
     }
 
-    // Updates Adjacency List to ensure every vertex has it's neighbours correct
-    // Precon: Adjacency List formed
-    // Postcon: Displays Adjacency List
     private void updatesAdjacencyList() {
         // 1. If 2 vertices are connected to one another by an edge,
         // ensure each vertex is in the other vertex's adjacency list
@@ -170,43 +165,16 @@ class AdjacencyList {
             }
         }
 
-        // 3. Ensure all adjacency list sorted in lexicographically-increasing order
         for (int i = 0; i < adjacencyList.size(); i++) {
             Collections.sort(adjacencyList.get(i));
         }
     }
 
-    // Displays Adjacency List
-    // Precon: Adjacency List with >= 3 elements formed
-    // Postcon: Nil
-    private void displaysAdjacencyList() {
-        System.out.println("Adjacency List: ");
-        for (int i = 0; i < adjacencyList.size(); i++) {
-            displaysNewLine();
-            System.out.print(" * Vertex " + getsVertex(i) + " | ");
-            ArrayList <IntegerPair> neighboursList = adjacencyList.get(i);
-            if (neighboursList.isEmpty()) {
-                System.out.println("No neighbours");
-            } else {
-                for (int j = 0; j < neighboursList.size(); j++) {
-                    IntegerPair currentIntegerPair = neighboursList.get(j);
-                    System.out.print("[" + currentIntegerPair.getsEndVertex() + ", W: " + currentIntegerPair.getsWeight() + "]");
-                    if (j != neighboursList.size() - 1) {
-                        System.out.print(", ");
-                    }
-                    if (j == neighboursList.size() - 1) {
-                        displaysNewLine();
-                    }
-                }
-            }
-        }
-        displaysLine();
-    }
-
     private void run() {
-        formsAdjacencyList();
+        insertion();
         displaysAdjacencyList();
     }
+
     public static void main(String[] args) {
         AdjacencyList obj = new AdjacencyList();
         obj.run();
