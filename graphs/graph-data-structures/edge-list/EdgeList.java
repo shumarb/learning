@@ -8,30 +8,34 @@ class EdgeList {
     private ArrayList <String> verticesList = new ArrayList <> ();
     private Random myRandom = new Random();
 
-    // Displays line
-    // Precon: Nil
-    // Postcon: Nil
+    private void displaysEdgeList() {
+        System.out.println("EdgeList: ");
+        displaysNewLine();
+        for (int i = 0; i < edgeList.size() - 1; i++) {
+            IntegerTriple currentIntegerTriple = edgeList.get(i);
+            System.out.println(" * [" + currentIntegerTriple.getsStartVertex() + 
+                               " ---- " + currentIntegerTriple.getsEndVertex() + 
+                               " | W: " + currentIntegerTriple.getsWeight() + 
+                               "]"
+            );
+            displaysNewLine();
+        }
+        IntegerTriple lastIntegerTriple = edgeList.get(edgeList.size() - 1);
+        System.out.println(" * [" + lastIntegerTriple.getsStartVertex() + 
+                           " ---- " + lastIntegerTriple.getsEndVertex() + 
+                           " | W: " + lastIntegerTriple.getsWeight() + "]"
+        );
+        displaysLine();
+    }
+
     private void displaysLine() {
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // Displays New Line
-    // Precon: Nil
-    // Postcon: Nil
     private void displaysNewLine() {
         System.out.println();
     }
 
-    // Randomly generates boolean value
-    // Precon: Formation of adjacency matrix ongoing
-    // Postcon: Updates next vertex
-    private boolean isFormData() {
-        return myRandom.nextBoolean();
-    }
-
-    // Forms set of vertices for graph 
-    // Precon: Formation of edge list ongoing
-    // Postcon: Set of vertices for graph formed
     private String getsVertex(int vertexNumber) {
         String vertex = "";
         switch(vertexNumber) {
@@ -47,9 +51,6 @@ class EdgeList {
         return vertex;
     }
 
-    // Forms available vertices for current vertex to be connected to by an edge
-    // Precon: Formation of EdgeList ongoing
-    // Postcon: Forms next EdgeList object
     private ArrayList <String> formsPossibleNeighboursList(String currentVertex) {
         ArrayList <String> availableVerticesList = new ArrayList <> ();
         for (int i = 0; i < verticesList.size(); i++) {
@@ -60,10 +61,7 @@ class EdgeList {
         return availableVerticesList;
     }
 
-    // Forms Edge List
-    // Precon: Edge List not formed
-    // Postcon: Edge List with >= 3 vertices formed
-    private void formsEdgeList() {
+    private void insertion() {
         displaysLine();
         int numberOfVertices = myRandom.nextInt(3, 7);
         for (int i = 0; i < numberOfVertices; i++) {
@@ -103,9 +101,6 @@ class EdgeList {
         displaysLine();
     }
 
-    // Checks EdgeList to ensure incoming IntegerTriple object can be added
-    // Precon: Insertion of IntegerTriple object into EdgeList ongoing
-    // Postcon: Instantiate an IntegerTriple object
     private boolean isEligibleIntegerTriple(String startVertex, String endVertex) {
         for (int i = 0; i < edgeList.size(); i++) {
             IntegerTriple currentIntegerTriple = edgeList.get(i);
@@ -119,31 +114,15 @@ class EdgeList {
         return true;
     } 
 
-    // Displays Edge List
-    // Precon: Edge List with >= 3 vertices formed
-    // Postcon: Nil
-    private void displaysEdgeList() {
-        System.out.println("EdgeList: ");
-        displaysNewLine();
-        for (int i = 0; i < edgeList.size() - 1; i++) {
-            IntegerTriple currentIntegerTriple = edgeList.get(i);
-            System.out.println(" * [" + currentIntegerTriple.getsStartVertex() + 
-                               " ---- " + currentIntegerTriple.getsEndVertex() + 
-                               " | W: " + currentIntegerTriple.getsWeight() + 
-                               "]");
-            displaysNewLine();
-        }
-        IntegerTriple lastIntegerTriple = edgeList.get(edgeList.size() - 1);
-        System.out.println(" * [" + lastIntegerTriple.getsStartVertex() + 
-                           " ---- " + lastIntegerTriple.getsEndVertex() + 
-                           " | W: " + lastIntegerTriple.getsWeight() + "]");
-        displaysLine();
+    private boolean isFormData() {
+        return myRandom.nextBoolean();
     }
 
     private void run() {
-        formsEdgeList();
+        insertion();
         displaysEdgeList();
     }
+
     public static void main(String[] args) {
         EdgeList obj = new EdgeList();
         obj.run();
