@@ -9,26 +9,42 @@ class HeapSort {
     private int[] inputArray;
     private Random myRandom = new Random();
 
-    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysLine) {
-        System.out.print(sentence);
+    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysNewLine, boolean isDisplaysLine) {
+        displaysMessage(1, sentence, false, false);
         for (int i = 0; i < inputArray.length - 1; i++) {
-            System.out.print(inputArray[i] + " ");
+            displaysMessage(1, inputArray[i] + " ", false, false);
         }
-        System.out.println(inputArray[inputArray.length - 1] + "]");
+        displaysMessage(1, inputArray[inputArray.length - 1] + "]", true, false);
+        if (isDisplaysNewLine) {
+            displaysNewLine();
+        }
         if (isDisplaysLine) {
             displaysLine();
         }
     }
 
     private void displaysChange() {
-        System.out.println("======= Heap Sort =======");
-        displaysArray(" * Before:\t[", initialArray, false);
-        displaysNewLine();
-        displaysArray(" * After:\t[", inputArray, true);
+        displaysMessage(0, "======= Heap Sort =======", false, false);
+        displaysArray(" * Before:\t[", initialArray, true, false);
+        displaysArray(" * After:\t[", inputArray, false, true);
     }
 
     private void displaysLine() {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
+    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        if (messageType == 0) {
+            System.out.println(message);
+        } else {
+            System.out.print(message);
+        }
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
     }
 
     private void displaysNewLine() {
@@ -73,38 +89,37 @@ class HeapSort {
             // with the last element of the current max heap of elements
             // this ensures that the maximum element of the current iteration
             // is at it's final sorted position
-            swap(inputArray, i, 0);
+            swap(i, 0);
             
-            // 2.  Max-heapify all elements before the current element
+            // 2. Max-heapify all elements before the current element
             // until the max heap is of size 1
             // At the end, the array is in sorted ascending order
-            maxHeapify(inputArray, i, 0);
+            maxHeapify(i, 0);
         }
     }
 
     private void insertion() {
         displaysLine();
-        System.out.println("======= Insertion =======");
+        displaysMessage(0, "======= Insertion =======", false, false);
         formsData();
         inputArray = new int[set.size()];
-        System.out.println("Forming an array with " + inputArray.length + " elements:");
-        displaysNewLine();
+        displaysMessage(0, "Forming an array with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            displaysMessage(0, " * Insert: " + data, true, false);
             inputArray[i++] = data;
         }
         initialArray = Arrays.copyOf(inputArray, inputArray.length);
-        displaysLine();
+        displaysArray("Array: [", inputArray, false, true);
     }
 
     private void maxHeapify() {
         for (int i = inputArray.length - 1; i >= 0; i--) {
-            maxHeapify(inputArray, inputArray.length, i);
+            maxHeapify(inputArray.length, i);
         }
     }
 
-    private void maxHeapify(int[] inputArray, int numberOfElements, int parentIndex) {
+    private void maxHeapify(int numberOfElements, int parentIndex) {
         int largestIndex = parentIndex;   
         int leftChildIndex = (2 * parentIndex) + 1;        
         int rightChildIndex = (2 * parentIndex) + 2;  
@@ -121,12 +136,12 @@ class HeapSort {
         // 2. If any of the children are larger than the parent, swap that child with the parent,
         // and MaxHeapify the the array based on the largest element found so far
         if (largestIndex != parentIndex) {
-            swap(inputArray, parentIndex, largestIndex);
-            maxHeapify(inputArray, numberOfElements, largestIndex);
+            swap(parentIndex, largestIndex);
+            maxHeapify(numberOfElements, largestIndex);
         }
     }
 
-    private void swap(int[] inputArray, int parentIndex, int largestIndex) {
+    private void swap(int parentIndex, int largestIndex) {
         int temp = inputArray[parentIndex];
         inputArray[parentIndex] = inputArray[largestIndex];
         inputArray[largestIndex] = temp;
