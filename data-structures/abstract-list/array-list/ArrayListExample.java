@@ -83,7 +83,7 @@ class ArrayListExample {
         displaysMessage("Forming an ArrayList with " + numberOfElements + " elements:", true, false);
         for (int i = 0; i < numberOfElements; i++) {
             int data = formsData(false);
-            System.out.println(" * Inserting " + data);
+            System.out.println(" * Insert: " + data);
             arrayList.add(i, data);
         }
         displaysNewLine();
