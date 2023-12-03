@@ -58,7 +58,7 @@ class DoublyLinkedList {
         displaysMessage(("Forming a Doubly Linked List with " + totalElements + " elements:").toString(), true, false);
         for (int i = 0; i < totalElements; i++) {
             int data = formsData(false);
-            System.out.println(" * Inserting " + data);
+            System.out.println(" * Insert: " + data);
             doublyLList.add(data);
         }
         displaysNewLine();
