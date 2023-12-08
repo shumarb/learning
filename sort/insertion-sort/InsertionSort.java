@@ -59,7 +59,7 @@ class InsertionSort {
         for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
             if (order == 0) {
                 // Descending order of number to be inserted into the Array
-                // because merge sort sorts the elements in ascending order
+                // because insertion sort sorts the elements in ascending order
                 set.add(data--);
             } else {
                 set.add(formsData(false));
