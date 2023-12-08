@@ -9,12 +9,15 @@ class InsertionSort {
     private int[] inputArray;
     private Random myRandom = new Random();
 
-    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysLine) {
-        System.out.print(sentence);
+    private void displaysArray(String sentence, int[] inputArray, boolean isDisplaysNewLine, boolean isDisplaysLine) {
+        displaysMessage(1, sentence, false, false);
         for (int i = 0; i < inputArray.length - 1; i++) {
-            System.out.print(inputArray[i] + " ");
+            displaysMessage(1, inputArray[i] + " ", false, false);
         }
-        System.out.println(inputArray[inputArray.length - 1] + "]");
+        displaysMessage(1, inputArray[inputArray.length - 1] + "]", true, false);
+        if (isDisplaysNewLine) {
+            displaysNewLine();
+        }
         if (isDisplaysLine) {
             displaysLine();
         }
@@ -22,13 +25,26 @@ class InsertionSort {
 
     private void displaysChange() {
         System.out.println("======= Insertion Sort =======");
-        displaysArray(" * Before:\t[", initialArray, false);
-        displaysNewLine();
-        displaysArray(" * After:\t[", inputArray, true);
+        displaysArray(" * Before:\t[", initialArray, true, false);
+        displaysArray(" * After:\t[", inputArray, false, true);
     }
 
     private void displaysLine() {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
+    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        if (messageType == 0) {
+            System.out.println(message);
+        } else {
+            System.out.print(message);
+        }
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
     }
 
     private void displaysNewLine() {
@@ -67,18 +83,17 @@ class InsertionSort {
 
     private void insertion() {
         displaysLine();
-        System.out.println("======= Insertion =======");
+        displaysMessage(0, "======= Insertion =======", false, false);
         formsData();
         inputArray = new int[set.size()];
-        System.out.println("Forming an array with " + inputArray.length + " elements:");
-        displaysNewLine();
+        displaysMessage(0, "Forming an array with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            displaysMessage(0, " * Insert: " + data, true, false);
             inputArray[i++] = data;
         }
         initialArray = Arrays.copyOf(inputArray, inputArray.length);
-        displaysLine();
+        displaysArray("Array: [", inputArray, false, true);
     }
 
     private void insertionSort() {
