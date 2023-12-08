@@ -84,7 +84,7 @@ class VectorExample {
         displaysNewLine();
         for (int i = 0; i < numberOfElements; i++) {
             int data = formsData(false);
-            System.out.println(" * Inserting " + data);
+            System.out.println(" * Insert: " + data);
             vector.add(i, data);
         }
         displaysNewLine();
