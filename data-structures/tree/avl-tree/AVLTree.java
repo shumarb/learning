@@ -30,21 +30,13 @@ public class AVLTree {
         System.out.println();
     }
 
-    private void displaysSearchPath(ArrayList <Integer> searchPath) {
-        System.out.print("\t| Search Path: ");
-        for (int i = 0; i < searchPath.size() - 1; i++) {
-            System.out.print(searchPath.get(i) + " ---> ");
-        }
-        System.out.println(searchPath.get(searchPath.size() - 1));
-    }
-
     private void displaysTwoNewLines() {
         System.out.println();
         System.out.println();
     }
 
     private void elementInformation(Node node) {
-        System.out.print("[" + node.getsData() + ", h: " + node.getsHeight() + "]  ");
+        displaysMessage(1, "[" + node.getsData() + ", h: " + node.getsHeight() + "]  ", false, false);
     }
 
     private void deletion() {
@@ -52,7 +44,7 @@ public class AVLTree {
         int key = formsData(true);
         root = deletion(root, key);
         set.remove(key);
-        displaysMessage(0, "Deleted: " + key, true, false);
+        displaysMessage(0, "Delete: " + key, true, false);
         updatesHeight(root, "updates height of elements in left and right subtrees");
         traversal();
     }
@@ -145,7 +137,7 @@ public class AVLTree {
         displaysMessage(0, "======= Insertion =======", false, false);
         displaysMessage(0, "Forming AVL Tree with " + set.size() + " elements:", true, false);
         for (int data: set) {
-            displaysMessage(0, " * Inserting " + data, true, false);
+            displaysMessage(0, " * Insert: " + data, true, false);
             root = insertion(root, data);
         }
         // AVL Tree may have a child is > 1 level below it's parent
@@ -248,13 +240,6 @@ public class AVLTree {
         return leftChild; 
     } 
 
-    private Node searchMinimum(Node node) {
-        if (node == null || !node.hasLeftChild()) {
-            return node;
-        }
-        return searchMinimum(node.getsLeftChild());
-    }
-
     private void traversal(Node node, String traversalOrder) {
         if (node == null) {
             return;
@@ -291,7 +276,7 @@ public class AVLTree {
             } else {
                 System.out.print(key + " is not in the AVL Tree");
             }
-            displaysSearchPath(searchPath);
+            searchPath(searchPath);
             displaysNewLine();
         }
 
@@ -305,7 +290,7 @@ public class AVLTree {
                 node = search(root, "searches maximum", Integer.MAX_VALUE, searchPath);
                 displaysMessage(1, "Maximum: " + node.getsData(), false, false);
             }
-            displaysSearchPath(searchPath);
+            searchPath(searchPath);
         }
         displaysLine();
     }
@@ -338,6 +323,21 @@ public class AVLTree {
         }
 
         return null;
+    }
+
+    private Node searchMinimum(Node node) {
+        if (node == null || !node.hasLeftChild()) {
+            return node;
+        }
+        return searchMinimum(node.getsLeftChild());
+    }
+
+    private void searchPath(ArrayList <Integer> searchPath) {
+        displaysMessage(1, "\t| Search Path: ", false, false);
+        for (int i = 0; i < searchPath.size() - 1; i++) {
+            System.out.print(searchPath.get(i) + " ---> ");
+        }
+        displaysMessage(0, Integer.toString(searchPath.get(searchPath.size() - 1)), false, false);
     }
 
     private void traversal() {
