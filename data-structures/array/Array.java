@@ -87,7 +87,7 @@ class Array {
         displaysNewLine();
         int i = 0;
         for (int data: set) {
-            System.out.println(" * inserting " + data);
+            System.out.println(" * Insert: " + data);
             inputArray[i++] = data;
         }
         displaysNewLine();
