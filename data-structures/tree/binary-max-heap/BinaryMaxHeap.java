@@ -113,7 +113,7 @@ public class BinaryMaxHeap {
         displaysMessage("Forming a Binary Max Heap with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            displaysMessage(" * Inserting " + data, true, false);
+            displaysMessage(" * Insert: " + data, true, false);
             inputArray[i++] = data;
         }
         initialArray = storesInitialArray();
@@ -124,11 +124,11 @@ public class BinaryMaxHeap {
     private void maxHeapify() {
         displaysMessage("Max-Heapify:", false, false);
         for (int i = inputArray.length - 1; i >= 0; i--) {
-            maxHeapify(inputArray, i);
+            maxHeapify(i);
         }
     }
 
-    private void maxHeapify(int[] inputArray, int currentIndex) {
+    private void maxHeapify(int currentIndex) {
         // 1. Check if child > parent
         // First part of condition ensures no array out of bounds by confirming this is a check on a non-leaf element
         int parentIndex = currentIndex;
@@ -146,8 +146,8 @@ public class BinaryMaxHeap {
         // and max-heapify subtree where either the left child or right child element
         // which after the swap is <= it's parent, is the root of the subtree
         if (parentIndex != currentIndex) {
-            swap(inputArray, currentIndex, parentIndex);
-            maxHeapify(inputArray, parentIndex);
+            swap(currentIndex, parentIndex);
+            maxHeapify(parentIndex);
         }
     }
 
@@ -190,7 +190,7 @@ public class BinaryMaxHeap {
         return Arrays.copyOf(inputArray, inputArray.length);
     }
 
-    private void swap(int[] inputArray, int largestElementIndex, int currentIndex) {
+    private void swap(int largestElementIndex, int currentIndex) {
         int temp = inputArray[currentIndex];
         inputArray[currentIndex] = inputArray[largestElementIndex];
         inputArray[largestElementIndex] = temp;
