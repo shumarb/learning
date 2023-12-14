@@ -113,7 +113,7 @@ public class BinaryMinHeap {
         displaysMessage("Forming a Binary Min Heap with " + inputArray.length + " elements:", true, false);
         int i = 0;
         for (int data: set) {
-            displaysMessage(" * Inserting " + data, true, false);
+            displaysMessage(" * Insert: " + data, true, false);
             inputArray[i++] = data;
         }
         initialArray = storesInitialArray();
@@ -145,7 +145,7 @@ public class BinaryMinHeap {
         // 2. If a child > parent, swap the elements
         // and min-heapify subtree is either the left or right child of the parent elmenet
         if (parentIndex != currentIndex) {
-            swap(inputArray, currentIndex, parentIndex);
+            swap(currentIndex, parentIndex);
             minHeapify(inputArray, parentIndex);
         }
     }
@@ -189,7 +189,7 @@ public class BinaryMinHeap {
         return Arrays.copyOf(inputArray, inputArray.length);
     }
 
-    private void swap(int[] inputArray, int smallestElementIndex, int currentIndex) {
+    private void swap(int smallestElementIndex, int currentIndex) {
         int temp = inputArray[currentIndex];
         inputArray[currentIndex] = inputArray[smallestElementIndex];
         inputArray[smallestElementIndex] = temp;
