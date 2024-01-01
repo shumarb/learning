@@ -14,18 +14,14 @@ class AdjacencyList {
             displaysNewLine();
             System.out.print(" * Vertex " + getsVertex(i) + " | ");
             ArrayList <IntegerPair> neighboursList = adjacencyList.get(i);
-            if (neighboursList.isEmpty()) {
-                System.out.println("No neighbours");
-            } else {
-                for (int j = 0; j < neighboursList.size(); j++) {
-                    IntegerPair currentIntegerPair = neighboursList.get(j);
-                    System.out.print("[" + currentIntegerPair.getsEndVertex() + ", W: " + currentIntegerPair.getsWeight() + "]");
-                    if (j != neighboursList.size() - 1) {
-                        System.out.print(", ");
-                    }
-                    if (j == neighboursList.size() - 1) {
-                        displaysNewLine();
-                    }
+            for (int j = 0; j < neighboursList.size(); j++) {
+                IntegerPair currentIntegerPair = neighboursList.get(j);
+                System.out.print("[" + currentIntegerPair.getsEndVertex() + ", W: " + currentIntegerPair.getsWeight() + "]");
+                if (j != neighboursList.size() - 1) {
+                    System.out.print(", ");
+                }
+                if (j == neighboursList.size() - 1) {
+                    displaysNewLine();
                 }
             }
         }
@@ -105,12 +101,10 @@ class AdjacencyList {
             ArrayList <IntegerPair> neighboursList = new ArrayList <> ();
             System.out.println(" * Vertex " + currentVertex + " | Possible neighbours: " + possibleNeighboursList);
             for (int j = 0; j < possibleNeighboursList.size(); j++) {
-                if (isFormData()) {
-                    int weight = myRandom.nextInt(-100, 101);
-                    IntegerPair incomingIntegerPair = new IntegerPair(possibleNeighboursList.get(j), weight);
-                    neighboursList.add(incomingIntegerPair);
-                    Collections.sort(possibleNeighboursList);
-                }
+                int weight = myRandom.nextInt(-100, 101);
+                IntegerPair incomingIntegerPair = new IntegerPair(possibleNeighboursList.get(j), weight);
+                neighboursList.add(incomingIntegerPair);
+                Collections.sort(possibleNeighboursList);
             }
             adjacencyList.add(i, neighboursList);
             if (i != verticesList.size() - 1) {
@@ -129,10 +123,6 @@ class AdjacencyList {
             }
         }
         return false;
-    }
-
-    private boolean isFormData() {
-        return myRandom.nextBoolean();
     }
 
     private void updatesAdjacencyList() {
