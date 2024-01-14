@@ -17,7 +17,7 @@ The merging steps invole combining N arrays of size 1 to form a sorted array of 
 
 An array of N elements is divided to form N arrays of size 1 before the merge.
 
-## How to use this folder
+## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Open up `terminal`.
 3. Navigate to this directory by entering `cd merge-sort`.

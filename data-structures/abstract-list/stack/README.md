@@ -16,7 +16,7 @@ size()                   | Obtains number of object/elements in stack
 get(int index)           | Retrieves object/element at position index. Note: Ensure 0 <= index < size of stack
 contains(Element e)      | Returns true if stack contains specified object/object/element, else return false
 
-## How to use this folder
+## Instructions
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.

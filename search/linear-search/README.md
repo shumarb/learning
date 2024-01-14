@@ -14,7 +14,7 @@ Linear Search, also known as `Sequential Search`, is a search algorithm that wor
 
 This is because the worst-case scenario is to compare all elements of `data stucture (array or list)` to the `key`.
 
-## How to use this folder
+## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Open up `terminal`.
 3. Navigate to this directory by entering `cd linear-search`.

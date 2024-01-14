@@ -5,9 +5,10 @@ This folder contains my summary of graph concepts.
 ## What is a Graph?
 A `Graph` is a set of `vertices` such that some pairs of the `vertices` are connected to each other by an `edge`, which are `weighted/unweighted`, and `directed/undirected`.
            
-Concept           
+Concepts          
 ----------------------------------------------------------------------------------------------------|
 [Graph Data Structures](https://github.com/shumarb/learning/tree/main/graphs/graph-data-structures)
+[Graph Traversals](https://github.com/shumarb/learning/tree/main/graphs/graph-traversals)
 
 ## Graph Terminologies
 Terminology                     | Explanation
@@ -29,7 +30,7 @@ Path Length/Cost                | Number of edges in a path for an `unweighted` 
 V                               | Number of vertices in a graph
 E                               | Number of edges in a graph
 
-## How to use this folder
+## Instructions
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.

@@ -16,7 +16,7 @@ Binary Search is an efficient search algorithm that checks whether element is av
 
 This is because the portion of the `data structure (array or list)` that could contain the element is repeatedly `divided` into half until it is of size `1`.
 
-## How to use this folder
+## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Open up `terminal`.
 3. Navigate to this directory by entering `cd binary-search`.

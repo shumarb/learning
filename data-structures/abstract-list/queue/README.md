@@ -16,7 +16,7 @@ size()                   | Obtain the total number of elements in the `Queue`
 get(int index)           | Retrieve the element at specified `index`. Note: Ensure index < size of the `Queue`
 contains(Element e)      | Return true if the `Queue` contains specified element, else return false
 
-## How to use this folder
+## Instructions
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.

@@ -22,7 +22,7 @@ Therefore, the worst-case Time Complexity is O(_N_ log<sub>2</sub>_N_) + O(_N_) 
 
 A constant amount of time of extra space is required.
 
-## How to use this folder
+## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Open up `terminal`.
 3. Navigate to this directory by entering `cd heap-sort`.
