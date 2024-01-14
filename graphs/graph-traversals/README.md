@@ -6,9 +6,9 @@ The following are `graph traversal` techniques:
 Graph Traversal Technique  | Definition
 ---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 Breadth-first Search (BFS) | For every **source** vertex, visit all vertices on the same level before proceeding to the next vertex.
-Depth-first Search (DFS)   | For every **source** vertex, visit a vertex and explore this vertices path until a dead-end is reached before visiting the next vertex.
+Depth-first Search (DFS)   | For every **source** vertex, visit a vertex and explore this vertex's path until a dead-end is reached before visiting the next unvisited vertex.
 
-To keep track of the unvisited vertices in the aforementioned graph traversal techniques, **BFS** uses [Queue](https://github.com/shumarb/learning/tree/main/data-structures/abstract-list/queue), while **DFS** uses a [Stack](https://github.com/shumarb/learning/tree/main/data-structures/abstract-list/stack).
+To keep track of the unvisited vertices, **BFS** uses a [Queue](https://github.com/shumarb/learning/tree/main/data-structures/abstract-list/queue), while **DFS** uses a [Stack](https://github.com/shumarb/learning/tree/main/data-structures/abstract-list/stack).
 
 ## Instructions
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
