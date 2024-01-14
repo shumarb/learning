@@ -1,9 +1,9 @@
 # Adjacency Matrix
 
-## What is an Adjacency Matrix?
+## Overview
 An `Adjacency Matrix` is a `2D array`. If a path exists between vertices `i` and `j`, the value of the element is index [i][j] of the `2D array` is the weight of the edge connecting vertices `i` and `j`.
 
-## How to use this folder
+## Instructions
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
 2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 3. Open `terminal`.
