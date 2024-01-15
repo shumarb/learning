@@ -10,7 +10,7 @@ Concepts
 [Search](https://github.com/shumarb/learning/tree/main/search)
 [Sort](https://github.com/shumarb/learning/tree/main/sort)
 
-# Instructions
+## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Identify a `location` on your local machine to store this repository.
 3. Open `terminal`.
