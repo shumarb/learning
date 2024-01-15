@@ -1,5 +1,7 @@
 # Sort
-This folder contains the sort techniques that I implemented on my own.
+
+## Overview
+The following illustrates a comparison of different sorting techniques:
 
 Sort Technique | Worst-case Time Complexity | Space Complexity | In-place? | Stable?
 ------------------| ---------------------------| ---------------- | ----------| -------
