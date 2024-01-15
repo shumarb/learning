@@ -1,14 +1,16 @@
 # Learning
+
+## Overview
 This repository contains both my explanation and code (written in **Java**) of key Computer Science concepts.
 
-Concept                                                                             
+Concepts                                                          
 ----------------------------------------------------------------------------------- |
 [Data Structures](https://github.com/shumarb/learning/tree/main/data-structures)
 [Graphs](https://github.com/shumarb/learning/tree/main/graphs)
 [Search](https://github.com/shumarb/learning/tree/main/search)
 [Sort](https://github.com/shumarb/learning/tree/main/sort)
 
-# How to use this repository
+# Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
 2. Identify a `location` on your local machine to store this repository.
 3. Open `terminal`.
