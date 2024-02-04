@@ -1,7 +1,7 @@
 # Data Structures
-
 This folder contains my summary of data structures.
 
+## Overview
 The following illustrates the `worst-case time complexity` for operations on each element in a data structure of `N` elements:
 
 Data Structure           | Insertion               | Deletion                | Search                   | Search Maximum            | Search Minimum
