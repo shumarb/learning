@@ -1,9 +1,9 @@
 # Doubly Linked List
 
-## What is an Doubly Linked List?
+## Overview
 An `Doubly Linked List` is a **linear and dynamic** data structure where each element has a pointer to it's `previous` element and a pointer to it's `next` element. 
 
-## Key Operations of an Doubly Linked List
+## Key Operations
 Operation                | Explanation
 -------------------------| --------------------------------------------------------------------------------------------------------------
 add(Element e)           | Add the specified element to end of the Doubly Linked List
