@@ -1,6 +1,6 @@
 # Singly Linked List
 
-## What is a Singly Linked List?
+## Overview
 An `Singly Linked List` is a **linear and dynamic** data structure where each element contains a pointer to it's next element.
 
 ## Instructions
