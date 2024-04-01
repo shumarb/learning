@@ -1,9 +1,9 @@
 # Queue
 
-## What is a Queue?
+## Overview
 A `Queue` is a **linear and dynamic** data structure operating on a **First In, First Out (FIFO)** principle.
 
-## Key Operations of Queue
+## Key Operations
 Operation                | Explanation
 -------------------------| --------------------------------------------------------------------------------------------------------------
 peek()                   | Retrieve, but does not remove, the element at top of the `Queue`
