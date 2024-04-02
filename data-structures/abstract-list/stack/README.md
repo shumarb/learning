@@ -1,9 +1,9 @@
 # Stack
 
-## What is a Stack?
+## Overview
 A `Stack` is a **linear and dynamic** data structure operating on a **Last In, First Out (LIFO)** principle.
 
-## Key Operations of Stack
+## Key Operations
 Operation                | Explanation
 -------------------------| --------------------------------------------------------------------------------------------------------------
 peek()                   | Retrieves, but does not remove, object/element at top of the stack
