@@ -1,6 +1,6 @@
 # Vector
 
-## What is an Vector?
+## Overview
 A `Vector` is a **linear and dynamic** data structure operating as a resizable array.
 
 ## Key Operations of an Vector
