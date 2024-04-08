@@ -1,6 +1,6 @@
 # Binary Max Heap
 
-## What is a Binary Max Heap?
+## Overview 
 A `Binary Max Heap` is a **complete binary tree (non-linear and dynamic data structure)** where `each` element is `>=` all of it's `children (if any)`.
 
 ## Instructions
