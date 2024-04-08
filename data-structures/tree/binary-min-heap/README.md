@@ -1,6 +1,6 @@
 # Binary Min Heap
 
-## What is a Binary Min Heap?
+## Overview 
 A `Binary Min Heap` is a **complete binary tree (non-linear and dynamic data structure)** where `each` element is `<=` all of it's `children (if any)`.
 
 ## Instructions
