@@ -11,7 +11,7 @@ Bubble Sort has a time Complexity of `O(1)`.
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
-2. Copy the [BubbleSort.java](https://github.com/shumarb/learning/blob/main/sort/bubble-sort/BubbleSort.java) code.
+2. Copy the Bubble Sort [code](https://github.com/shumarb/learning/blob/main/sort/bubble-sort/BubbleSort.java).
 3. Open up `terminal`.
 4. Enter `vi BubbleSort.java`
 4. Paste the code in Step `2`.
