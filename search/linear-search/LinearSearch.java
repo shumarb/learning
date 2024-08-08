@@ -117,8 +117,8 @@ class LinearSearch {
     private void run() {
         insertion();
         linearSearch();
-
     }
+
     public static void main(String[] args) {
         LinearSearch obj = new LinearSearch();
         obj.run();
