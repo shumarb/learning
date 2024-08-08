@@ -52,7 +52,7 @@ public class Account {
 ```
 
 In the `Account` class,
-- The `username` and `password` attributes are private to prevent direct access from outside the class.
+- The `username` and `password` attributes are `private` to prevent direct access from outside the class.
 - The `encapsulated interface` are the `getters`, which provide read-only access to these attributes, and the `setters`, which allow modification of these attributes.
 - This design encapsulates the class's state and behavior, promoting data protection and modularity.
  
