@@ -6,4 +6,4 @@ This folder contains my summary of Object-oriented Programming concepts.
 ## Concepts
 | Concept |
 |---------|
-[Encapsulation](https://github.com/shumarb/learning/object-oriented-programming/encapsulation)
+[Encapsulation](https://github.com/shumarb/learning/tree/main/object-oriented-programming/encapsulation)
