@@ -22,3 +22,37 @@ Encapsulation is an Object-oriented programming principle that `bundles` data (a
 - Class Design 
   - Modularity: Classes are designed to manage their own state and behavior, promoting separation of concerns.
   - Information Hiding: Internal details are hidden, exposing only necessary operations to the outside world.
+
+## Example
+
+```java
+public class Account {
+    // Attributes
+    private String username;
+    private String password;
+  
+    // Getters
+    public String getUsername() {
+        return username;
+    }  
+  
+    public String getPassword() {
+        return password;
+    }
+  
+    // Setters
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String setPassword(String password) {
+        this.password = password;
+    }
+}
+```
+
+In the `Account` class,
+- The `username` and `password` attributes are private to prevent direct access from outside the class.
+- The `getters` provide read-only access to these attributes.
+- The `setters` allow modification of these attributes.
+- This design encapsulates the class's state and behavior, promoting data protection and modularity.
