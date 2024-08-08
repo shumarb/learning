@@ -22,4 +22,3 @@ hiding a class's internal state from external access and controlling how the dat
 - Class Design 
   - Modularity: Classes are designed to manage their own state and behavior, promoting separation of concerns.
   - Information Hiding: Internal details are hidden, exposing only necessary operations to the outside world.
-  - 
