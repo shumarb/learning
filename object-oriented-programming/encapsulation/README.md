@@ -1,8 +1,8 @@
 # Encapsulation
 
 ## Overview
-Encapsulation is an Object-oriented programming principle that bundles data (attributes) and methods (functions) within a class,
-hiding a class's internal state from external access and controlling how the data is accessed or modified.
+Encapsulation is an Object-oriented programming principle that `bundles` data (attributes) and methods (functions) within a class,
+`hiding` a class's internal state from external access and `controlling` how the data is accessed or modified.
 
 ## Importance
 - Data Protection: Restricts direct access to internal data to prevent unauthorized access.
@@ -11,10 +11,10 @@ hiding a class's internal state from external access and controlling how the dat
 
 ## Implementation
 - Access Modifiers
-  - public: Grants access to any part of the program.
-  - private: Restricts access to the class itself.
-  - protected: Allows access within the same package and subclasses.
-  - default (no declaration of access modifier): Accessible only within the same package.
+  - **public**: Grants access to any part of the program.
+  - **private**: Restricts access to the class itself.
+  - **protected**: Allows access within the same package and subclasses.
+  - **default (no declaration of access modifier)**: Accessible only within the same package.
 - Getters & Setters
   - Provides controlled access to attributes with a private access modifier.
 - Encapsulated Interface
