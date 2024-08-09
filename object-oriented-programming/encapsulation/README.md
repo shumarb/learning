@@ -1,7 +1,7 @@
 # Encapsulation
 
 ## Overview
-Encapsulation is an Object-oriented programming principle that `bundles` data (attributes) and methods (functions) within a class,
+Encapsulation is the `bundling` of data (attributes) and methods (functions) within a class,
 `hiding` the internal state, and `controlling` access and modification of data through an encapsulated interface.
 
 ## Importance
