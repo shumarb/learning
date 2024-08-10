@@ -21,17 +21,17 @@ class Animal {
     }
 }
 
-class Dog extends Animal {
-    @Override
-    public void makeSound() {
-        System.out.println("Bark");
-    }
-}
-
 class Cat extends Animal {
     @Override
     public void makeSound() {
         System.out.println("Meow");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
     }
 }
 
