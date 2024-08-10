@@ -45,23 +45,23 @@ public class Runner {
     }
 }
 ```
-Polymorphism via **Interface Implementation**
+Polymorphism via **Interface Implementation**:
 ```java
 interface Animal() {
     void makeSound();
-}
-
-class Dog implements Animal {
-    @Override
-    public void makeSound() {
-        System.out.println("Bark");
-    }
 }
 
 class Cat implements Animal {
     @Override
     public void makeSound() {
         System.out.println("Meow");
+    }
+}
+
+class Dog implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
     }
 }
 
