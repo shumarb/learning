@@ -49,7 +49,7 @@ class Car implements Vehicle {
 
 public class Runner {
     public static void main(String[] args) {
-        Car myCar = new Car( "BMW", "iX M60", 2022);
+        Car myCar = new Car("BMW", "iX M60", 2022);
         myCar.displayInformation();
         myCar.start();
         myCar.end();
