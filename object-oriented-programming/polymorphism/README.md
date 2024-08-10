@@ -13,7 +13,6 @@ Polymorphism allows objects of different classes are regarded as objects of a co
 - **Interface**: Multiple classes can implement the same interface, providing their own versions of the methods.
 
 ## Example
-
 Polymorphism via **Method Overriding**:
 ```java
 class Animal {
@@ -76,5 +75,4 @@ public class Runner {
 ```
 In both codes:
 - Dog and Cat classes override the makeSound() method from the Animal class.
-- The myDog and myCat, both referenced as Animal, call their respective makeSound() methods,
-- demonstrating polymorphism by producing class-specific outputs.
+- The myDog and myCat, both referenced as Animal, call their respective makeSound() methods, demonstrating polymorphism by producing class-specific outputs.
