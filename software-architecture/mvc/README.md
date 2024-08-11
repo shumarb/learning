@@ -37,8 +37,8 @@ public void display(String data) {
 
 // Controller
 class Controller {
-private Model model;
-private View view;
+    private Model model;
+    private View view;
 
     Controller(Model model, View view) {
         this.model = model;
