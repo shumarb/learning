@@ -18,7 +18,6 @@ MVC is a design pattern that separates an application into three interconnected 
 // Model
 class Model {
 private String data;
-
     public String getData() {
         return data;
     }
@@ -30,8 +29,8 @@ private String data;
 
 // View
 class View {
-public void display(String data) {
-    System.out.println("Displaying data: " + data);
+    public void display(String data) {
+        System.out.println("Displaying data: " + data);
     }
 }
 
