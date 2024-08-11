@@ -57,6 +57,6 @@ public class Runner {
 }
 ```
 In the code above:
-- Vehicle is an interface that defines a contract with method declarations (start(), end(), and displayInformation()) but does not provide method implementations.
-- Car is a concrete class that implements the Vehicle interface. It provides specific implementations for all the methods declared in the interface.
+- Vehicle is an `interface` that defines a contract with method declarations (start(), end(), and displayInformation()) without providing implementations.
+- Car is a `concrete class` that `implements` the Vehicle `interface` as it implements all the `methods` declared in the `interface`.
 myCar, an instance of Car, uses the methods start(), end(), and displayInformation() defined in the Vehicle interface, demonstrating how classes can fulfill the contract set by an interface and provide specific behavior.
