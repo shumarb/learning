@@ -5,8 +5,8 @@ Encapsulation is the `bundling` of data (attributes) and methods (functions) wit
 `hiding` the internal state, and `controlling` access and modification of data through an encapsulated interface.
 
 ## Importance
-- Data Protection: Restricts direct access to internal data to prevent unauthorized access.
-- Modularity: Enhances code organisation and maintenance by grouping data and methods.
+- **Data Protection**: Restricts direct access to internal data to prevent unauthorized access.
+- **Modularity**: Enhances code organisation and maintenance by grouping data and methods.
 
 ## Implementation
 - Access Modifiers
