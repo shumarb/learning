@@ -1,8 +1,7 @@
 # Memory Management
 
 ## Overview
-Java memory management involves the organisation of memory into different areas and automatic memory management of memory allocation and deallocation.
-This includes a **Stack**, **Heap**, and **Garbage Collection**.
+Java memory management involves organizing memory into the **Stack** and **Heap** and handling automatic memory allocation and deallocation via **Garbage Collection**.
 
 ## Components
 - Stack Memory
