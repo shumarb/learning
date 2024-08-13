@@ -8,3 +8,4 @@ This folder contains my summary of **Java** programming concepts.
 |---------|
 [Abstract Class](https://github.com/shumarb/learning/tree/main/java/abstract-class)
 [Interface](https://github.com/shumarb/learning/tree/main/java/interface)
+[Memory Management](https://github.com/shumarb/learning/tree/main/java/memory-management)
