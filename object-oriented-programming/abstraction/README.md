@@ -11,8 +11,8 @@ This allows developers and users to `interact` with higher-level concepts withou
 - **Promotes Reusability**: Common abstractions can be reused across different parts of the application.
 
 ## Implementation
-- **Abstract class**
-- **Interface**
+- **[Abstract class](https://github.com/shumarb/learning/tree/main/java/abstract-class)**
+- **[Interface](https://github.com/shumarb/learning/tree/main/java/interface)**
 - **Modular Design**
 
 ## Example
