@@ -9,10 +9,10 @@ Java memory management involves organizing memory into the **Stack** and **Heap*
   - Characteristics:
     - LIFO (Last In, First Out) structure.
     - Memory is automatically allocated and deallocated as methods are called and return.
-    - Limited Size: Fixed size per thread, leading to stack overflow if exceeded.
+    - Fixed size per thread, leading to stack overflow if exceeded.
 
 - Heap Memory
-  - Purpose: Stores dynamically allocated objects and class instances.
+  - Purpose: Stores dynamically-allocated objects and class instances.
   - Characteristics:
     - **Dynamic Size**: Grows and shrinks as objects are created and garbage collected.
     - Objects remain in memory until they are no longer referenced and are eligible for garbage collection.
@@ -27,7 +27,7 @@ Java memory management involves organizing memory into the **Stack** and **Heap*
 
 Implementation
 - Stack Memory Management
-  - Managed by the Java Virtual Machine (JVM), with automatic allocation and deallocation.
+  - Managed by the `Java Virtual Machine (JVM)`, with automatic allocation and deallocation.
 
 - Heap Memory Management
   - Managed by the JVM, with objects allocated on the heap and cleaned up by the garbage collector.
