@@ -1,7 +1,7 @@
 # Learning
 
 ## Overview
-This repository contains both my explanation and code (written in **Java**) of key Computer Science concepts.
+This repository contains both my explanation and code (written in **Java**) of key computer science concepts.
 
 Concepts                                                          
 ----------------------------------------------------------------------------------- |
