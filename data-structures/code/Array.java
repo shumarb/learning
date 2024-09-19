@@ -1,11 +1,7 @@
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
 
-class Array {
+class Array extends BasicOperations {
     private int[] inputArray;
-    private HashSet <Integer> set = new HashSet <> ();
-    private Random myRandom = new Random();
 
     private void deletion() {
         System.out.println("============ Deletion ============");
@@ -40,44 +36,6 @@ class Array {
         System.out.println(inputArray[inputArray.length - 1] + "]");
     }
 
-    private void displaysLine() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private int formsData(boolean isDataInSinglyLinkedList) {
-        int data;
-        if (isDataInSinglyLinkedList) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!set.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (set.contains(data));
-        }
-        return data;
-    } 
-
-    private void formsData() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = myRandom.nextInt(-100, 101);
-        int order = myRandom.nextInt(1, 4);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 1) {
-                set.add(data++);
-            } else if (order == 2) {
-                set.add(data--);
-            } else {
-                set.add(formsData(false));
-            }
-        }
-    }
-
     private void insertion() {
         displaysLine();
         System.out.println("============ Insertion ============");
@@ -100,7 +58,7 @@ class Array {
         displaysArray();
 
         for (int i = 0; i < 2; i++) {
-            ArrayList <Integer> elementsChecked = new ArrayList <> ();
+            ArrayList<Integer> elementsChecked = new ArrayList<> ();
             boolean isKeyFound = false;
             int key;
             if (i == 0) {

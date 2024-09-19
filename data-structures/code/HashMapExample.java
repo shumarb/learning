@@ -3,15 +3,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 
-class HashMapExample {
+class HashMapExample extends BasicOperations {
     private HashMap <String, Integer> hMap = new HashMap <> ();
     private HashSet <Integer> numbersSet = new HashSet <> ();
     private HashSet <String> namesSet = new HashSet <> ();
     private Random myRandom = new Random();
-
-    private void displaysLine() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
-    }
 
     private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
         if (messageType == 0) {
@@ -26,40 +22,6 @@ class HashMapExample {
             displaysLine();
         }
     }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private void formsData() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = myRandom.nextInt(-100, 101);
-        int order = myRandom.nextInt(1, 4);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 1) {
-                numbersSet.add(data++);
-            } else if (order == 2) {
-                numbersSet.add(data--);
-            } else {
-                numbersSet.add(formsData(false));
-            }
-        }
-    }
-
-    private int formsData(boolean isDataPresent) {
-        int data;
-        if (isDataPresent) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!numbersSet.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (numbersSet.contains(data));
-        }
-        return data;
-    } 
 
     private String formsKey() {
         StringBuilder name = new StringBuilder();
