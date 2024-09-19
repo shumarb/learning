@@ -95,7 +95,7 @@ class Array extends BasicOperations {
         }
         System.out.println(" * " + "Maximum: " + maximum);
         displaysNewLine();
-        System.out.println(" * " + "Miniimum: " + minimum);
+        System.out.println(" * " + "Minimum: " + minimum);
         displaysLine();
     }
 
