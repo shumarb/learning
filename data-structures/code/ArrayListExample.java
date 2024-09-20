@@ -1,10 +1,8 @@
+import java.util.List;
 import java.util.ArrayList;
-import java.util.Random;
 
-class ArrayListExample {
-
-    private ArrayList <Integer> arrayList = new ArrayList<>();
-    private Random myRandom = new Random();
+class ArrayListExample extends BasicOperations {
+    private List<Integer> arrayList = new ArrayList<> ();
     
     private void displaysArrayList(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
         System.out.print(message + "ArrayList: " + arrayList);
@@ -19,10 +17,6 @@ class ArrayListExample {
         }
     }
 
-    private void displaysLine() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
     private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
         System.out.println(message);
         if (isDisplayNewLine) {
@@ -31,15 +25,6 @@ class ArrayListExample {
         if (isDisplayLine) {
             displaysLine();
         }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private void displaysTwoNewLines() {
-        System.out.println();
-        System.out.println();
     }
 
     private void explanation() {
@@ -59,34 +44,22 @@ class ArrayListExample {
         displaysMessage(" * size(): Obtain number of the elements in the ArrayList", false, true);
     }
 
-    private int formsData(boolean isDataPresent) {
-        int data;
-        if (isDataPresent) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!arrayList.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (arrayList.contains(data));
-        }
-        return data;
-    }
-
     private int formsIndex() {
+        if (arrayList.isEmpty()) {
+            return -1;
+        }
         return myRandom.nextInt(0, arrayList.size());
     }
 
     private void insertion() {
         displaysMessage("============ Insertion ============", false, false);
-        int numberOfElements = myRandom.nextInt(5, 12);
+        int numberOfElements = set.size();
         displaysMessage("Forming an ArrayList with " + numberOfElements + " elements:", true, false);
-        for (int i = 0; i < numberOfElements; i++) {
-            int data = formsData(false);
+        for (Integer data: set) {
             System.out.println(" * Insert: " + data);
-            arrayList.add(i, data);
+            displaysNewLine();
+            arrayList.add(data);
         }
-        displaysNewLine();
         displaysArrayList("", true, false, true);
     }
 
@@ -99,17 +72,18 @@ class ArrayListExample {
         displaysMessage(" * size(): " + arrayList.size(), true, false);
         displaysMessage(" * isEmpty(): " + arrayList.isEmpty(), true, false);
 
+        key = retrievesData();
+        displaysMessage(" * contains(" +  key + "): " + arrayList.contains(key) + "\t| indexOf(" +  key + "): " + arrayList.indexOf(key), true, false);
+        key = formsData(false);
+        displaysMessage(" * contains(" +  key + "): " + arrayList.contains(key) + "\t| indexOf(" +  key + "): " + arrayList.indexOf(key), true, false);
+
+        if (!arrayList.isEmpty()) {
+            index = formsIndex();
+            displaysMessage(" * get(" + index + "): " + arrayList.get(index), true, false);
+        }
+
+        index = formsIndex();
         key = formsData(true);
-        displaysMessage(" * contains(" +  key + "): " + arrayList.contains(key) + "\t| indexOf(" +  key + "): " + arrayList.indexOf(key), true, false);
-
-        key = formsData(false);
-        displaysMessage(" * contains(" +  key + "): " + arrayList.contains(key) + "\t| indexOf(" +  key + "): " + arrayList.indexOf(key), true, false);
-
-        index = formsIndex();
-        displaysMessage(" * get(" + index + "): " + arrayList.get(index), true, false);
-
-        index = formsIndex();
-        key = formsData(false);
         arrayList.set(index, key);
         System.out.print(" * set(" + index + ", " + key + ")");
         displaysArrayList("\t\t| ", false, true, false);
@@ -125,29 +99,43 @@ class ArrayListExample {
         System.out.print(" * add(" + key + ")");
         displaysArrayList("\t\t| ", false, true, false);
 
-        index = formsIndex();
-        System.out.print(" * remove(" + index + "): " + arrayList.remove(index));
-        displaysArrayList("\t| ", true, false, true);
+        if (!arrayList.isEmpty()) {
+            index = formsIndex();
+            System.out.print(" * remove(" + index + "): " + arrayList.remove(index));
+            displaysArrayList("\t| ", true, false, true);
+        }
+    }
+
+    private int retrievesData() {
+        if (arrayList.isEmpty()) {
+            throw new IllegalStateException("ArrayList is empty.");
+        }
+        return arrayList.get(myRandom.nextInt(0, arrayList.size() - 1));
     }
 
     private void search() {
         displaysMessage("============ Search ============", false, false);
         displaysArrayList("", false, true, false);
-        int maximum = arrayList.get(0);
-        int minimum = arrayList.get(0);
-        for (int i = 1; i < arrayList.size(); i++) {
-            if (arrayList.get(i) > maximum) {
-                maximum = arrayList.get(i);
+        if (!arrayList.isEmpty()) {
+            int maximum = arrayList.get(0);
+            int minimum = arrayList.get(0);
+            for (int i = 1; i < arrayList.size(); i++) {
+                if (arrayList.get(i) > maximum) {
+                    maximum = arrayList.get(i);
+                }
+                if (arrayList.get(i) < minimum) {
+                    minimum = arrayList.get(i);
+                }
             }
-            if (arrayList.get(i) < minimum) {
-                minimum = arrayList.get(i);
-            }
+            displaysMessage(" * Maximum: " + maximum, true, false);
+            displaysMessage(" * Minimum: " + minimum, false, true);
+        } else {
+            displaysMessage("ArrayList is empty. Cannot find maximum and minimum.", true, false);
         }
-        displaysMessage(" * Maximum: " + maximum, true, false);
-        displaysMessage(" * Minimum: " + minimum, false, true);
     }
 
     private void run() {
+        formsData();
         explanation();
         insertion();
         operations();
