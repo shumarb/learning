@@ -20,10 +20,10 @@ public class BasicOperations {
 
     protected int formsData(boolean isDataPresent) {
         int data;
+        if (set.isEmpty()) {
+            throw new IllegalStateException("Set is empty, cannot generate data.");
+        }
         if (isDataPresent) {
-            if (set.isEmpty()) {
-                throw new IllegalStateException("Set is empty, cannot generate data.");
-            }
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
