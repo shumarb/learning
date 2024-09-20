@@ -4,17 +4,17 @@
 An `ArrayList` is a **linear and dynamic** data structure operating as a resizable array.
 
 ## Key Operations of an ArrayList
-Operation                | Explanation
--------------------------| --------------------------------------------------------------------------------------------------------------
-add(Element e)           | Add the specified element to end of the ArrayList
-add(int index, Element e)| Add the specified element at specified index of the ArrayList
-clear()                  | Remove all elements in the ArrayList
-contains(Element e)      | Return true if the ArrayList contains specified element, else return false
-get(int index)           | Retrieve element at position index. Note: Ensure 0 <= index < size of the ArrayList
-isEmpty()                | Return true only if the ArrayList is empty, else return false
-remove(int index)        | Remove the element at specified index of the ArrayList
-set(int index, Element e)| Replace the current element at specified index of the ArrayList with specified element
-size()                   | Obtain the number of elements in the ArrayList
+| Operation                 | Explanation                                                                            |
+|---------------------------|----------------------------------------------------------------------------------------|
+| add(Element e)            | Add the specified element to end of the ArrayList                                      |
+| add(int index, Element e) | Add the specified element at specified index of the ArrayList                          |
+| clear()                   | Remove all elements in the ArrayList                                                   |
+| contains(Element e)       | Return true if the ArrayList contains specified element, else return false             |
+| get(int index)            | Retrieve element at position index. Note: Ensure 0 <= index < size of the ArrayList    |
+| isEmpty()                 | Return true only if the ArrayList is empty, else return false                          |
+| remove(int index)         | Remove the element at specified index of the ArrayList                                 |
+| set(int index, Element e) | Replace the current element at specified index of the ArrayList with specified element |
+| size()                    | Obtain the number of elements in the ArrayList                                         |
 
 ## Instructions
 1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
