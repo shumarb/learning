@@ -4,9 +4,9 @@ import java.util.Map;
 import java.util.Random;
 
 class HashMapExample extends BasicOperations {
-    private HashMap <String, Integer> hMap = new HashMap <> ();
-    private HashSet <Integer> numbersSet = new HashSet <> ();
-    private HashSet <String> namesSet = new HashSet <> ();
+    private HashMap<String, Integer> hMap = new HashMap<> ();
+    private HashSet<Integer> numbersSet = new HashSet<> ();
+    private HashSet<String> namesSet = new HashSet<> ();
     private Random myRandom = new Random();
 
     private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
