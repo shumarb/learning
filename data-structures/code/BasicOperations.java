@@ -13,9 +13,17 @@ public class BasicOperations {
         System.out.println();
     }
 
+    protected void displaysTwoNewLines() {
+        System.out.println();
+        System.out.println();
+    }
+
     protected int formsData(boolean isDataPresent) {
         int data;
         if (isDataPresent) {
+            if (set.isEmpty()) {
+                throw new IllegalStateException("Set is empty, cannot generate data.");
+            }
             do {
                 data = myRandom.nextInt(-100, 101);
             } while (!set.contains(data));
@@ -42,4 +50,5 @@ public class BasicOperations {
             }
         }
     }
+
 }
