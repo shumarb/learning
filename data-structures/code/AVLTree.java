@@ -86,8 +86,8 @@ public class AVLTree extends BasicOperations {
     }
 
     private void insertion() {
-        displaysLine();
         formsData();
+        displaysLine();
         displaysMessage(0, "======= Insertion =======", false, false);
         displaysMessage(0, "Forming AVL Tree with " + set.size() + " elements:", true, false);
         formsData();
