@@ -1,29 +1,9 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Random;
 
-class QueueExample {
+class QueueExample extends BasicOperations {
     
-    private Queue <Integer> myQueue = new LinkedList <> ();
-    private Random myRandom = new Random();
-
-    private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        System.out.println(message);
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
+    private Queue<Integer> myQueue = new LinkedList<> ();
 
     private void displaysQueue(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
         System.out.print(message + "Queue: " + myQueue);
@@ -36,11 +16,6 @@ class QueueExample {
         if (isDisplayLine) {
             displaysLine();
         }
-    }
-
-    private void displaysTwoNewLines() {
-        System.out.println();
-        System.out.println();
     }
     
     private void explanation() {
@@ -56,28 +31,14 @@ class QueueExample {
         displaysMessage(" * size(): Return the total number of elements in the queue", false, true);
     }
 
-    private int formsData(boolean isDataInQueue) {
-        int data;
-        if (isDataInQueue) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!myQueue.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (myQueue.contains(data));
-        }
-        return data;
-    } 
-    
     private void insertion() {
         displaysMessage("=========== Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
         System.out.println("Forming a Queue with " + numberOfElements + " elements:");
         displaysNewLine();
-        for (int i = 0; i < numberOfElements; i++) {
-            int data = formsData(false);
-            System.out.println(" * Insert: " + data);
+        formsData(numberOfElements);
+        for (Integer data: set) {
+            System.out.println(" * Inserting: " + data);
             myQueue.offer(data);
         }
         displaysNewLine();
