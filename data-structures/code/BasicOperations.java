@@ -51,4 +51,30 @@ public class BasicOperations {
         }
     }
 
+    protected void formsData(int numberOfElements) {
+        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
+        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        int data = myRandom.nextInt(-100, 101);
+        int order = myRandom.nextInt(1, 4);
+        for (int i = 0; i < numberOfElements; i++) {
+            if (order == 1) {
+                set.add(data++);
+            } else if (order == 2) {
+                set.add(data--);
+            } else {
+                set.add(formsData(false));
+            }
+        }
+    }
+
+    protected void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
 }
