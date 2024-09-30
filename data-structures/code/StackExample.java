@@ -70,29 +70,10 @@ public class StackExample extends BasicOperations {
         displaysMessage((" * push(" + myStack.push(data) + ")\t| Stack: " + myStack).toString(), false, true);
     }
 
-    private void search() {
-        displaysMessage("============ Search ============", false, false);
-        displaysStack();
-        displaysNewLine();
-        int maximum = myStack.get(0);
-        int minimum = myStack.get(0);
-        for (int i = 1; i < myStack.size(); i++) {
-            if (myStack.get(i) > maximum) {
-                maximum = myStack.get(i);
-            }
-            if (myStack.get(i) < minimum) {
-                minimum = myStack.get(i);
-            }
-        }
-        displaysMessage((" * Maximum: " + maximum).toString(), true, false);
-        displaysMessage((" * Minimum: " + minimum).toString(), false, true);
-    }
-    
     private void run() {
         explanation();
         insertion();
         operations();
-        search();
     }
 
     public static void main(String[] args) {

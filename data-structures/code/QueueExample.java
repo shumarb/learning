@@ -2,7 +2,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class QueueExample extends BasicOperations {
-    
     private Queue<Integer> myQueue = new LinkedList<> ();
 
     private void displaysQueue(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
@@ -67,34 +66,10 @@ class QueueExample extends BasicOperations {
         displaysMessage((" * offer(" + data + ")\t| Queue: " + myQueue).toString(), false, true);
     }
 
-    private void search() {
-        displaysMessage("=========== Search ============", false, false);
-        displaysQueue("", true, false, false);
-        int[] queueArray = new int[myQueue.size()];
-        int i = 0;
-        while (!myQueue.isEmpty()) {
-            queueArray[i++] = myQueue.poll();
-        }
-        int maximum = 0;
-        int minimum = 0;
-        for (i = 0; i < queueArray.length; i++) {
-            if (queueArray[i] > maximum) {
-                maximum = queueArray[i];
-            }
-            if (queueArray[i] < minimum) {
-                minimum = queueArray[i];
-            }
-        }
-        displaysNewLine();
-        displaysMessage((" * Maximum: " + maximum).toString(), true, false);
-        displaysMessage((" * Minimum: " + minimum).toString(), false, true);
-    }
-
     private void run() {
         explanation();
         insertion();
         operations();
-        search();
     }
 
     public static void main(String[] args) {
