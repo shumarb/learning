@@ -4,6 +4,8 @@ import java.util.Random;
 public class BasicOperations {
     protected HashSet<Integer> set = new HashSet<> ();
     protected Random myRandom = new Random();
+    protected int maximum = Integer.MAX_VALUE;
+    protected int minimum = Integer.MIN_VALUE;
 
     protected void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
