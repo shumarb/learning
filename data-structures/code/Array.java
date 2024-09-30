@@ -37,13 +37,13 @@ class Array extends BasicOperations {
     }
 
     private void insertion() {
-        displaysLine();
+        int numberOfElements = myRandom.nextInt(5, 12);
+        int i = 0;
+        inputArray = new int[numberOfElements];
         System.out.println("============ Insertion ============");
-        formsData();
-        inputArray = new int[set.size()];
         System.out.println("Forming an Array with " + inputArray.length + " elements:");
         displaysNewLine();
-        int i = 0;
+        formsData(numberOfElements);
         for (int data: set) {
             System.out.println(" * Insert: " + data);
             inputArray[i++] = data;
@@ -83,15 +83,9 @@ class Array extends BasicOperations {
         }
         displaysNewLine();
 
-        int maximum = inputArray[0];
-        int minimum = inputArray[0];
         for (int i = 1; i < inputArray.length; i++) {
-            if (inputArray[i] > maximum) {
-                maximum = inputArray[i];
-            }
-            if (inputArray[i] < minimum) {
-                minimum = inputArray[i];
-            }
+            maximum = Math.max(maximum, inputArray[i]);
+            minimum = Math.min(minimum, inputArray[i]);
         }
         System.out.println(" * " + "Maximum: " + maximum);
         displaysNewLine();
