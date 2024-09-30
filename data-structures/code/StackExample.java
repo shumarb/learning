@@ -1,29 +1,9 @@
-
 import java.util.Random;
 import java.util.Stack;
 
-public class StackExample {
+public class StackExample extends BasicOperations {
 
-    private Random myRandom = new Random();
-    private Stack <Integer> myStack = new Stack <>();
-
-    private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        System.out.println(message);
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
+    private Stack<Integer> myStack = new Stack<> ();
 
     private void displaysStack() {
         System.out.println("Stack:\t" + myStack);
@@ -45,20 +25,6 @@ public class StackExample {
         displaysMessage(" * contains(Element e): Returns true if stack contains specified object/object/element, else return false", false, true);
     }
 
-    private int formsData(boolean isDataInStack) {
-        int data;
-        if (isDataInStack) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!myStack.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (myStack.contains(data));
-        }
-        return data;
-    } 
-
     private int formsIndex() {
         return myRandom.nextInt(0, myStack.size());
     }
@@ -67,8 +33,8 @@ public class StackExample {
         displaysMessage("============ Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
         displaysMessage("Forming a Stack with " + numberOfElements + " elements:", true, false);
-        for (int i = 0; i < numberOfElements; i++) {
-            int data = formsData(false);
+        formsData(numberOfElements);
+        for (Integer data: set) {
             System.out.println(" * Insert: " + data);
             myStack.push(data);
         }

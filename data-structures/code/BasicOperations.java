@@ -21,7 +21,7 @@ public class BasicOperations {
     protected int formsData(boolean isDataPresent) {
         int data;
         if (set.isEmpty()) {
-            throw new IllegalStateException("Set is empty, cannot generate data.");
+            set = new HashSet<> ();
         }
         if (isDataPresent) {
             do {
@@ -35,25 +35,12 @@ public class BasicOperations {
         return data;
     }
 
-    protected void formsData() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = myRandom.nextInt(-100, 101);
-        int order = myRandom.nextInt(1, 4);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 1) {
-                set.add(data++);
-            } else if (order == 2) {
-                set.add(data--);
-            } else {
-                set.add(formsData(false));
-            }
-        }
-    }
-
     protected void formsData(int numberOfElements) {
         // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
         // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
+        if (set.isEmpty()) {
+            set = new HashSet<> ();
+        }
         int data = myRandom.nextInt(-100, 101);
         int order = myRandom.nextInt(1, 4);
         for (int i = 0; i < numberOfElements; i++) {
@@ -62,7 +49,10 @@ public class BasicOperations {
             } else if (order == 2) {
                 set.add(data--);
             } else {
-                set.add(formsData(false));
+                while (set.contains(data)) {
+                    data = myRandom.nextInt(-100, 101);
+                }
+                set.add(data);
             }
         }
     }
