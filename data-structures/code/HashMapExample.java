@@ -69,10 +69,9 @@ class HashMapExample extends BasicOperations {
     private void insertion() {
         displaysMessage(0, "============ Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 13);
-        formsData();
         displaysMessage(0, "Forming a HashMap with " + numberOfElements + " elements:", true, false);
-        for (int i = 0; i < numberOfElements; i++) {
-            int data = formsData(false);
+        formsData(numberOfElements);
+        for (Integer data: set) {
             String name = formsKey();
             namesSet.add(name);
             numbersSet.add(data);
