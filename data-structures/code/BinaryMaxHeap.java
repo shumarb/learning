@@ -121,8 +121,6 @@ public class BinaryMaxHeap extends BasicOperations{
             }
         }
 
-        int maximum = inputArray[0];
-        int minimum = inputArray[0];
         for (int data: inputArray) {
             maximum = Math.max(maximum, data);
             minimum = Math.min(minimum, data);

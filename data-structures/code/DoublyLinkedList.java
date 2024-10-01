@@ -98,9 +98,7 @@ class DoublyLinkedList extends BasicOperations {
         while (!doublyLList.isEmpty()) {
             doublyLListArray[i++] = doublyLList.pollFirst();
         }
-        int maximum = doublyLListArray[0];
-        int minimum = doublyLListArray[0];
-        for (i = 1; i < doublyLListArray.length; i++) {
+        for (i = 0; i < doublyLListArray.length; i++) {
             maximum = Math.max(maximum, doublyLListArray[i]);
             minimum = Math.min(minimum, doublyLListArray[i]);
         }
