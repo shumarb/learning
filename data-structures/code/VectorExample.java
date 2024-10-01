@@ -1,33 +1,8 @@
-import java.util.Random;
 import java.util.Vector;
 
-class VectorExample {
+class VectorExample extends BasicOperations {
 
     private Vector <Integer> vector = new Vector<>();
-    private Random myRandom = new Random();
-    
-    private void displaysLine() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        System.out.println(message);
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private void displaysTwoNewLines() {
-        System.out.println();
-        System.out.println();
-    }
 
     private void displaysVector(String message, boolean isDisplayNewLine, boolean isDisplayTwoNewLines, boolean isDisplayLine) {
         System.out.print(message + "Vector: " + vector);
@@ -59,20 +34,6 @@ class VectorExample {
         displaysMessage(" * size(): Obtain number of the elements in the Vector", false, true);
     }
 
-    private int formsData(boolean isDataPresent) {
-        int data;
-        if (isDataPresent) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!vector.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (vector.contains(data));
-        }
-        return data;
-    }
-
     private int formsIndex() {
         return myRandom.nextInt(0, vector.size());
     }
@@ -80,12 +41,13 @@ class VectorExample {
     private void insertion() {
         displaysMessage("=========== Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
+        int i = 0;
         System.out.println("Forming an Vector with " + numberOfElements + " elements:");
         displaysNewLine();
-        for (int i = 0; i < numberOfElements; i++) {
-            int data = formsData(false);
+        formsData(numberOfElements);
+        for (Integer data: set) {
             System.out.println(" * Insert: " + data);
-            vector.add(i, data);
+            vector.add(i++, data);
         }
         displaysNewLine();
         displaysVector("", true, false, true);
@@ -142,15 +104,9 @@ class VectorExample {
     private void search() {
         displaysMessage("=========== Search ============", false, false);
         displaysVector("", false, true, false);
-        int maximum = vector.get(0);
-        int minimum = vector.get(0);
         for (int i = 1; i < vector.size(); i++) {
-            if (vector.get(i) > maximum) {
-                maximum = vector.get(i);
-            }
-            if (vector.get(i) < minimum) {
-                minimum = vector.get(i);
-            }
+            maximum = Math.max(maximum, vector.get(i));
+            minimum = Math.min(minimum, vector.get(i));
         }
         System.out.println(" * Maximum: " + maximum);
         displaysNewLine();
