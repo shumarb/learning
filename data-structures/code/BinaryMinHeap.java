@@ -1,13 +1,8 @@
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Random;
 
-public class BinaryMinHeap {
-
-    private HashSet <Integer> set = new HashSet <> ();
+public class BinaryMinHeap extends BasicOperations {
     private int[] initialArray;
     private int[] inputArray;
-    private Random myRandom = new Random();
 
     private void deletion() {
         displaysMessage("======== Deletion ========", false, false);
@@ -53,67 +48,17 @@ public class BinaryMinHeap {
         displaysArray(" * Before:\t[", initialArray, false, true);
         displaysArray(" * After:\t[", inputArray, true, false);
     }
-    
-    private void displaysLine() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        System.out.println(message);
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private void displaysTwoNewLines() {
-        System.out.println();
-        System.out.println();
-    }
-
-    private void formsData() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = formsData(false);
-        int order = myRandom.nextInt(0, 2);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 0) {
-                set.add(data--);
-            } else {
-                set.add(formsData(false));
-            }
-        }
-    }
-
-    private int formsData(boolean isDataPresent) {
-        int data;
-        if (isDataPresent) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!set.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (set.contains(data));
-        }
-        return data;
-    } 
 
     private void insertion() {
         displaysLine();
         displaysMessage("======= Insertion =======", false, false);
-        formsData();
-        inputArray = new int[set.size()];
-        displaysMessage("Forming a Binary Min Heap with " + inputArray.length + " elements:", true, false);
+        int numberOfElements = myRandom.nextInt(5, 12);
+        inputArray = new int[numberOfElements];
+        displaysMessage("Forming a Binary Min Heap with " + numberOfElements + " elements:", true, false);
+        formsData(numberOfElements);
         int i = 0;
         for (int data: set) {
-            displaysMessage(" * Insert: " + data, true, false);
+            displaysMessage(" * Insert: " + data, false, false);
             inputArray[i++] = data;
         }
         initialArray = storesInitialArray();
@@ -174,12 +119,9 @@ public class BinaryMinHeap {
             }
         }
 
-        int maximum = inputArray[0];
-        int minimum = inputArray[0];
-        for (int i = 0; i < inputArray.length; i++) {
-            if (inputArray[i] > maximum) {
-                maximum = inputArray[i];
-            }
+        for (int data: inputArray) {
+            maximum = Math.max(maximum, data);
+            minimum = Math.min(minimum, data);
         }
         displaysMessage(" * Maximum: " + maximum, true, false);
         displaysMessage(" * Minimum: " + minimum, false, true);
@@ -205,4 +147,5 @@ public class BinaryMinHeap {
         BinaryMinHeap obj = new BinaryMinHeap();
         obj.run();
     }
+
 }
