@@ -1,9 +1,7 @@
 import java.util.LinkedList;
 import java.util.Random;
 
-class DoublyLinkedList {
-
-    private Random myRandom = new Random();
+class DoublyLinkedList extends BasicOperations {
     private LinkedList <Integer> doublyLList = new LinkedList <> ();
 
     private void displaysDoublyLList(boolean isDisplayNewLine, boolean isDisplayLine) {
@@ -15,38 +13,6 @@ class DoublyLinkedList {
             displaysLine();
         }
     }
-    
-    private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        System.out.println(message);
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private int formsData(boolean isDataIndoublyLList) {
-        int data;
-        if (isDataIndoublyLList) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!doublyLList.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (doublyLList.contains(data));
-        }
-        return data;
-    }
 
     private int formsIndex() {
         return myRandom.nextInt(0, doublyLList.size());
@@ -54,10 +20,10 @@ class DoublyLinkedList {
 
     private void insertion() {
         displaysMessage("============ Insertion ============", false, false);
-        int totalElements = myRandom.nextInt(5, 12);
-        displaysMessage(("Forming a Doubly Linked List with " + totalElements + " elements:").toString(), true, false);
-        for (int i = 0; i < totalElements; i++) {
-            int data = formsData(false);
+        int numberOfElements = myRandom.nextInt(5, 12);
+        displaysMessage(("Forming a Doubly Linked List with " + numberOfElements + " elements:").toString(), true, false);
+        formsData(numberOfElements);
+        for (Integer data: set) {
             System.out.println(" * Insert: " + data);
             doublyLList.add(data);
         }
@@ -135,12 +101,8 @@ class DoublyLinkedList {
         int maximum = doublyLListArray[0];
         int minimum = doublyLListArray[0];
         for (i = 1; i < doublyLListArray.length; i++) {
-            if (doublyLListArray[i] > maximum) {
-                maximum = doublyLListArray[i];
-            }
-            if (doublyLListArray[i] < minimum) {
-                minimum = doublyLListArray[i];
-            }
+            maximum = Math.max(maximum, doublyLListArray[i]);
+            minimum = Math.min(minimum, doublyLListArray[i]);
         }
         displaysMessage(" * Maximum: " + maximum, true, false);
         displaysMessage(" * Minimum: " + minimum, false, true);
