@@ -1,47 +1,8 @@
 import java.util.HashSet;
 import java.util.Random;
 
-class SinglyLinkedList {
-    // HashSet used only to generate unique numbers
-    private HashSet <Integer> set = new HashSet <> ();
+class SinglyLinkedList extends BasicOperations {
     private Node head;
-    private Random myRandom = new Random();
-    
-    private void displaysLine() {
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        if (messageType == 0) {
-            System.out.println(message);
-        } else {
-            System.out.print(message);
-        }
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private int formsData(boolean isDataInSinglyLinkedList) {
-        int data;
-        if (isDataInSinglyLinkedList) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!set.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (set.contains(data));
-        }
-        return data;
-    } 
 
     private Node findsLastNode(Node currentNode) {
         if (currentNode.isLastNode()) {
@@ -64,7 +25,7 @@ class SinglyLinkedList {
     }
 
     private void deletion() {
-        displaysMessage(0, "============ Deletion ============", false, false);
+        displaysMessage("============ Deletion ============", false, false);
         int numberOfElements = 0;
         Node currentNode = head.getsNextNode();
         while (currentNode != null) {
@@ -73,7 +34,7 @@ class SinglyLinkedList {
         }
 
         int indexOfDeletion = myRandom.nextInt(1, numberOfElements);
-        displaysMessage(0, "Delete element #" + indexOfDeletion + ": " + getsElement(indexOfDeletion).getsData(), true, false);
+        displaysMessage("Deletion of element #" + indexOfDeletion + ": " + getsElement(indexOfDeletion).getsData(), true, false);
         traversal(" * Before:\t", true, false);
         
         // 1. Delete first element
@@ -110,19 +71,20 @@ class SinglyLinkedList {
                 currentNode = currentNode.getsNextNode();
             }
         }
+        displaysNewLine();
         traversal(" * After:\t", false, true);
+        displaysLine();
     }
 
     private void insertion() {
         displaysLine();
-        displaysMessage(0, "============ Insertion ============", false, false);
+        displaysMessage("============ Insertion ============", false, false);
         int numberOfElements = myRandom.nextInt(5, 12);
-        displaysMessage(0, "Forming a Singly Linked List with " + numberOfElements + " elements:", true, false);
-        for (int i = 0; i < numberOfElements; i++) {
-            int data = formsData(false);
-            set.add(data);
+        displaysMessage("Forming a Singly Linked List with " + numberOfElements + " elements:", true, false);
+        formsData(numberOfElements);
+        for (Integer data: set) {
             Node incomingNode = new Node(data);
-            displaysMessage(0, " * Insert: " + incomingNode.getsData(), true, false);
+            displaysMessage(" * Insert: " + incomingNode.getsData(), false, false);
             if (head == null) {
                 head = new Node(-1);
                 head.setsNextNode(incomingNode);
@@ -131,12 +93,15 @@ class SinglyLinkedList {
                 lastNode.setsNextNode(incomingNode);
             }
         }
+        displaysNewLine();
         traversal("Singly Linked List:\t", false, true);
+        displaysLine();
     }
 
     private void search() {
-        displaysMessage(0, "============ Search ============", false, false);
+        displaysMessage("============ Search ============", false, false);
         traversal("Singly Linked List:\t", true, false);
+        displaysNewLine();
         int key = formsData(false);
         Node currentNode;
         for (int i = 0; i < 2; i++) {
@@ -157,9 +122,9 @@ class SinglyLinkedList {
             }
 
             if (isKeyFound) {
-                displaysMessage(0, " * " + key + " is in Singly Linked List", true, false);
+                displaysMessage(" * " + key + " is in Singly Linked List", true, false);
             } else {
-                displaysMessage(0, " * " + key + " is not in Singly Linked List", true, false);
+                displaysMessage(" * " + key + " is not in Singly Linked List", true, false);
             }
         }
 
@@ -167,37 +132,29 @@ class SinglyLinkedList {
         int maximum = currentNode.getsData();
         int minimum = currentNode.getsData();
         while (currentNode != null) {
-            if (currentNode.getsData() > maximum) {
-                maximum = currentNode.getsData();
-            }
-            if (currentNode.getsData() < minimum) {
-                minimum = currentNode.getsData();
-            }
+            maximum = Math.max(maximum, currentNode.getsData());
+            minimum = Math.min(minimum, currentNode.getsData());
             currentNode = currentNode.getsNextNode();
         }
-        displaysMessage(0, " * Maximum: " + maximum, true, false);
-        displaysMessage(0, " * Minimum: " + minimum, false, true);
+        displaysMessage(" * Maximum: " + maximum, true, false);
+        displaysMessage(" * Minimum: " + minimum, false, true);
     }
 
     private void traversal(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        displaysMessage(message + "HEAD ---> ");
         Node currentNode = head.getsNextNode();
-        displaysMessage(1, message + "HEAD ---> ", false, false);
         while (currentNode != null) {
-            displaysMessage(1, Integer.toString(currentNode.getsData()), false, false);
-            if (currentNode.isLastNode()) {
+            displaysMessage(Integer.toString(currentNode.getsData()));
+            if (currentNode.getsNextNode() == null) {
                 break;
+            } else {
+                displaysMessage(" ---> ");
             }
-            displaysMessage(1, " ---> ", false, false);
             currentNode = currentNode.getsNextNode();
         }
         displaysNewLine();
-        if (isDisplayNewLine) {
-            displaysNewLine(); 
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
     }
+
 
     private void run() {
         insertion();
