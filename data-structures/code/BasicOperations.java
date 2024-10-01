@@ -20,6 +20,20 @@ public class BasicOperations {
         System.out.println();
     }
 
+    protected void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
+    protected void displaysMessage(String message) {
+        System.out.print(message);
+    }
+
     protected int formsData(boolean isDataPresent) {
         int data;
         if (set.isEmpty()) {
@@ -56,16 +70,6 @@ public class BasicOperations {
                 }
                 set.add(data);
             }
-        }
-    }
-
-    protected void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        System.out.println(message);
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
         }
     }
 
