@@ -21,5 +21,5 @@ A `Stack` is a **linear and dynamic** data structure operating on a **Last In, F
 2. Download [QueueExample.java](https://github.com/shumarb/learning/tree/main/data-structures/code/StackExample.java) and [BasicOperations.java](https://github.com/shumarb/learning/tree/main/data-structures/code/BasicOperations.java)
 3. Open `terminal` and navigate to the location of these 2 files.
 4. Compile both programs by entering `javac StackExample.java` and `javac BasicOperations.java`.
-7. Run the program by entering `java StackExample`.
-8. The program creates a `stack`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `stack` and it's `key` operations, and demonstrates the application of these operations on the `stack`.
+5. Run the program by entering `java StackExample`.
+6. The program creates a `stack`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `stack` and it's `key` operations, and demonstrates the application of these operations on the `stack`.
