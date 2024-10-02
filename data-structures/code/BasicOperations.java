@@ -7,6 +7,7 @@ public class BasicOperations {
     protected Random myRandom = new Random();
     protected int maximum = Integer.MIN_VALUE;
     protected int minimum = Integer.MAX_VALUE;
+    protected int numberOfElements;
 
     protected void displaysLine() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
