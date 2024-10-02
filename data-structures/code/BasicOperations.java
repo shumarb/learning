@@ -1,8 +1,9 @@
 import java.util.HashSet;
+import java.util.Set;
 import java.util.Random;
 
 public class BasicOperations {
-    protected HashSet<Integer> set = new HashSet<> ();
+    protected Set<Integer> set = new HashSet<> ();
     protected Random myRandom = new Random();
     protected int maximum = Integer.MIN_VALUE;
     protected int minimum = Integer.MAX_VALUE;
@@ -22,6 +23,20 @@ public class BasicOperations {
 
     protected void displaysMessage(String message, boolean isDisplayNewLine, boolean isDisplayLine) {
         System.out.println(message);
+        if (isDisplayNewLine) {
+            displaysNewLine();
+        }
+        if (isDisplayLine) {
+            displaysLine();
+        }
+    }
+
+    protected void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
+        if (messageType == 0) {
+            System.out.println(message);
+        } else {
+            System.out.print(message);
+        }
         if (isDisplayNewLine) {
             displaysNewLine();
         }
