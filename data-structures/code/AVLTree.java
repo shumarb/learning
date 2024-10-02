@@ -5,20 +5,6 @@ import java.util.Random;
 public class AVLTree extends BasicOperations {
     private Node root;
 
-    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        if (messageType == 0) {
-            System.out.println(message);
-        } else {
-            System.out.print(message);
-        }
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
     private void elementInformation(Node node) {
         displaysMessage(1, "[" + node.getsData() + ", h: " + node.getsHeight() + "]  ", false, false);
     }
@@ -86,11 +72,11 @@ public class AVLTree extends BasicOperations {
     }
 
     private void insertion() {
-        formsData();
         displaysLine();
+        int numberOfElements = myRandom.nextInt(5, 12);
         displaysMessage(0, "======= Insertion =======", false, false);
-        displaysMessage(0, "Forming AVL Tree with " + set.size() + " elements:", true, false);
-        formsData();
+        displaysMessage(0, "Forming AVL Tree with " + numberOfElements + " elements:", true, false);
+        formsData(numberOfElements);
         for (Integer data: set) {
             displaysMessage(0, " * Insert: " + data, true, false);
             root = insertion(root, data);
@@ -247,7 +233,6 @@ public class AVLTree extends BasicOperations {
             }
             searchPath(searchPath);
         }
-        displaysLine();
     }
 
     private Node search(Node node, String searchOperation, int key, ArrayList <Integer> searchPath) {
