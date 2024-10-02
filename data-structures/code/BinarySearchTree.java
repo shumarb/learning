@@ -1,40 +1,8 @@
 // Reference: https://www.youtube.com/watch?v=TbvhGcf6UJU&ab_channel=nptelhrd, https://www.geeksforgeeks.org/insertion-in-an-avl-tree/, https://www.baeldung.com/java-avl-trees
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
   
-public class BinarySearchTree { 
-  
-    private HashSet <Integer> set = new HashSet <> ();
-    private Node root; 
-    private Random myRandom = new Random(); 
-
-    private void displaysLine() {
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
-    private void displaysMessage(int messageType, String message, boolean isDisplayNewLine, boolean isDisplayLine) {
-        if (messageType == 0) {
-            System.out.println(message);
-        } else {
-            System.out.print(message);
-        }
-        if (isDisplayNewLine) {
-            displaysNewLine();
-        }
-        if (isDisplayLine) {
-            displaysLine();
-        }
-    }
-
-    private void displaysNewLine() {
-        System.out.println();
-    }
-
-    private void displaysTwoNewLines() {
-        System.out.println();
-        System.out.println();
-    }
+public class BinarySearchTree extends BasicOperations {
+    private Node root;
 
     private void elementInformation(Node node) {
         displaysMessage(1, "[" + node.getsData() + ", h: " + node.getsHeight() + "]  ", false, false);
@@ -94,36 +62,6 @@ public class BinarySearchTree {
         return node;
     }
 
-    private int formsData(boolean isDataInBinarySearchTree) {
-        int data;
-        if (isDataInBinarySearchTree) {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (!set.contains(data));
-        } else {
-            do {
-                data = myRandom.nextInt(-100, 101);
-            } while (set.contains(data));
-        }
-        return data;
-    } 
-
-    private void formsData() {
-        // Note that myRandom.nextInt(x, y) generates numbers in bound [x, y)
-        // Hence, to generate a number that is inclusive of both x and y: myRandom.nextInt(x, y + 1)
-        int data = myRandom.nextInt(-100, 101);
-        int order = myRandom.nextInt(1, 4);
-        for (int i = 0; i < myRandom.nextInt(5, 13); i++) {
-            if (order == 1) {
-                set.add(data++);
-            } else if (order == 2) {
-                set.add(data--);
-            } else {
-                set.add(formsData(false));
-            }
-        }
-    }
-
     private int getsHeight(Node node) { 
         return (node == null) ? -1 : node.getsHeight();
     }
@@ -131,17 +69,18 @@ public class BinarySearchTree {
     private void insertion() {
         displaysLine();
         displaysMessage(0, "======= Insertion =======", false, false);
-        formsData();
+        int numberOfElements = myRandom.nextInt(5, 12);
+        formsData(numberOfElements);
         displaysMessage(0, "Forming Binary Search Tree with " + set.size() + " elements:", true, false);
         for (int data: set) {
-            displaysMessage(0, " * Insert: " + data, true, false);
+            displaysMessage(0, " * Insert: " + data, false, false);
             root = insertion(root, data);
         }
         // Binary Search Tree formed but value of each element's height may not be 1 less
         // than it's parent, so update to ensure it is correct.
         updatesHeight(root, "updates height of elements in left and right subtrees");
+        displaysNewLine();
         traversal();
-        displaysLine();
     }
 
     private Node insertion(Node node, int data) { 
@@ -160,7 +99,7 @@ public class BinarySearchTree {
         displaysMessage(0, "======= Search =======", false, false);
         Node node;
         for (int i = 0; i < 2; i++) {
-            ArrayList <Integer> searchPath = new ArrayList <> ();
+            ArrayList<Integer> searchPath = new ArrayList <> ();
             int key;
             if (i == 0) {
                 key = formsData(true);
@@ -179,7 +118,7 @@ public class BinarySearchTree {
         }
 
         for (int i = 0; i < 2; i++) {
-            ArrayList <Integer> searchPath = new ArrayList <> ();
+            ArrayList<Integer> searchPath = new ArrayList <> ();
             if (i == 0) {
                 node = search(root, "searches minimum", Integer.MIN_VALUE, searchPath);
                 displaysMessage(1, "Minimum: " + node.getsData(), false, false);
@@ -272,17 +211,17 @@ public class BinarySearchTree {
     private void updatesHeight(Node node, String operation) {
         if (node == null) {
             return;
-        } else if (operation.equals("increase")) {
-            node.setsHeight(1 + Math.max(getsHeight(node.getsLeftChild()), getsHeight(node.getsRightChild())));
-        } else if (operation.equals("updates height of elements in left and right subtrees")) {
-            if (node.hasLeftChild()) {
-                node.getsLeftChild().setsHeight(node.getsHeight() - 1);
-                updatesHeight(node.getsLeftChild(), "updates height of elements in left and right subtrees");
-            }
-            if (node.hasRightChild()) {
-                node.getsRightChild().setsHeight(node.getsHeight() - 1);
-                updatesHeight(node.getsRightChild(), "updates height of elements in left and right subtrees");
-            }
+        }
+
+        if (operation.equals("increase")) {
+            int leftHeight = getsHeight(node.getsLeftChild());
+            int rightHeight = getsHeight(node.getsRightChild());
+            node.setsHeight(1 + Math.max(leftHeight, rightHeight));
+        }
+
+        if (operation.equals("updates height of elements in left and right subtrees")) {
+            updatesHeight(node.getsLeftChild(), "increase");
+            updatesHeight(node.getsRightChild(), "increase");
         }
     }
 
@@ -296,22 +235,22 @@ public class BinarySearchTree {
         BinarySearchTree obj = new BinarySearchTree();
         obj.run();
     } 
-} 
+}
 
-class Node { 
+class Node {
     private int data;
     private int height;
     private Node leftChild;
-    private Node rightChild; 
-  
-    public Node(int data) { 
-        this.data = data; 
+    private Node rightChild;
+
+    public Node(int data) {
+        this.data = data;
     }
 
     public boolean hasLeftChild() {
         return this.leftChild != null;
     }
-    
+
     public boolean hasRightChild() {
         return this.rightChild != null;
     }
@@ -323,7 +262,7 @@ class Node {
     public int getsHeight() {
         return this.height;
     }
-    
+
     public Node getsLeftChild() {
         return this.leftChild;
     }
@@ -347,4 +286,4 @@ class Node {
     public void setsRightChild(Node rightChild) {
         this.rightChild = rightChild;
     }
-} 
+}
