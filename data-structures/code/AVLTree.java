@@ -73,7 +73,7 @@ public class AVLTree extends BasicOperations {
 
     private void insertion() {
         displaysLine();
-        int numberOfElements = myRandom.nextInt(5, 12);
+        numberOfElements = myRandom.nextInt(5, 12);
         displaysMessage(0, "======= Insertion =======", false, false);
         displaysMessage(0, "Forming AVL Tree with " + numberOfElements + " elements:", true, false);
         formsData(numberOfElements);
@@ -233,6 +233,7 @@ public class AVLTree extends BasicOperations {
             }
             searchPath(searchPath);
         }
+        displaysLine();
     }
 
     private Node search(Node node, String searchOperation, int key, ArrayList <Integer> searchPath) {

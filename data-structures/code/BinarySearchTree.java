@@ -69,7 +69,7 @@ public class BinarySearchTree extends BasicOperations {
     private void insertion() {
         displaysLine();
         displaysMessage(0, "======= Insertion =======", false, false);
-        int numberOfElements = myRandom.nextInt(5, 12);
+        numberOfElements = myRandom.nextInt(5, 12);
         formsData(numberOfElements);
         displaysMessage(0, "Forming Binary Search Tree with " + set.size() + " elements:", true, false);
         for (int data: set) {
