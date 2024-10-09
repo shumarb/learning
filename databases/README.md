@@ -26,7 +26,7 @@ DDL consists of SQL commands used to define and manage database **schemas**. Com
 - **DROP**: To delete tables or databases.
 
 ### DML (Data Manipulation Language)
-DML comprises of SQL commands used for managing data within existing schemas. Common DML commands include:
+DML comprises of SQL commands used for managing data within existing **schemas**. Common DML commands include:
 - **SELECT**: To retrieve data.
 - **INSERT**: To add new records.
 - **UPDATE**: To modify existing records.
