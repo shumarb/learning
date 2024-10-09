@@ -20,7 +20,7 @@ ACID denotes the initials of key principles for reliable transactions in **relat
 - **Durability**: Guarantees that once a transaction is complete, the changes it made will persist in the database.
 
 ### DDL (Data Definition Language)
-DDL consists of SQL commands used to define and manage database schemas. Common DDL commands include:
+DDL consists of SQL commands used to define and manage database **schemas**. Common DDL commands include:
 - **CREATE**: To create new tables or databases.
 - **ALTER**: To modify existing database objects.
 - **DROP**: To delete tables or databases.
