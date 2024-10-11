@@ -9,6 +9,5 @@ A `Binary Max Heap` is a **complete binary tree (non-linear and dynamic data str
 3. Store both files in the same directory (e.g., Downloads) if they are in different directories.
 4. Open a terminal and navigate to the directory in Step 3.
 5. Compile the files using `javac BinaryMaxHeap.java BasicOperations.java`.
-6. Compile the program by entering `javac BinaryMaxHeap.java`.
-7. Run the program by entering `java BinaryMaxHeap`.
-8. The program creates a `Binary Max Heap` and demonstrates the `insertion`, `search`, and `deletion` operations. The elements are of type `integer`, and the value of each element is between `-100 to 100`, and the number of elements is between `5 to 12`.
+6. Run the program by entering `java BinaryMaxHeap`.
+7. The program creates a `Binary Max Heap` and demonstrates the `insertion`, `search`, and `deletion` operations. The elements are of type `integer`, and the value of each element is between `-100 to 100`, and the number of elements is between `5 to 12`.
