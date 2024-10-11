@@ -11,4 +11,4 @@ An `Edge List` is a `list` of all `E`.
 5. Navigate to the `edge-list` folder by entering `cd graphs/graph-data-structures/edge-list`.
 6. Compile the program by entering `javac EdgeList.java`.
 7. Run the program by entering `java EdgeList`.
-8.  The program creates an `Edge List` comprising of `3 to 7` vertices, and each vertex is denoted by a `letter`. The `weight` of the edges are betewen `-100 to 100`. The program displays the `Edge List`, from which you can draw the `undirected and weighted graph`.
+8. The program creates an `Edge List` comprising of `3 to 7` vertices, and each vertex is denoted by a `letter`. The `weight` of the edges are betewen `-100 to 100`. The program displays the `Edge List`, from which you can draw the `undirected and weighted graph`.
