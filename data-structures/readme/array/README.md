@@ -1,14 +1,13 @@
 # Array
 
-## What is an Array?
+## Overview
 An `Array` is a **linear, static data structure** where elements are either `sorted` or `unsorted`.
 
 ## Instructions
-1. If you have not cloned this repository on your local machine, follow the [instructions](https://github.com/shumarb/learning#how-to-use-this-repository).
-2. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
-3. Open `terminal`.
-4. Navigate to the location where the repository is cloned.
-5. Navigate to the `array` folder by entering `cd data-structure/array`.
-6. Compile the program by entering `javac Array.java`.
-7. Run the program by entering `java Array`.
-8. The program creates an `array`. The elements are of type `integer` ranging from `-10 to 10`, and the number of elements range from `5 to 12`. The program demonstrates the application of these operations on the `array`.
+1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
+2. Download these Java source files in the [Code](https://github.com/shumarb/code/tree/main) repository: [Array.java](https://github.com/shumarb/code/tree/main/code/Array.java), and [BasicOperations.java](https://github.com/shumarb/code/tree/main/code/BasicOperations.java).
+3. Store both files in the same directory (e.g., Downloads) if they are in different directories.
+4. Open a terminal and navigate to the directory in Step 3.
+5. Compile the files using `javac Array.java BasicOperations.java`.
+6. Run the program with `java Array`.
+7. The program creates an integer array with elements ranging from -10 to 10 and a size between 5 and 12, demonstrating operations on the array.
