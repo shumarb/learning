@@ -1,7 +1,7 @@
 # Abstract Class
 
 ## Overview
-An abstract class provides a template for other classes.
+An `abstract class` is a class that cannot be instantiated on its own is designed as a base class for other classes.
 
 ## Importance
 - **Provides a Template**: Defines a common base with abstract methods that the derived classes must implement.
@@ -10,14 +10,15 @@ An abstract class provides a template for other classes.
 flexibility in defining base functionalities.
 
 ## Implementation
-- **Abstract Class**: Contains at least one abstract method (no body) and can include:
-  - Attributes (fields/instance variables).
-  - Constructors.
-  - Methods: Abstract (must be implemented by subclasses) and/or concrete (can be overridden).
-- **Concrete Subclass**: Extends the abstract class and implements all abstract methods.
+Abstract classes work as follows:
+1. An `abstract class` is created using the `abstract` keyword next to the name of the class. It contains one or more of the following:
+   - `Abstract` methods (The `abstract` keyword is next to the method name, and it has no body). This method is implemented by its `child class`. 
+   - `Concrete` methods with implementation (Can be overriden by `child` class).
+   - `Constructors`.
+   - `Static` and `Instance` variables.
+2. Concrete Subclass: Extends the abstract class and implements all abstract methods.
 
 ## Example
-
 ```java
 // Abstract class
 abstract class Vehicle {
