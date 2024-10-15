@@ -1,7 +1,8 @@
 # Polymorphism
 
 ## Overview
-Polymorphism allows objects of different classes are regarded as objects of a common superclass.
+Polymorphism is a concept of allowing objects of different classes to be regarded as objects of a common superclass.
+Polymorphism can be classified into two types: **Runtime Polymorphism**, and **Compile-Time Polymorphism**.
 
 ## Importance
 - **Flexibility**: Allows different classes to be treated through a common interface, enhancing code adaptability.
