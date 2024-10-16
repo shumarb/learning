@@ -14,10 +14,10 @@ CRUD denotes the initials of these four basic operations for managing data in a 
 
 ### ACID Properties
 ACID denotes the initials of key principles for reliable transactions in **relational** databases:
-- **Atomicity**: Ensures that all operations within a translation are completed.
-- **Consistency**: Maintains data integrity by guaranteeing that a transaction brings the database from one valid state to another.
-- **Isolation**: Ensures that concurrent transactions do not affect each other's execution.
-- **Durability**: Guarantees that once a transaction is complete, the changes it made will persist in the database.
+- **Atomicity**: Ensures that all operations within a transaction are completed. If any operation fails, the transaction is aborted, and the database remains unchanged.
+- **Consistency**: Ensures that a transaction brings the database from one valid state to another.
+- **Isolation**: Ensures that transactions are not visible to other transactions until the transaction is complete.
+- **Durability**: Guarantees that once a transaction is complete, the changes it made will persist in the database, even in the event of a system failure.
 
 ### DDL (Data Definition Language)
 DDL consists of SQL commands used to define and manage database **schemas**. Common DDL commands include:
