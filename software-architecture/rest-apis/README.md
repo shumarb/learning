@@ -9,7 +9,7 @@ The client sends a `request` to the server, and the server processes the request
 - **Server**: The system processing requests from the client and sending responses to the client.
 - **Request**: A message sent by the client to the server seeking data or an action.
 - **Response**: A message sent from the server to the client containing the result of the request.
-- **Resource**: A data object that can be accessed or manipulated via a REST API. A resource is identified by a `Uniform Resource Identifier` (Eg: /code/1 for a code with an id value of 1).
+- **Resource**: A data object that can be accessed or manipulated via a REST API. It is represented by a `Uniform Resource Identifier (URI)` (Eg: /code/1 for a code with an id value of 1).
 - **HTTP**: A protocol used for communication between a `client` and a `server` in a REST API. This comprises these methods:
   - `GET`: Retrieve a resource from the server.
   - `POST`: Create a new resource on the server.
