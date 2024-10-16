@@ -39,11 +39,13 @@ The client sends a `request` to the server, and the server processes the request
 A `status line` is part of an HTTP response from the server to the client.
 
 ### Categories
-- 1xx: Informational
-- 2xx: Success
-- 3xx: Redirection
-- 4xx: Client Error
-- 5xx: Server Error
+| Status Code | Category      | Description                                                             |
+|-------------|---------------|-------------------------------------------------------------------------|
+| 1xx         | Informational | The request has been accepted by the server.                            | 
+| 2xx         | Success       | The request has been accepted, understood, and processed by the server. |                                  
+| 3xx         | Redirection   | The client must take additional steps to complete the request.          |
+| 4xx         | Client Error  | The client made an invalid request (Eg: invalid syntax, missing data).  |
+| 5xx         | Server Error  | The server encountered an issue handling the request.                   | 
 
 ### Examples
 | Status Line               | Description                                                                                                                       |
