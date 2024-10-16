@@ -24,13 +24,16 @@ The client sends a `request` to the server, and the server processes the request
 - **Interoperability**: Works over HTTP, making it compatible with various programming languages (eg: Java, Python) across multiple platforms (eg: Linux, macOS).
 
 ## Implementation
-1. The client sends an HTTP request (comprising an HTTP method and a resource) to the server.
-2. The server processes the HTTP request by mapping the server maps the `HTTP method` to the appropriate `CRUD` operation. 
+1. The client sends an `HTTP request` to the server. It comprises of:
+   - `HTTP method`: The action to be performed (eg: GET).
+   - `Request URI`: The target resource (eg: /users/1).
+   - `HTTP version` The version of the HTTP protocol being used. (Eg: HTTP/1.1).
+2. The server processes the `HTTP request` by mapping the server maps the `HTTP method` to the appropriate `CRUD` operation. 
    - `GET` method corresponds to a `READ` operation.
    - `POST` method corresponds to a `CREATE` operation.
    - `PUT` method corresponds to a `UPDATE` operation.
    - `DELETE` method corresponds to a `DELETE` operation.
-3. The server sends an HTTP response to the client comprising the following:
+3. The server sends an `HTTP response` to the client. It comprises of:
    - `Status Line`: The `status code` and `status message` indicating the result of the processing of the `response`.
    - `Headers`: Additional information about the `response` (Eg: Content type, metadata such as cache control).
    - `Body` (Optional): Data requested by the client via the `request` (Eg: JSON). 
