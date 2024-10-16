@@ -46,13 +46,13 @@ A `status line` is part of an HTTP response from the server to the client.
 - 5xx: Server Error
 
 ### Examples
-| Status Code & Status Message | Description                                                                                                                       |
-|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| 200 OK                       | Request has succeeded.                                                                                                            |
-| 201 Created                  | Request has succeeded and a new resource has been created.                                                                        |
-| 400 Bad Request              | Server does not understand request due to incorrect syntax.                                                                       |
-| 403 Forbidden                | Unauthorized request. The client does not have access rights to the content, though the client's identity is known to the server. |
-| 404 Not Found                | The server cannot find the requested resource.                                                                                    |
-| 500 Internal Server Error    | The server encountered an unexpected condition that prevents it from fulfilling the request.                                      |
-| 501 Not Implemented          | The HTTP method is not supported by the server and hence cannot be handled.                                                       |
-| 503 Service Unavailable      | The server is not ready to handle the request.                                                                                    |
+| Status Line               | Description                                                                                                                       |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| 200 OK                    | Request has succeeded.                                                                                                            |
+| 201 Created               | Request has succeeded and a new resource has been created.                                                                        |
+| 400 Bad Request           | Server does not understand request due to incorrect syntax.                                                                       |
+| 403 Forbidden             | Unauthorized request. The client does not have access rights to the content, though the client's identity is known to the server. |
+| 404 Not Found             | The server cannot find the requested resource.                                                                                    |
+| 500 Internal Server Error | The server encountered an unexpected condition that prevents it from fulfilling the request.                                      |
+| 501 Not Implemented       | The HTTP method is not supported by the server and hence cannot be handled.                                                       |
+| 503 Service Unavailable   | The server is not ready to handle the request.                                                                                    |
