@@ -2,7 +2,7 @@
 
 ## Overview
 `REST API` (Representational State Transfer Application Programming Interface) is a software architectural style that facilitates communication between a `client` and `server` via a `HTTP` (HyperText Transfer Protocol).
-The client sends a request to the server, and the server processes the request and returns a response, typically using standard HTTP methods like GET, POST, PUT, and DELETE to perform operations on resources.
+The client sends a request to the server, and the server processes the request and returns a response, typically using standard HTTP methods like `GET`, `POST`, `PUT`, and `DELETE` to perform operations on resources.
 
 ## Key Terms
 - **Client**: The entity sending requests to the server.
