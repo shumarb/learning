@@ -1,8 +1,8 @@
 # Abstraction
 
 ## Overview
-Abstraction involves `hiding` complex implementation details and `exposing` only the essential features of an object or system to the user. 
-This allows developers and users to `interact` with higher-level concepts without needing to understand the underlying complexities.
+Abstraction is a concept of `exposing` the essential features of an object while `hiding` its complex implementation details, 
+hence enabling developers and users to `interact` with higher-level concepts without needing to understand the underlying complexities.
 
 ## Importance
 - **Simplifies Interaction**: Provides a clear and simple interface, making it easier to use complex systems.
