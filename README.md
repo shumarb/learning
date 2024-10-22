@@ -11,6 +11,4 @@ Concepts
 [Graphs](https://github.com/shumarb/learning/tree/main/graphs)
 [Java](https://github.com/shumarb/learning/tree/main/java)
 [Object-Oriented Programming](https://github.com/shumarb/learning/tree/main/object-oriented-programming)
-[Software Architecture](https://github.com/shumarb/learning/tree/main/software-architecture)
-[Software Design](https://github.com/shumarb/learning/tree/main/software-design)
-[Software Testing](https://github.com/shumarb/learning/tree/main/software-testing)
+[Software Development](https://github.com/shumarb/learning/tree/main/software-development)
