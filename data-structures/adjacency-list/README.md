@@ -1,7 +1,7 @@
 # Adjacency List
 
 ## Overview
-An `Adjacency List` is a `list` of `V lists`.
+An `Adjacency List` is a graph data structure where each `vertex` maintains a list of its `adjacent` vertices and the weights of the connecting `edges`.
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
