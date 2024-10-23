@@ -5,7 +5,7 @@ Binary Search is an efficient search algorithm that checks whether element is av
 
 ## Process
 1. Ensure the `data structure (array or list)` is `searched`, and the element to search be denoted as `key`.
-2. Check the `middle` element of the data structure.
+2. Check the `middle element` of the data structure.
 3. If the `middle element == key`, the `key` exists in the data structure.
 4. If the `middle element < key`, disregard `all elements <= middle element`.
 5. If the `middle element > key`, disregard `all elements >= middle element`.
