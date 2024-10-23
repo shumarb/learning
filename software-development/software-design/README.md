@@ -5,4 +5,4 @@ This folder contains a summary of software designs
 
 Concepts
 -------------|
-[SOLID](https://github.com/shumarb/learning/tree/main/software-design/solid-principles)
+[SOLID](https://github.com/shumarb/learning/tree/main/software-development/software-design/solid-principles)
