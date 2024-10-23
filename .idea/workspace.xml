@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2797466-073e-4c44-8f82-41ee46b73d12" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/bubble-sort/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/sort/bubble-sort/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/sort/heap-sort/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/sort/heap-sort/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/adjacency-list/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/adjacency-list/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/adjacency-matrix/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/adjacency-matrix/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/array/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/array/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/arraylist/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/arraylist/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/avl-tree/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/avl-tree/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/binary-max-heap/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/binary-max-heap/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-structures/binary-min-heap/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data-structures/binary-min-heap/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
