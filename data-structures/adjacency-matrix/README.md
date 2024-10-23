@@ -1,7 +1,9 @@
 # Adjacency Matrix
 
 ## Overview
-An `Adjacency Matrix` is a `2D array`. If a path exists between vertices `i` and `j`, the value of the element is index [i][j] of the `2D array` is the weight of the edge connecting vertices `i` and `j`.
+An `Adjacency Matrix` is a `2D array` representing a `graph`. 
+The value at index `[i][j]` indicates the weight of the `edge` connecting vertices `i` and `j`. 
+If no `edge` exists between these vertices, the value is typically `zero` or `infinity`.
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
