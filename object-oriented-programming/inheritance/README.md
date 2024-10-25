@@ -16,7 +16,7 @@ Inheritance is the concept of allowing classes to inherit attributes and functio
 Here is an example of inheritance:
 ```java
 class Animal {
-    protected int numberOfEyes;
+    protected int numberOfEyes = 2;
     
     protected void eat() {
         System.out.println("I am eating.");
