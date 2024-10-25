@@ -13,7 +13,7 @@ Inheritance is the concept of allowing classes to inherit attributes and functio
 - **Child class**: Inherits from the base class and can extend or override its functionality.
 
 ## Example
-Implementation via
+Here is an example of inheritance:
 ```java
 class Animal {
     protected int numberOfEyes;
