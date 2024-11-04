@@ -3,6 +3,13 @@
 ## Overview
 MVC is a design pattern that separates an application into three interconnected components: Model, View, and Controller. It organizes code to separate concerns and improve maintainability.
 
+## Components
+| Component  | Description                                                                     |
+|------------|---------------------------------------------------------------------------------|
+| Model      | Contains business logic and custom objects.                                     |
+| View       | Generates the output to display to the client.                                  |
+| Controller | Sends commands to the model and view, and passes objects around where required. |
+
 ## Importance
 - **Separates Concerns**: Divides an application into distinct components, each handling specific responsibilities.
 - **Enhances Maintainability**: Changes in one component do not directly affect others, making it easier to manage and update code.
