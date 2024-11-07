@@ -17,3 +17,37 @@ Java provides an exception handling mechanism via `try`, `catch`, `finally`, `th
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
 | Checked Exceptions   | Exceptions checked at `compile-time`. The compiler forces you to handle them, either by using a try-catch block or by declaring them with the throws keyword. | IOException and SQLException.                           |
 | Unchecked Exceptions | Exceptions checked at `runtime`. These exceptions typically represent programming bugs.                                                                       | NullPointerException or ArrayIndexOutOfBoundsException. |
+
+## Example
+Here is an example of exception handling using the `try`, `catch`, `finally`, and `throws` keywords involving `IOException` and `ArithmeticException`:
+```java
+public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Checked exception: FileNotFoundException
+            readFile("nonexistentFile.txt");
+
+            // Unchecked exception: ArithmeticException (divide by zero)
+            int result = divide(10, 0);
+            System.out.println("Result: " + result);
+
+        } catch (IOException e) {
+            System.out.println("Checked Exception caught: " + e.getMessage());
+        } catch (ArithmeticException e) {
+            System.out.println("Unchecked Exception caught: " + e.getMessage());
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+
+    // Checked exception (FileNotFoundException)
+    public static void readFile(String filename) throws IOException {
+        throw new IOException("File not found: " + filename);  // Simulating file read error
+    }
+
+    // Unchecked exception (ArithmeticException)
+    public static int divide(int a, int b) {
+        return a / b;  // Division by zero will cause ArithmeticException
+    }
+}
+```
