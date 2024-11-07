@@ -4,10 +4,10 @@
 Design Patterns are solutions to software design problems. It can be categorized into three types:
 
 | Design Pattern |
-| -------------- |
-| Creational |
-| Structural |
-| Behavioral |
+|----------------|
+| Creational     |
+| Structural     |
+| Behavioral     |
 
 ## Importance
 | Importance    | Explanation                                                                                                         |
