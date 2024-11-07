@@ -13,10 +13,10 @@ Java provides an exception handling mechanism via `try`, `catch`, `finally`, `th
 | Prevent Crashes | Proper exception handling allows developers to catch errors and link it to corrective actions so that the program does not crash.                              |
 
 ## Types of Exceptions
-| Exception Type | Explanation                                                                                                                                                   | Examples                                                |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| Checked        | Exceptions checked at `compile-time`. The compiler forces you to handle them, either by using a try-catch block or by declaring them with the throws keyword. | IOException and SQLException.                           |
-| Unchecked      | Exceptions checked at `runtime`. These exceptions typically represent programming bugs.                                                                       | NullPointerException or ArrayIndexOutOfBoundsException. |
+| Exception Type | Explanation                                                                                                                                                       | Examples                                                |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| Checked        | Exceptions checked at `compile-time`. The compiler forces you to handle them, either by using a try-catch block or by declaring them with the throws keyword.     | IOException and SQLException.                           |
+| Unchecked      | Exceptions checked at `runtime`. Only `RuntimeExceptions` are unchecked, all other exceptions are checked. These exceptions typically represent programming bugs. | NullPointerException or ArrayIndexOutOfBoundsException. |
 
 ## Example
 Here is an example of exception handling using the `try`, `catch`, `finally`, and `throws` keywords involving `IOException` and `ArithmeticException`:
