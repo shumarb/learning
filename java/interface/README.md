@@ -13,13 +13,13 @@ An interface defines a contract that classes must adhere to. It lists methods th
 - Implementing Class: Provides concrete implementations for all methods declared in the interface.
 
 ## Comparison with Abstract Classes
-| Aspect                    | Interface                                    | Abstract Classes                                                                                        |
-|---------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| Purpose                   | Defines a contract that classes must implement. | Provides a base class with some common behaviors, but some methods may be unimplemented for subclasses. |
-| Class | A class can implement multiple interfaces.   | A class can inherit from only one abstract class. |
-| Access Modifiers | All methods are implicitly public and must be implemented as public. | All methods can have varying access modifiers. |
-| Fields | Can have static and final fields. | Can have instant variables and constants. |
-| Usage | Defining a set of common behaviors across different, unrelated classes. | Classes have a common functionality that should be inherited. |
+| Aspect           | Interface                                                               | Abstract Classes                                                                                        |
+|------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Purpose          | Defines a contract that classes must implement.                         | Provides a base class with some common behaviors, but some methods may be unimplemented for subclasses. |
+| Class            | A class can implement multiple interfaces.                              | A class can inherit from only one abstract class.                                                       |
+| Access Modifiers | All methods are implicitly public and must be implemented as public.    | All methods can have varying access modifiers.                                                          |
+| Fields           | Can have static and final fields.                                       | Can have instant variables and constants.                                                               |
+| Usage            | Defining a set of common behaviors across different, unrelated classes. | Classes have a common functionality that should be inherited.                                           |
 
 ## Example
 ```java
