@@ -18,5 +18,5 @@ Spring is a framework providing comprehensive infrastructure support for Java-ba
 
 | Concepts |
 |----------|
-[Annotations](https://github.com/shumarb/learning/tree/main/frameworks/spring/annonations)
+[Annotations](https://github.com/shumarb/learning/tree/main/frameworks/spring/annotations)
 [Mappings](https://github.com/shumarb/learning/tree/main/frameworks/spring/mappings)
