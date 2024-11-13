@@ -1,6 +1,8 @@
-# Spring Boot
+# Spring - Annotations
 
-## Annotations
+## Overview
+Here are commonly-used annotations used in Spring applications:
+
 | Annotation      | Description                                                                          |
 |-----------------|--------------------------------------------------------------------------------------|
 | @Autowired      | Injects dependencies automatically into Spring Beans.                                |

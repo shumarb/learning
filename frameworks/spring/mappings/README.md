@@ -1,6 +1,6 @@
-# Spring Boot
+# Spring - Mappings
 
-## Mappings
+## Overview
 | Mappings       | Description                            | 
 |----------------|----------------------------------------|
 | @GetMapping    | Maps HTTP GET requests to a method.    |
