@@ -1,7 +1,7 @@
 # Relational Databases
 
 ## Definition
-Relational databases (SQL databases) store data in structured formats using tables (also called relations). Each table consists of rows (records) and columns (fields).
+Relational databases (SQL databases) store `data` in structured formats using `tables`. Each table consists of `rows (records)` and `columns (fields)`.
 
 ## Key Characteristics
 - **Schema**: Relational databases have a predefined schema that defines the structure of the data, including tables, columns, data types, and relationships.
