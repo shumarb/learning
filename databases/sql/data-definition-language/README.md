@@ -1,4 +1,5 @@
-# Data Definition Language
+# Data Definition Language (DDL)
+
 ## Overview
 DDL consists of SQL commands used to define and manage database **schemas**. Common DDL commands include:
 
