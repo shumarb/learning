@@ -1,13 +1,17 @@
 # Design Patterns
 
 ## Overview
-Design Patterns are solutions to software design problems. It can be categorized into three types:
+Design Patterns are typical solutions to common problems in software design. Each pattern serves as a template that a developer can customise
+to solve a design problem in the source code.
 
-| Design Pattern |
-|----------------|
-| Creational     |
-| Structural     |
-| Behavioral     |
+Design Patterns are classified by its complexity, level of detail, and scalability of the application. 
+Hence, it can be broadly classified into these categories:
+
+| Design Pattern                                                                                              |
+|-------------------------------------------------------------------------------------------------------------|
+| [Behavioral](https://github.com/shumarb/learning/tree/main/software-development/software-design/behavioral) |
+| [Creational](https://github.com/shumarb/learning/tree/main/software-development/software-design/creational) |
+| [Structural](https://github.com/shumarb/learning/tree/main/software-development/software-design/structural) |
 
 ## Importance
 | Importance    | Explanation                                                                                                         |
