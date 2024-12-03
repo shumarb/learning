@@ -19,3 +19,6 @@ Hence, it can be broadly classified into these categories:
 | Reusability   | Allow developers to reuse tried-and-tested solutions for different projects, reducing development time and errors.  |
 | Maintenance   | Enhance code is organised and readable, ensuring multiple developers to collaborate effectively on the source code. |
 | Communication | Design patterns provide a common vocabulary for developers, making it easier to communicate complex ideas.          |
+
+## Reference
+- Refactoring Guru: https://refactoring.guru
