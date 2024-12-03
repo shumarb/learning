@@ -1,10 +1,12 @@
 # Behavioral Design Pattern
 
 ## Overview
-Behavioral design patterns focus on communication between objects. They help define how objects interact and delegate responsibilities, promoting more flexible and easier-to-understand workflows. These patterns often involve complex control flows and responsibilities among objects.
+Behavioral design patterns focus on algorithms and the assignment of responsibilities of objects.
 
 ## Example
-| Pattern   | Explanation                                                                                                                                                                                                                                                                                         | Example                                                                                                                                                                          |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Observer  | Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.                                                                                                                                                  | An example is a social media user wanting to be notified every time someone follows them.                                                                                        |
-| Iterator	 | Provides a way to access the elements of a collection sequentially without exposing its underlying representation.	A social media user's friend list allows iteration over friends without revealing how they are stored. The user can view each friend one at a time using the Iterator interface. | A social media user's friend list allows iteration over friends without revealing how they are stored. The user can view each friend one at a time using the Iterator interface. |
+| Pattern   | Explanation                                                                                                                |
+|-----------|----------------------------------------------------------------------------------------------------------------------------|
+| Guard     | Ensures one or more conditions are satisfied before executing an operation.                                                | 
+| Iterator	 | Traverse elements of a collection without exposing its underlying representation.                                          |
+| Observer  | Defines a mechanism to notify multiple objects about any events that happen to an object that these objects are observing. |                                                     |
+| Strategy  | Define a family of algorithms, put each of it into separate classes, and make their objects interchangeable.               |
