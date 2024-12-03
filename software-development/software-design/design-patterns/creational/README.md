@@ -1,10 +1,13 @@
 # Creational Design Pattern
 
 ## Overview
-Creational design patterns focus on the process of object creation. They abstract the instantiation process, making it more flexible and efficient.
+Creational design patterns provide `object creation mechanisms` to `increase flexibility` and promote `code reuse`.
 
 ## Example
-| Creational Design Pattern | Explanation                                                                                                        | Example                                                                                                                 |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Singleton                 | Ensures a class has only one instance and provides a global point of access to it.                                 | In a home, there exists only one Fridge that serves all household members.                                              |
-| Factory Method            | Defines an interface for creating objects but allows subclasses to alter the type of objects that will be created. | A bakery that produces different types of cakes based on customer orders without revealing the specific baking process. |
+| Creational Design Pattern | Explanation                                                                                                                           |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Abstract Factory          | Create families of related objects without specifying its concrete class.                                                             |
+| Builder                   | Construct complex objects step-by-step and product different types and representations of an object using the same construction code. |
+| Factory Method            | Defines an interface for creating objects but allows subclasses to alter the type of objects that will be created.                    |
+| Prototype                 | Copy existing objects whilst ensuring that the source code is not dependent on its classes.                                           | 
+| Singleton                 | Ensures a class has only one instance and provides a global point of access to it.                                                    |                                              |
