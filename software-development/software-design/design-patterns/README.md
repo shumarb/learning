@@ -4,7 +4,7 @@
 Design Patterns are typical solutions to common problems in software design. Each pattern serves as a template that a developer can customise
 to solve a design problem in the source code.
 
-Design Patterns are classified by its complexity, level of detail, and scalability of the application, comprising of these categories:
+Design Patterns are classified by its complexity, level of detail, and scalability of the application, comprising these categories:
 
 | Design Pattern                                                                                              |
 |-------------------------------------------------------------------------------------------------------------|
