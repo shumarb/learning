@@ -1,7 +1,8 @@
 # Learning
 
 ## Overview
-This repository contains both my explanation and code (written in **Java**) of key computer science concepts.
+This repository contains my explanation of computer science concepts,
+with reference to source code from the [Code](https://github.com/shumarb/code) repository.
 
 | Concepts                                                                                                 |                                                         
 |----------------------------------------------------------------------------------------------------------|
