@@ -3,7 +3,7 @@
 ## Overview
 The Boyer-Moore Majority Voting Algorithm is efficient technique to find the `majority` element
 (element appearing more than `⌊N / 2⌋` times) in a fixed dataset of size `N`.
-This algorithm operates in `O(N)` time and uses `O(1)` extra space
+This algorithm operates in `O(N)` time and uses `O(1)` extra space.
 
 ## Algorithm
 1. Set a candidate as `null` and `count` as 0.
