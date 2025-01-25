@@ -1,7 +1,10 @@
 # Array
 
 ## Overview
-An `Array` is a **linear, static data structure** where elements are either `sorted` or `unsorted`.
+An `Array` is a **linear,
+static data structure** where elements are either `sorted` or `unsorted` and identified by its `index`.
+`Array` elements are stored in contiguous memory locations, meaning they are stored in a `sequence`.
+When an `array` is instantiated at `compile` time, its size will be fixed throughout the execution of the program. 
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
