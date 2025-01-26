@@ -1,7 +1,8 @@
 # Stack
 
 ## Overview
-A `Stack` is a **linear and dynamic** data structure operating on a **Last In, First Out (LIFO)** principle.
+A `Stack` is a **linear and dynamic** data structure operating on a **Last In,
+First Out (LIFO)** principle, where the most-recent element added is the first one to be removed.
 
 ## Key Operations
 | Operation           | Explanation                                                                                                 |
@@ -23,4 +24,4 @@ A `Stack` is a **linear and dynamic** data structure operating on a **Last In, F
 4. Open a terminal and navigate to the directory in Step 3.
 5. Compile the files using `javac StackExample.java BasicOperations.java`.
 6. Run the program by entering `java StackExample`.
-7. The program creates a `stack`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `stack` and it's `key` operations, and demonstrates the application of these operations on the `stack`.
+7. The program creates a `stack`. The elements are of type `integer`, and the number of elements ranges from `5 to 12`. The program provides a brief explanation of a `stack` and it's `key` operations, and demonstrates the application of these operations on the `stack`.
