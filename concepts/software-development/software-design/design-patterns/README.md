@@ -6,11 +6,11 @@ to solve a design problem in the source code.
 
 Design Patterns are classified by its complexity, level of detail, and scalability of the application, comprising these categories:
 
-| Design Pattern                                                                                              |
-|-------------------------------------------------------------------------------------------------------------|
-| [Behavioral](https://github.com/shumarb/learning/tree/main/software-development/software-design/behavioral) |
-| [Creational](https://github.com/shumarb/learning/tree/main/software-development/software-design/creational) |
-| [Structural](https://github.com/shumarb/learning/tree/main/software-development/software-design/structural) |
+| Design Pattern                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------|
+| [Behavioral](https://github.com/shumarb/learning/tree/main/concepts/software-development/software-design/behavioral) |
+| [Creational](https://github.com/shumarb/learning/tree/main/concepts/software-development/software-design/creational) |
+| [Structural](https://github.com/shumarb/learning/tree/main/concepts/software-development/software-design/structural) |
 
 ## Importance
 | Importance    | Explanation                                                                                                         |
