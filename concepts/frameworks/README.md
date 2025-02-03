@@ -6,4 +6,4 @@ This folder contains my summary and examples of software frameworks.
 ## Concepts
 | Concept |
 |---------|
-[Spring](https://github.com/shumarb/learning/tree/main/frameworks/spring)
+[Spring](https://github.com/shumarb/learning/tree/main/concepts/frameworks/spring)
