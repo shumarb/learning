@@ -10,7 +10,6 @@ with reference to the [Code](https://github.com/shumarb/code) repository.
 | [Frameworks](https://github.com/shumarb/learning/tree/main/concepts/frameworks)                                   |
 | [Java](https://github.com/shumarb/learning/tree/main/concepts/java)                                               |
 | [Object-Oriented Programming](https://github.com/shumarb/learning/tree/main/concepts/object-oriented-programming) |
-| [Software Development](https://github.com/shumarb/learning/tree/main/concepts/software-development)               |
 
 
 ### Algorithms
@@ -32,3 +31,11 @@ Please click [here](https://github.com/shumarb/learning/tree/main/readmes/data-s
 | Map      | [HashMap](https://github.com/shumarb/learning/tree/main/readmes/singly-linked-list.md)                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Set      | [HashSet](https://github.com/shumarb/learning/tree/main/readmes/singly-linked-list.md)                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Graph    | [Adjacency List](https://github.com/shumarb/learning/tree/main/readmes/adjacency-list.md), [Adjacency Matrix](https://github.com/shumarb/learning/tree/main/readmes/adjacency-matix.md), [Edge List](https://github.com/shumarb/learning/tree/main/readmes/edge-list.md)                                                                                                                                                                                                                                                    |
+
+### Software Development
+| Topic        | Content                                                                                                                                                                                                                                                 |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Architecture | [Model-View-Controller](https://github.com/shumarb/learning/tree/main/readmes/model-view-controller.md), [REST APIs](https://github.com/shumarb/learning/tree/main/readmes/rest-apis.md)                                                                |
+| Pattern      | [Behavioral](https://github.com/shumarb/learning/tree/main/readmes/behavioral.md), [Creational](https://github.com/shumarb/learning/tree/main/readmes/creational.md), [Structural](https://github.com/shumarb/learning/tree/main/readmes/structural.md) |
+| Principle    | [SOLID](https://github.com/shumarb/learning/tree/main/readmes/solid.md)                                                                                                                                                                                 |
+| Testing      | [Software Testing](https://github.com/shumarb/learning/tree/main/readmes/software-testing.md)                                                                                                                                                           |
