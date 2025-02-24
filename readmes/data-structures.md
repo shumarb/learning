@@ -13,8 +13,8 @@ The following illustrates the worst-case time complexity for operations on each 
 | [Queue](https://github.com/shumarb/learning/blob/main/readmes/stack.md), [Stack](https://github.com/shumarb/learning/blob/main/readmes/stack.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | O(_N_)                | O(_N_) 	              | O(_N_)                | 	O(_N_)                 | O(_N_)                 | 
 
 # Graph
-| Graph                                                                                                                 | Insertion | Search | Deletion | Space Complexity |
-|-----------------------------------------------------------------------------------------------------------------------|-----------|--------|----------|------------------|
-| [Adjacency List](https://github.com/shumarb/learning/tree/main/concepts/data-structures/adjacency-list/README.md)     | O(1)      | O(V)   | O(V)     | O(V + E)         |
-| [Adjacency Matrix](https://github.com/shumarb/learning/tree/main/concepts/data-structures/adjacency-matrix/README.md) | O(1)      | O(1)   | O(1)     | O($V^2$)         |
-| [Edge List](https://github.com/shumarb/learning/tree/main/concepts/data-structures/edge-list/README.md)               | O(1)      | O(E)   | O(E)     | O(E)             |
+| Graph                                                                                         | Insertion | Search | Deletion | Space Complexity |
+|-----------------------------------------------------------------------------------------------|-----------|--------|----------|------------------|
+| [Adjacency List](https://github.com/shumarb/learning/blob/main/readmes/adjacency-list.md)     | O(1)      | O(V)   | O(V)     | O(V + E)         |
+| [Adjacency Matrix](https://github.com/shumarb/learning/blob/main/readmes/adjacency-matrix.md) | O(1)      | O(1)   | O(1)     | O($V^2$)         |
+| [Edge List](https://github.com/shumarb/learning//blob/main/readmes/edge-list.md)              | O(1)      | O(E)   | O(E)     | O(E)             |
