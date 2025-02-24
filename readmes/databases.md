@@ -2,7 +2,7 @@
 
 ## Overview
 A database is an `organised collection of data` (structured information) that is typically stored in a computer system, enabling efficient `access`, `management`, and `retrieval` of data.
-There are two types of databases: [relational databases](https://github.com/shumarb/learning/tree/main/concepts/databases/relational-databases), and [non-relational databases](https://github.com/shumarb/learning/tree/main/concepts/databases/non-relational-databases).
+There are two types of databases: [relational databases](https://github.com/shumarb/learning/blob/main/readmes/relational-databases.md), and [non-relational databases](https://github.com/shumarb/learning/blob/main/readmes/non-relational-databases.md).
 
 ## Key Concepts
 ### CRUD Operations
