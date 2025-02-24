@@ -1,6 +1,8 @@
-# Spring - Importance
+# Importance
 
 ## Overview
+The following highlights the importance of Spring:
+
 | Importance                 | Explanation                                                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Simplified Setup           | Reduces the complexity of configuration and setup with its convention-over-configuration approach.                                                                     |
