@@ -6,10 +6,7 @@ with reference to the [Code](https://github.com/shumarb/code) repository.
 
 | Concepts                                                                                                          |                                                         
 |-------------------------------------------------------------------------------------------------------------------|
-| [Databases](https://github.com/shumarb/learning/tree/main/concepts/databases)                                     |
 | [Frameworks](https://github.com/shumarb/learning/tree/main/concepts/frameworks)                                   |
-| [Java](https://github.com/shumarb/learning/tree/main/concepts/java)                                               |
-| [Object-Oriented Programming](https://github.com/shumarb/learning/tree/main/concepts/object-oriented-programming) |
 
 
 ### Algorithms
@@ -45,3 +42,11 @@ Please click [here](https://github.com/shumarb/learning/tree/main/readmes/data-s
 | Pattern      | [Behavioral](https://github.com/shumarb/learning/tree/main/readmes/behavioral.md), [Creational](https://github.com/shumarb/learning/tree/main/readmes/creational.md), [Structural](https://github.com/shumarb/learning/tree/main/readmes/structural.md) |
 | Principle    | [SOLID](https://github.com/shumarb/learning/tree/main/readmes/solid.md)                                                                                                                                                                                 |
 | Testing      | [Software Testing](https://github.com/shumarb/learning/tree/main/readmes/software-testing.md)                                                                                                                                                           |
+
+### Databases
+Please click [here](https://github.com/shumarb/learning/tree/main/readmes/databases.md) for an overview of Databases.
+
+| Topic         | Content                                                                                                                                                                                                                                                                                                                                                                                                            |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Database Type | [Relational](https://github.com/shumarb/learning/tree/main/readmes/relational-databases.md), [Non-relational](https://github.com/shumarb/learning/tree/main/readmes/non-relational-databases.md)                                                                                                                                                                                                                   |
+| SQL           | [Aggregate Functions](https://github.com/shumarb/learning/tree/main/readmes/aggregate-functions.md), [Clauses](https://github.com/shumarb/learning/tree/main/readmes/clauses.md), [Data Definition Language](https://github.com/shumarb/learning/tree/main/readmes/data-definition-language.md), [Data Manipulation Language](https://github.com/shumarb/learning/tree/main/readmes/data-manipulation-language.md) |
