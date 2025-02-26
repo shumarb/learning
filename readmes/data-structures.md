@@ -1,7 +1,9 @@
 # Data Structures
 
 ## Overview
-The following illustrates the worst-case time complexity for operations on each element in a data structure of N elements:
+The following illustrates the `worst-case time complexity` for operations on each element in
+- `N` elements for both linear and non-linear data structures.
+- `V` vertices and `E` edges for graph data structures.
 
 | Data Structure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Insertion             | Deletion              | Search                | Search Maximum         | Search Minimum         | Space Complexity | 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|-----------------------|-----------------------|------------------------|------------------------|------------------|
