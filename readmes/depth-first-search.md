@@ -12,14 +12,14 @@ This ensures a branch is traversed in the deepest possible way before backtracki
 ## Procedure
 1. Identify the source vertex, which is the vertex to execute the `Depth First Search`. 
 2. Create a boolean `visited` array to track whether a vertex has been visited.
-3. Initialise an empty stack and push the `source` vertex from `Step 1` onto it.
+3. Initialise an empty `stack` and push the `source` vertex from `Step 1` onto it.
 4. While the `stack` is not empty:
-   1. Pop the `top` vertex from the stack.
+   1. Pop the `top` vertex.
    2. Mark the `top` vertex as `visited`.
    3. Process the `top` vertex (eg: Display it).
    4. Get all of its `adjacent` vertices (i.e.: all vertices connected to the `top` vertex).
    5. Push every unvisited `adjacent` onto the `stack`.
-5. Repeat Step 4 until the stack is empty.
+5. Repeat Step 4 until the `stack` is `empty`.
 6. All reachable vertices from the `source` vertex has been visited.
 
 ## Instructions
