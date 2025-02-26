@@ -1,7 +1,7 @@
 # Breadth-First Search
 
 ## Overview
-`Breadth-First Search (DFS)` is a graph traversal algorithm that explores a graph's vertices `level-by-level`.
+`Breadth-First Search (BFS)` is a graph traversal algorithm that explores a graph's vertices `level-by-level`.
 It works from a source vertex and moves outward to visit all vertices at the `same distance` from the source before moving on to vertices at the next level.
 
 A `Queue` is used due to its `First In First Out (LIFO) principle`.
