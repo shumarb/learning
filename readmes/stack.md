@@ -19,7 +19,7 @@ First Out (LIFO)** principle, where the most-recent element added is the first o
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
-2. Download these Java source files in the [Code](https://github.com/shumarb/code/tree/main) repository: [StackExample.java](https://github.com/shumarb/code/tree/main/data-structures/StackExample.java), and [BasicOperations.java](https://github.com/shumarb/code/tree/main/BasicOperations.java).
+2. Download these Java source files in the [Code](https://github.com/shumarb/code/tree/main) repository: [StackExample.java](https://github.com/shumarb/code/tree/main/data-structures/StackExample.java), and [BasicOperations.java](https://github.com/shumarb/code/tree/main/support/BasicOperations.java).
 3. Store both files in the same directory (e.g. Downloads) if they are in different directories.
 4. Open a terminal and navigate to the directory in Step 3.
 5. Compile the files using `javac StackExample.java BasicOperations.java`.
