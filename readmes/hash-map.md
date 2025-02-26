@@ -29,6 +29,3 @@ and experience as minimum collisions as possible.
 5. Compile the files using `javac HashMapExample.java BasicOperations.java`.
 6. Run the program by entering `java HashMapExample`.
 7. The program creates an `HashMap`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `HashMap` and it's `key` operations, and demonstrates the application of these operations on the `HashMap`.
-
-## References
-1. [VisuAlgo](https://visualgo.net/en/hashtable).
