@@ -8,7 +8,7 @@ A `Queue` is used due to its `First In First Out (FIFO) principle`.
 This ensures all vertices are processed `level-by-level`.
 
 ## Procedure
-1. Identify the source vertex, which is the vertex to execute the `Breadth First Search`.
+1. Identify the `source` vertex, which is the vertex to execute the `Breadth First Search`.
 2. Create a boolean `visited` array to track whether a vertex has been visited.
 3. Initialise an empty `queue` and offer the `source` vertex from `Step 1` onto it.
 4. While the `queue` is not empty:

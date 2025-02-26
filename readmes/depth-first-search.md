@@ -10,7 +10,7 @@ A `Stack` is used due to its `Last In First Out (LIFO) principle`.
 This ensures a branch is traversed in the deepest possible way before backtracking.
 
 ## Procedure
-1. Identify the source vertex, which is the vertex to execute the `Depth First Search`. 
+1. Identify the `source` vertex, which is the vertex to execute the `Depth First Search`. 
 2. Create a boolean `visited` array to track whether a vertex has been visited.
 3. Initialise an empty `stack` and push the `source` vertex from `Step 1` onto it.
 4. While the `stack` is not empty:
