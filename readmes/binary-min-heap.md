@@ -1,7 +1,8 @@
 # Binary Min Heap
 
 ## Overview 
-A `Binary Min Heap` is a **complete binary tree (non-linear and dynamic data structure)** where `each` element is `<=` all of it's `children (if any)`.
+A `Binary Min Heap` is a **complete binary tree (non-linear and dynamic data structure)**
+where `each` element is `smaller than or equal to` all of it's `children (if any)`.
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
