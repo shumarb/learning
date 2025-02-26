@@ -1,11 +1,14 @@
 # HashMap
 
-## What is a HashMap?
+## Overview
 A `HashMap` is a **linear and dynamic** data structure operating that uses a `hash function` to efficiently map keys to values.
 
-According to [VisuAlgo](https://visualgo.net/en/hashtable), in order to implement efficient `hashing`, the `hash function` has to be fast to compute, uses as minimum slots out of the size of the `HashMap` as possible, scatter the keys into different base addresses as uniformly as possible ∈ [0..M-1] for a `HashMap` of size M, and experience as minimum collisions as possible.
+To implement efficient `hashing`, the `hash function` has to be fast to compute,
+uses as minimum slots out of the size of the `HashMap` as possible,
+scatter the keys into different base addresses as uniformly as possible ∈ [0..M-1] for a `HashMap` of size M,
+and experience as minimum collisions as possible.
 
-## Key Operations of an HashMap
+## Key Operations
 | Operation                 | Explanation                                                                                |
 |---------------------------|--------------------------------------------------------------------------------------------|
 | add(Element e)            | Add the element to end of the HashMap                                                      |
@@ -26,3 +29,6 @@ According to [VisuAlgo](https://visualgo.net/en/hashtable), in order to implemen
 5. Compile the files using `javac HashMapExample.java BasicOperations.java`.
 6. Run the program by entering `java HashMapExample`.
 7. The program creates an `HashMap`. The elements are of type `integer`, and the number of elements range from `5 to 12`. The program provides a brief explanation of a `HashMap` and it's `key` operations, and demonstrates the application of these operations on the `HashMap`.
+
+## References
+1. [VisuAlgo](https://visualgo.net/en/hashtable).
