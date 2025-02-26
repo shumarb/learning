@@ -9,8 +9,7 @@ Linear Search, also known as `Sequential Search`, is a search algorithm that wor
 3. If the `current element == key`, the `key` is found.
 4. If the `current element != key`, proceed to the next element.
 
-## Worst-case Time Complexity
-**O(_N_)**, because the worst-case scenario is to compare all elements of `data stucture (array or list)` to the `key`.
+The worst-case time complexity is **O(_N_)**, because the worst-case scenario is to compare all elements of `data stucture (array or list)` to the `key`.
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
