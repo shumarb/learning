@@ -1,6 +1,6 @@
 # AVL Tree
 
-## What is an AVL Tree?
+## Overview
 An `AVL Tree` is a **balanced** [Binary Search Tree](https://github.com/shumarb/learning/tree/main/data-structures/tree/binary-search-tree).
 This means that the `balance factor` of every element in the `AVL Tree` is either `-1`, `0`, or `1`. The `balance factor` of an element is `height of it's left subtree - height of it's right subtree`.
 

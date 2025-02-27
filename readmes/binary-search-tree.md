@@ -1,6 +1,6 @@
 # Binary Search Tree
 
-## What is a Binary Search Tree?
+## Overview
 A `Binary Search Tree` is an **ordered binary tree (non-linear and dynamic data structure)** where `each` element is `>=` all elements in it's `left subtree`, and `<` all elements in it's `right subtree`.
 
 ## Instructions

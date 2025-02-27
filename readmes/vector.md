@@ -3,7 +3,7 @@
 ## Overview
 A `Vector` is a **linear and dynamic** data structure operating as a resizable array.
 
-## Key Operations of an Vector
+## Key Operations
 | Operation                 | Explanation                                                                               |
 |---------------------------|-------------------------------------------------------------------------------------------|
 | add(Element e)            | Add the element to end of the Vector                                                      |
