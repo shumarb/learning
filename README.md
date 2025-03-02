@@ -51,5 +51,7 @@ Please click [here](https://github.com/shumarb/learning/blob/main/readmes/databa
 | Spring | [Annotations](https://github.com/shumarb/learning/blob/main/readmes/spring-annotations.md), [Data](https://github.com/shumarb/learning/blob/main/readmes/spring-data.md), [Importance](https://github.com/shumarb/learning/blob/main/readmes/spring-importance.md), [Security](https://github.com/shumarb/learning/blob/main/readmes/spring-security.md) |
 
 ## References
-1. [VisuAlgo](https://visualgo.net/en/hashtable).
+1. [AlgoMonster](https://algo.monster/).
 2. [Design Gurus](https://www.designgurus.io).
+3. [VisuAlgo](https://visualgo.net/en/hashtable).
+
