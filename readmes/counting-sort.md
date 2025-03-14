@@ -5,9 +5,10 @@ Counting Sort is an integer sorting algorithm that counts the occurrences of eac
 and uses this frequency information to determine the final positions of the elements in the sorted array.
 
 ## Procedure
-1. Create an `integerFrequency` array, where the `index` represents the possible values in the `input` array.
-2. Iterate through the `input` array, and for each element, increase its corresponding value in the `integerFrequency`.
-3. Iterate through the `integerFrequency` array, and for each `index` with a non-zero count, place the `index` value (corresponding to the element) into the `sorted array` by the `number of times` indicated by the `frequency` at that `index`.
+1. Create an `integerFrequency` array, where the `index` represents the possible values in the `input` array, and its corresponding `element` represents the number of times the value appears in the array..
+2. Identify the maximum absolute value in the array so that negative values can be populated in the `integerFrequency` array.
+3. Iterate through the `input` array, and for each element, increase its corresponding value in the `integerFrequency`.
+4. Iterate through the `integerFrequency` array, and for each `index` with a non-zero count, place the `index` value (corresponding to the element) into the `sorted array` by the `number of times` indicated by the `frequency` at that `index`.
 
 ## Instructions
 1. Ensure that your local machine configured with a `Java Development Kit (JDK) version 8 or later`.
