@@ -13,6 +13,8 @@ The following illustrates a comparison of different sorting techniques:
 | [Quick Sort](https://github.com/shumarb/learning/blob/main/readmes/quick-sort.md)         | O($N^2$)                   | O(1)             | Yes       | No      |
 | [Selection Sort](https://github.com/shumarb/learning/blob/main/readmes/selection-sort.md) | O($N^2$)                   | O(1)             | Yes       | No      |
 
-In-place sort: A sorting algorithm is an **in-place** sort if it requires only a **constant amount of time O(1) of extra space** during the sorting process.
-
-Stable sort: A sorting algorithm is **stable** if the **relative order of elements with the same key value is preserved** by the algorithm.
+## Definitions
+| Term     | Definition                                                    |
+|----------|---------------------------------------------------------------|
+| In-place | Sorting algorithm uses `O(1)` space complexity.               |
+| Stable   | Sorting algorithm preserves the `relative` order of elements. |
