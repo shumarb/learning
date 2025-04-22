@@ -4,6 +4,7 @@
 This repository contains my explanation of computer science concepts,
 with reference to the [Code](https://github.com/shumarb/code) repository.
 
+## Topics
 ### Data Structures
 Please click [here](https://github.com/shumarb/learning/blob/main/readmes/data-structures.md) for an overview of Data Structures.
 
