@@ -4,12 +4,12 @@
 Polymorphism is a concept where an object performs an action in different ways.
 It is classified into two types: **Runtime Polymorphism**, and **Compile-Time Polymorphism**.
 
-| Aspect                | Runtime Polymorphism                               | Compile-time Polymorphism                               |
-|-----------------------|----------------------------------------------------|---------------------------------------------------------|
-| Definition            | Method resolution being determined at **runtime**. | Method resolution being determined at **compile** time. |
-| Achieved by           | Method Overriding.                                 | Method Overloading.                                     |
-| Inheritance required? | No.                                                | Yes.                                                    |
-| Method Signature      | Must be different.                                 | Must be the same in both parent and child classes.      |
+| Aspect                                                                                        | Runtime Polymorphism                               | Compile-time Polymorphism                               |
+|-----------------------------------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------|
+| Definition                                                                                    | Method resolution being determined at **runtime**. | Method resolution being determined at **compile** time. |
+| Achieved by                                                                                   | Method Overriding.                                 | Method Overloading.                                     |
+| [Inheritance](https://github.com/shumarb/learning/blob/main/readmes/inheritance.md) required? | No.                                                | Yes.                                                    |
+| Method Signature                                                                              | Must be different.                                 | Must be the same in both parent and child classes.      |
 
 ## Importance
 - **Flexibility**: Allows different classes to be treated through a common interface, enhancing code adaptability.
