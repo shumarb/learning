@@ -51,9 +51,7 @@ class Dog extends Animal {
 public class Runner {
     public static void main(String[] args) {
         Animal myDog = new Dog();
-        Animal myCat = new Cat();
         myDog.makeSound();
-        myCat.makeSound();
     }
 }
 ```
@@ -73,9 +71,7 @@ class Cat implements Animal {
 public class Runner {
     public static void main(String[] args) {
         Animal myCat = new Cat();
-        Animal myDog = new Dog();
         myCat.makeSound();
-        myDog.makeSound();
     }
 }
 ```
