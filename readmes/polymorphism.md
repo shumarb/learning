@@ -1,7 +1,7 @@
 # Polymorphism
 
 ## Overview
-Polymorphism is a concept where an object can perform different behaviours via the same method name.
+Polymorphism is a concept where an object performs an action in different ways.
 It is classified into two types: **Runtime Polymorphism**, and **Compile-Time Polymorphism**.
 
 | Aspect                | Runtime Polymorphism                               | Compile-time Polymorphism                               |
