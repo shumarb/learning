@@ -16,6 +16,6 @@ This algorithm operates in `O(N)` time and uses `O(1)` extra space.
 ## Implementation
 This algorithm was used to solve the following:
 
-| Question                                                                           | Solution                                                                             | Runtime | Performance |
-|------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---------|-------------|
-| [Majority Element](https://leetcode.com/problems/majority-element/description/)    | [Java](https://github.com/shumarb/leetcode/blob/main/easy/java/MajorityElement.java) | 2ms     | 99.80%      |
+| Question                                                                           | Solution                                                                               | Runtime | Performance |
+|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|---------|-------------|
+| [Majority Element](https://leetcode.com/problems/majority-element/description/)    | [Java](https://github.com/shumarb/leetcode/blob/main/submissions/MajorityElement.java) | 2ms     | 99.80%      |
