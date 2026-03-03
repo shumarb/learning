@@ -11,8 +11,10 @@ The following are annotations used in Spring:
 | @DeleteMapping  | Maps HTTP DELETE requests to a method.                                               |
 | @Entity         | Defines a class as an entity that maps to a database table.                          |
 | @GetMapping     | Maps HTTP GET requests to a method.                                                  |
+| @PathVariable   | Binds a value from a URL path to a method perimeter.                                 |
 | @PostMapping    | Maps HTTP POST requests to a method.                                                 |
 | @PutMapping     | Maps HTTP PUT requests to a method.                                                  |
+| @RestController | Marks a class as a REST API Controller.                                              |
 | @Repository     | Marks a class as a Data Access Object (DAO), managing database interactions.         |
 | @RequestMapping | General purpose mapping of HTTP requests.                                            |
 | @Service        | Marks a class as a service provider, typically containing business logic.            |
